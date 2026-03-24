@@ -1,0 +1,152 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fiscalnote.com/schemas/fiscalnote/legislation.json",
+  "title": "FiscalNote Legislation",
+  "description": "A legislative measure such as a bill, resolution, or amendment tracked by FiscalNote across federal, state, and international jurisdictions.",
+  "type": "object",
+  "required": ["id", "title", "jurisdiction", "status"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the legislation record."
+    },
+    "title": {
+      "type": "string",
+      "description": "Official title of the legislation."
+    },
+    "shortTitle": {
+      "type": "string",
+      "description": "Short or popular title of the legislation."
+    },
+    "number": {
+      "type": "string",
+      "description": "Bill or resolution number such as HR 1234 or S 567."
+    },
+    "type": {
+      "type": "string",
+      "description": "Type of legislation.",
+      "enum": ["bill", "resolution", "joint_resolution", "concurrent_resolution", "amendment"]
+    },
+    "jurisdiction": {
+      "type": "string",
+      "description": "Jurisdiction code where the legislation was introduced, such as US, US-CA, GB, or EU."
+    },
+    "session": {
+      "type": "string",
+      "description": "Legislative session identifier such as 118th Congress."
+    },
+    "status": {
+      "type": "string",
+      "description": "Current status of the legislation.",
+      "enum": ["introduced", "in_committee", "passed_one_chamber", "passed_both_chambers", "enacted", "vetoed"]
+    },
+    "introducedDate": {
+      "type": "string",
+      "format": "date",
+      "description": "Date the legislation was introduced in ISO 8601 format."
+    },
+    "lastActionDate": {
+      "type": "string",
+      "format": "date",
+      "description": "Date of the most recent action on the legislation."
+    },
+    "lastAction": {
+      "type": "string",
+      "description": "Description of the most recent action taken."
+    },
+    "sponsors": {
+      "type": "array",
+      "description": "List of sponsors and co-sponsors of the legislation.",
+      "items": {
+        "$ref": "#/$defs/Sponsor"
+      }
+    },
+    "committees": {
+      "type": "array",
+      "description": "Committees to which the legislation has been referred.",
+      "items": {
+        "$ref": "#/$defs/CommitteeRef"
+      }
+    },
+    "subjects": {
+      "type": "array",
+      "description": "Subject tags associated with the legislation.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "summary": {
+      "type": "string",
+      "description": "Summary text of the legislation."
+    },
+    "fullTextUrl": {
+      "type": "string",
+      "format": "uri",
+      "description": "URL to the full text of the legislation."
+    },
+    "url": {
+      "type": "string",
+      "format": "uri",
+      "description": "URL to the legislation record on the FiscalNote platform."
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the record was created in the system."
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the record was last updated."
+    }
+  },
+  "$defs": {
+    "Sponsor": {
+      "type": "object",
+      "description": "A sponsor or co-sponsor of legislation.",
+      "required": ["id", "name", "role"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier of the sponsor."
+        },
+        "name": {
+          "type": "string",
+          "description": "Full name of the sponsor."
+        },
+        "role": {
+          "type": "string",
+          "description": "Role of the sponsor.",
+          "enum": ["primary", "cosponsor"]
+        },
+        "party": {
+          "type": "string",
+          "description": "Political party affiliation."
+        },
+        "jurisdiction": {
+          "type": "string",
+          "description": "Jurisdiction the sponsor represents."
+        }
+      }
+    },
+    "CommitteeRef": {
+      "type": "object",
+      "description": "A reference to a legislative committee.",
+      "required": ["id", "name"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier of the committee."
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the committee."
+        },
+        "chamber": {
+          "type": "string",
+          "description": "Chamber the committee belongs to."
+        }
+      }
+    }
+  }
+}

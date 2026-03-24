@@ -1,0 +1,196 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "fn": "https://fiscalnote.com/ns/",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dcterms": "http://purl.org/dc/terms/",
+
+    "Legislation": {
+      "@id": "fn:Legislation",
+      "@context": {
+        "title": "dcterms:title",
+        "shortTitle": "fn:shortTitle",
+        "number": "fn:billNumber",
+        "type": "fn:legislationType",
+        "jurisdiction": "fn:jurisdiction",
+        "session": "fn:legislativeSession",
+        "status": "fn:legislationStatus",
+        "introducedDate": {
+          "@id": "fn:introducedDate",
+          "@type": "xsd:date"
+        },
+        "lastActionDate": {
+          "@id": "fn:lastActionDate",
+          "@type": "xsd:date"
+        },
+        "lastAction": "fn:lastAction",
+        "sponsors": {
+          "@id": "fn:sponsors",
+          "@container": "@set"
+        },
+        "committees": {
+          "@id": "fn:committees",
+          "@container": "@set"
+        },
+        "subjects": {
+          "@id": "fn:subjects",
+          "@container": "@set"
+        },
+        "summary": "dcterms:abstract",
+        "fullTextUrl": {
+          "@id": "fn:fullTextUrl",
+          "@type": "@id"
+        },
+        "url": {
+          "@id": "schema:url",
+          "@type": "@id"
+        },
+        "createdAt": {
+          "@id": "dcterms:created",
+          "@type": "xsd:dateTime"
+        },
+        "updatedAt": {
+          "@id": "dcterms:modified",
+          "@type": "xsd:dateTime"
+        }
+      }
+    },
+
+    "Regulation": {
+      "@id": "fn:Regulation",
+      "@context": {
+        "title": "dcterms:title",
+        "agency": "fn:issuingAgency",
+        "type": "fn:regulationType",
+        "status": "fn:regulationStatus",
+        "jurisdiction": "fn:jurisdiction",
+        "publishedDate": {
+          "@id": "dcterms:issued",
+          "@type": "xsd:date"
+        },
+        "effectiveDate": {
+          "@id": "fn:effectiveDate",
+          "@type": "xsd:date"
+        },
+        "commentPeriodEnd": {
+          "@id": "fn:commentPeriodEnd",
+          "@type": "xsd:date"
+        },
+        "summary": "dcterms:abstract",
+        "fullTextUrl": {
+          "@id": "fn:fullTextUrl",
+          "@type": "@id"
+        },
+        "url": {
+          "@id": "schema:url",
+          "@type": "@id"
+        },
+        "createdAt": {
+          "@id": "dcterms:created",
+          "@type": "xsd:dateTime"
+        },
+        "updatedAt": {
+          "@id": "dcterms:modified",
+          "@type": "xsd:dateTime"
+        }
+      }
+    },
+
+    "GovernmentOfficial": {
+      "@id": "fn:GovernmentOfficial",
+      "@context": {
+        "firstName": "schema:givenName",
+        "lastName": "schema:familyName",
+        "fullName": "schema:name",
+        "title": "schema:jobTitle",
+        "party": "fn:politicalParty",
+        "jurisdiction": "fn:jurisdiction",
+        "state": "fn:state",
+        "chamber": "fn:chamber",
+        "district": "fn:district",
+        "active": "fn:isActive",
+        "biography": "schema:description",
+        "photoUrl": {
+          "@id": "schema:image",
+          "@type": "@id"
+        },
+        "email": "schema:email",
+        "phone": "schema:telephone",
+        "website": {
+          "@id": "schema:url",
+          "@type": "@id"
+        },
+        "createdAt": {
+          "@id": "dcterms:created",
+          "@type": "xsd:dateTime"
+        },
+        "updatedAt": {
+          "@id": "dcterms:modified",
+          "@type": "xsd:dateTime"
+        }
+      }
+    },
+
+    "GovernmentOrganization": {
+      "@id": "fn:GovernmentOrganization",
+      "@context": {
+        "name": "schema:name",
+        "abbreviation": "fn:abbreviation",
+        "type": "fn:organizationType",
+        "jurisdiction": "fn:jurisdiction",
+        "description": "schema:description",
+        "website": {
+          "@id": "schema:url",
+          "@type": "@id"
+        },
+        "leadership": {
+          "@id": "fn:leadership",
+          "@container": "@set"
+        },
+        "createdAt": {
+          "@id": "dcterms:created",
+          "@type": "xsd:dateTime"
+        },
+        "updatedAt": {
+          "@id": "dcterms:modified",
+          "@type": "xsd:dateTime"
+        }
+      }
+    },
+
+    "PresidentialTranscript": {
+      "@id": "fn:PresidentialTranscript",
+      "@context": {
+        "title": "dcterms:title",
+        "type": "fn:communicationType",
+        "date": {
+          "@id": "dcterms:date",
+          "@type": "xsd:date"
+        },
+        "location": "schema:location",
+        "duration": "schema:duration",
+        "wordCount": "schema:wordCount",
+        "fullText": "schema:text",
+        "summary": "dcterms:abstract",
+        "videoUrl": {
+          "@id": "schema:video",
+          "@type": "@id"
+        },
+        "sourceUrl": {
+          "@id": "dcterms:source",
+          "@type": "@id"
+        },
+        "verified": "fn:isVerified",
+        "createdAt": {
+          "@id": "dcterms:created",
+          "@type": "xsd:dateTime"
+        },
+        "updatedAt": {
+          "@id": "dcterms:modified",
+          "@type": "xsd:dateTime"
+        }
+      }
+    }
+  }
+}

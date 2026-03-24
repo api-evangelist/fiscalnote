@@ -1,0 +1,178 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fiscalnote.com/schemas/fiscalnote/official.json",
+  "title": "FiscalNote Government Official",
+  "description": "A government official including legislators, executives, and appointees tracked by FiscalNote across U.S. and international jurisdictions.",
+  "type": "object",
+  "required": ["id", "fullName", "jurisdiction"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the official."
+    },
+    "firstName": {
+      "type": "string",
+      "description": "First name of the official."
+    },
+    "lastName": {
+      "type": "string",
+      "description": "Last name of the official."
+    },
+    "fullName": {
+      "type": "string",
+      "description": "Full name of the official."
+    },
+    "title": {
+      "type": "string",
+      "description": "Official title or position."
+    },
+    "party": {
+      "type": "string",
+      "description": "Political party affiliation."
+    },
+    "jurisdiction": {
+      "type": "string",
+      "description": "Jurisdiction the official serves in."
+    },
+    "state": {
+      "type": "string",
+      "description": "U.S. state abbreviation if applicable.",
+      "minLength": 2,
+      "maxLength": 2
+    },
+    "chamber": {
+      "type": "string",
+      "description": "Legislative chamber if applicable.",
+      "enum": ["senate", "house"]
+    },
+    "district": {
+      "type": "string",
+      "description": "District the official represents."
+    },
+    "active": {
+      "type": "boolean",
+      "description": "Whether the official is currently serving."
+    },
+    "biography": {
+      "type": "string",
+      "description": "Biographical summary."
+    },
+    "photoUrl": {
+      "type": "string",
+      "format": "uri",
+      "description": "URL to the official's photo."
+    },
+    "contactInfo": {
+      "$ref": "#/$defs/ContactInfo"
+    },
+    "socialMedia": {
+      "$ref": "#/$defs/SocialMedia"
+    },
+    "committees": {
+      "type": "array",
+      "description": "Committees the official serves on.",
+      "items": {
+        "$ref": "#/$defs/CommitteeMembership"
+      }
+    },
+    "sponsoredBillCount": {
+      "type": "integer",
+      "description": "Number of bills sponsored.",
+      "minimum": 0
+    },
+    "cosponsoredBillCount": {
+      "type": "integer",
+      "description": "Number of bills co-sponsored.",
+      "minimum": 0
+    },
+    "termStart": {
+      "type": "string",
+      "format": "date",
+      "description": "Start date of the current term."
+    },
+    "termEnd": {
+      "type": "string",
+      "format": "date",
+      "description": "End date of the current term."
+    },
+    "url": {
+      "type": "string",
+      "format": "uri",
+      "description": "URL to the official's profile on FiscalNote."
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the record was created."
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the record was last updated."
+    }
+  },
+  "$defs": {
+    "ContactInfo": {
+      "type": "object",
+      "description": "Contact information for a government official.",
+      "properties": {
+        "email": {
+          "type": "string",
+          "format": "email",
+          "description": "Email address."
+        },
+        "phone": {
+          "type": "string",
+          "description": "Phone number."
+        },
+        "address": {
+          "type": "string",
+          "description": "Mailing address."
+        },
+        "website": {
+          "type": "string",
+          "format": "uri",
+          "description": "Official website."
+        }
+      }
+    },
+    "SocialMedia": {
+      "type": "object",
+      "description": "Social media profiles.",
+      "properties": {
+        "twitter": {
+          "type": "string",
+          "description": "Twitter/X handle."
+        },
+        "facebook": {
+          "type": "string",
+          "description": "Facebook profile URL or handle."
+        },
+        "youtube": {
+          "type": "string",
+          "description": "YouTube channel URL."
+        }
+      }
+    },
+    "CommitteeMembership": {
+      "type": "object",
+      "description": "A committee membership record.",
+      "required": ["committeeId", "committeeName"],
+      "properties": {
+        "committeeId": {
+          "type": "string",
+          "description": "Unique identifier of the committee."
+        },
+        "committeeName": {
+          "type": "string",
+          "description": "Name of the committee."
+        },
+        "role": {
+          "type": "string",
+          "description": "Role on the committee.",
+          "enum": ["chair", "vice_chair", "ranking_member", "member"]
+        }
+      }
+    }
+  }
+}

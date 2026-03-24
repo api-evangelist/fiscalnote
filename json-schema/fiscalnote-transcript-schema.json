@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fiscalnote.com/schemas/fiscalnote/transcript.json",
+  "title": "FiscalNote Presidential Transcript",
+  "description": "A presidential transcript record from FiscalNote's PolicyNote API, delivering primary-source verified transcripts of presidential communications including executive orders, proclamations, press statements, and public remarks.",
+  "type": "object",
+  "required": ["id", "title", "type", "date"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the transcript record."
+    },
+    "title": {
+      "type": "string",
+      "description": "Title of the transcript."
+    },
+    "type": {
+      "type": "string",
+      "description": "Type of presidential communication.",
+      "enum": ["executive_order", "proclamation", "press_statement", "public_remarks", "interview", "formal_event"]
+    },
+    "date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date of the communication in ISO 8601 format."
+    },
+    "location": {
+      "type": "string",
+      "description": "Location where the communication took place."
+    },
+    "duration": {
+      "type": "string",
+      "description": "Duration of the communication in ISO 8601 duration format.",
+      "pattern": "^P(?:\\d+D)?(?:T(?:\\d+H)?(?:\\d+M)?(?:\\d+S)?)?$"
+    },
+    "wordCount": {
+      "type": "integer",
+      "description": "Total word count of the transcript.",
+      "minimum": 0
+    },
+    "fullText": {
+      "type": "string",
+      "description": "Full text of the transcript."
+    },
+    "summary": {
+      "type": "string",
+      "description": "Summary of the transcript content."
+    },
+    "videoUrl": {
+      "type": "string",
+      "format": "uri",
+      "description": "URL to the video recording if available."
+    },
+    "sourceUrl": {
+      "type": "string",
+      "format": "uri",
+      "description": "URL to the primary source document."
+    },
+    "verified": {
+      "type": "boolean",
+      "description": "Indicates whether this transcript has been verified against the primary source."
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the record was created."
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the record was last updated."
+    }
+  }
+}
