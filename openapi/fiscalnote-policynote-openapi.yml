@@ -30,6 +30,14 @@ tags:
     description: >-
       Access legislative data spanning Congress, all 50 U.S. states, and
       international jurisdictions.
+  - name: Policy Intelligence
+    description: >-
+      Access AI-powered policy analysis, impact summaries, and monitoring
+      signals for policy changes.
+  - name: Presidential Transcripts
+    description: >-
+      Access the real-time presidential transcript feed delivering
+      primary-source transcripts of presidential communications.
   - name: Regulations
     description: >-
       Access regulatory data including proposed and final rules across federal
@@ -38,14 +46,6 @@ tags:
     description: >-
       Access stakeholder intelligence including government officials and
       organizational relationships.
-  - name: Presidential Transcripts
-    description: >-
-      Access the real-time presidential transcript feed delivering
-      primary-source transcripts of presidential communications.
-  - name: Policy Intelligence
-    description: >-
-      Access AI-powered policy analysis, impact summaries, and monitoring
-      signals for policy changes.
 security:
   - apiKey: []
 paths:

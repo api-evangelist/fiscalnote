@@ -3,14 +3,13 @@ url: >-
   https://raw.githubusercontent.com/api-evangelist/fiscalnote/refs/heads/main/apis.yml
 name: FiscalNote
 type: Index
-image: 
-  https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
   - Government
-  - Policy
   - Legislation
-  - Regulation
+  - Policy
   - Political Intelligence
+  - Regulation
 description: >-
   FiscalNote is a policy intelligence platform that provides legislative, regulatory,
   and stakeholder data spanning Congress, all 50 U.S. states, and more than 100 countries.
@@ -23,14 +22,13 @@ apis:
   - aid: fiscalnote:policynote-api
     name: FiscalNote PolicyNote API
     tags:
-      - Policy
-      - Legislation
-      - Regulation
       - AI Agents
-      - MCP
       - Compliance
-    image: 
-      https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+      - Legislation
+      - MCP
+      - Policy
+      - Regulation
+    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     baseURL: https://api.fiscalnote.com
     humanURL: https://fiscalnote.com/products/policynote-api
     properties:
@@ -49,12 +47,11 @@ apis:
   - aid: fiscalnote:appdata-api
     name: FiscalNote AppData API
     tags:
+      - Bills
+      - Government Data
       - Legislation
       - Regulation
-      - Government Data
-      - Bills
-    image: 
-      https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     baseURL: https://api.fiscalnote.com
     humanURL: https://apidocs.fiscalnote.com/apis
     properties:
@@ -73,10 +70,9 @@ apis:
     name: FiscalNote People API
     tags:
       - Government Officials
-      - Politicians
       - Legislators
-    image: 
-      https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+      - Politicians
+    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     baseURL: https://api.fiscalnote.com
     humanURL: https://apidocs.fiscalnote.com/apis
     properties:
@@ -94,11 +90,10 @@ apis:
   - aid: fiscalnote:organization-api
     name: FiscalNote Organization API
     tags:
-      - Government Organizations
       - Committees
       - Federal Agencies
-    image: 
-      https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+      - Government Organizations
+    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     baseURL: https://api.fiscalnote.com
     humanURL: https://apidocs.fiscalnote.com/apis
     properties:

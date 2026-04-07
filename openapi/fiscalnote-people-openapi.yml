@@ -20,14 +20,14 @@ servers:
   - url: https://api.fiscalnote.com
     description: Production Server
 tags:
-  - name: Officials
-    description: >-
-      Access government official profiles including legislators, executives,
-      and appointees.
   - name: Legislators
     description: >-
       Access legislator-specific data including voting records, sponsored
       legislation, and committee memberships.
+  - name: Officials
+    description: >-
+      Access government official profiles including legislators, executives,
+      and appointees.
 security:
   - apiKey: []
 paths:

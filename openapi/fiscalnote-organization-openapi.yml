@@ -20,14 +20,14 @@ servers:
   - url: https://api.fiscalnote.com
     description: Production Server
 tags:
-  - name: Organizations
-    description: >-
-      Access government organization records including agencies, departments,
-      and independent bodies.
   - name: Committees
     description: >-
       Access legislative committee records including membership and
       jurisdiction information.
+  - name: Organizations
+    description: >-
+      Access government organization records including agencies, departments,
+      and independent bodies.
 security:
   - apiKey: []
 paths:
