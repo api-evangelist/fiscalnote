@@ -34,7 +34,7 @@ paths:
   /organization/v1/organizations:
     get:
       operationId: listOrganizations
-      summary: List government organizations
+      summary: FiscalNote List government organizations
       description: >-
         Returns a paginated list of government organizations including
         federal agencies, state agencies, legislative committees, and
@@ -84,7 +84,7 @@ paths:
   /organization/v1/organizations/{organizationId}:
     get:
       operationId: getOrganization
-      summary: Get organization by ID
+      summary: FiscalNote Get organization by ID
       description: >-
         Returns detailed information about a specific government
         organization including its mandate, leadership, and sub-organizations.
@@ -120,7 +120,7 @@ paths:
   /organization/v1/committees:
     get:
       operationId: listCommittees
-      summary: List legislative committees
+      summary: FiscalNote List legislative committees
       description: >-
         Returns a paginated list of legislative committees from federal,
         state, and international legislatures including standing committees,
@@ -178,7 +178,7 @@ paths:
   /organization/v1/committees/{committeeId}:
     get:
       operationId: getCommittee
-      summary: Get committee by ID
+      summary: FiscalNote Get committee by ID
       description: >-
         Returns detailed information about a specific legislative committee
         including its members, jurisdiction, and subcommittees.
@@ -214,7 +214,7 @@ paths:
   /organization/v1/committees/{committeeId}/members:
     get:
       operationId: listCommitteeMembers
-      summary: List committee members
+      summary: FiscalNote List committee members
       description: >-
         Returns a paginated list of members serving on a specific legislative
         committee.

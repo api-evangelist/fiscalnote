@@ -34,7 +34,7 @@ paths:
   /people/v2/officials:
     get:
       operationId: listOfficials
-      summary: List government officials
+      summary: FiscalNote List government officials
       description: >-
         Returns a paginated list of government officials including
         legislators, executives, and appointees from the United States and
@@ -72,7 +72,7 @@ paths:
   /people/v2/officials/{officialId}:
     get:
       operationId: getOfficial
-      summary: Get government official by ID
+      summary: FiscalNote Get government official by ID
       description: >-
         Returns detailed information about a specific government official
         including biography, contact details, committee assignments, and
@@ -109,7 +109,7 @@ paths:
   /people/v2/legislators:
     get:
       operationId: listLegislators
-      summary: List legislators
+      summary: FiscalNote List legislators
       description: >-
         Returns a paginated list of current and former legislators from
         federal, state, and international legislatures.
@@ -160,7 +160,7 @@ paths:
   /people/v2/legislators/{legislatorId}:
     get:
       operationId: getLegislator
-      summary: Get legislator by ID
+      summary: FiscalNote Get legislator by ID
       description: >-
         Returns detailed information about a specific legislator including
         biography, voting record, sponsored legislation, and committee
@@ -197,7 +197,7 @@ paths:
   /people/v2/legislators/{legislatorId}/votes:
     get:
       operationId: listLegislatorVotes
-      summary: List legislator votes
+      summary: FiscalNote List legislator votes
       description: >-
         Returns a paginated list of votes cast by a specific legislator.
       tags:

@@ -42,7 +42,7 @@ paths:
   /appdata/v1/bills:
     get:
       operationId: listBills
-      summary: List bills
+      summary: FiscalNote List bills
       description: >-
         Returns a paginated list of bills and legislative measures. Supports
         filtering by jurisdiction, session, status, keyword search, and other
@@ -80,7 +80,7 @@ paths:
   /appdata/v1/bills/{billId}:
     get:
       operationId: getBill
-      summary: Get bill by ID
+      summary: FiscalNote Get bill by ID
       description: >-
         Returns detailed information about a specific bill including its full
         text, sponsors, committee assignments, vote history, and current
@@ -117,7 +117,7 @@ paths:
   /appdata/v1/issues:
     get:
       operationId: listIssues
-      summary: List issues
+      summary: FiscalNote List issues
       description: >-
         Returns a paginated list of organizational issues used to track policy
         topics and legislative priorities within the FiscalNote platform.
@@ -143,7 +143,7 @@ paths:
   /appdata/v1/issues/{issueId}:
     get:
       operationId: getIssue
-      summary: Get issue by ID
+      summary: FiscalNote Get issue by ID
       description: >-
         Returns detailed information about a specific organizational issue
         including associated bills and labels.
@@ -179,7 +179,7 @@ paths:
   /appdata/v1/labels:
     get:
       operationId: listLabels
-      summary: List labels
+      summary: FiscalNote List labels
       description: >-
         Returns a paginated list of labels used to categorize and organize
         legislation and policy items within the organization.
@@ -205,7 +205,7 @@ paths:
   /appdata/v1/labels/{labelId}:
     get:
       operationId: getLabel
-      summary: Get label by ID
+      summary: FiscalNote Get label by ID
       description: >-
         Returns detailed information about a specific label.
       tags:
@@ -240,7 +240,7 @@ paths:
   /appdata/v1/regulatory-documents:
     get:
       operationId: listRegulatoryDocuments
-      summary: List regulatory documents
+      summary: FiscalNote List regulatory documents
       description: >-
         Returns a paginated list of regulatory documents including proposed
         rules, final rules, and notices from government agencies.
@@ -281,7 +281,7 @@ paths:
   /appdata/v1/regulatory-documents/{documentId}:
     get:
       operationId: getRegulatoryDocument
-      summary: Get regulatory document by ID
+      summary: FiscalNote Get regulatory document by ID
       description: >-
         Returns detailed information about a specific regulatory document
         including its full text, issuing agency, and comment period details.

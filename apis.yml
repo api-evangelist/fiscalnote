@@ -3,7 +3,8 @@ url: >-
   https://raw.githubusercontent.com/api-evangelist/fiscalnote/refs/heads/main/apis.yml
 name: FiscalNote
 type: Index
-image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: 
+  https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
   - Government
   - Policy
@@ -11,14 +12,10 @@ tags:
   - Regulation
   - Political Intelligence
 description: >-
-  FiscalNote is a policy intelligence platform that provides legislative,
-  regulatory, and stakeholder data spanning Congress, all 50 U.S. states, and
-  more than 100 countries. FiscalNote expanded its PolicyNote API to eliminate AI
-  hallucinations in compliance workflows by providing primary-source verified
-  policy data. The platform added a transcript feed of Presidential
-  communications and now supports the Model Context Protocol (MCP), allowing AI
-  agents to treat verified policy data as a first-class tool for real-time
-  decision-making.
+  FiscalNote is a policy intelligence platform that provides legislative, regulatory,
+  and stakeholder data spanning Congress, all 50 U.S. states, and more than 100 countries.
+  FiscalNote expanded its PolicyNote API to eliminate AI hallucinations in compliance
+  workflows by providing primary-source verified policy data.
 created: '2026-03-24'
 modified: '2026-03-24'
 specificationVersion: '0.19'
@@ -32,7 +29,8 @@ apis:
       - AI Agents
       - MCP
       - Compliance
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: 
+      https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     baseURL: https://api.fiscalnote.com
     humanURL: https://fiscalnote.com/products/policynote-api
     properties:
@@ -41,18 +39,13 @@ apis:
       - url: openapi/fiscalnote-policynote-openapi.yml
         type: OpenAPI
     description: >-
-      The FiscalNote PolicyNote API delivers programmatic access to legislative,
-      regulatory, and stakeholder intelligence datasets spanning Congress, all 50
-      U.S. states, and more than 100 countries through a secure, governed
-      architecture designed for machine consumption. The API includes an MCP
-      server enabling MCP-compatible AI agents from platforms such as Anthropic,
-      OpenAI, Google Gemini, and Microsoft to query structured policy data,
-      verified analysis, and real-time monitoring signals. It also provides a
-      comprehensive real-time presidential transcript feed delivering
-      primary-source transcripts of presidential communications including
-      executive orders, proclamations, press statements, and public remarks,
-      purpose-built for programmatic consumption to eliminate AI hallucinations
-      in compliance workflows.
+      The FiscalNote PolicyNote API delivers programmatic access to legislative, regulatory,
+      and stakeholder intelligence datasets spanning Congress, all 50 U.S. states,
+      and more than 100 countries through a secure, governed architecture designed
+      for machine consumption. The API includes an MCP server enabling MCP-compatible
+      AI agents from platforms such as Anthropic, OpenAI, Google Gemini, and Microsoft
+      to query structured policy data, verified analysis, and real-time monitoring
+      signals.
   - aid: fiscalnote:appdata-api
     name: FiscalNote AppData API
     tags:
@@ -60,7 +53,8 @@ apis:
       - Regulation
       - Government Data
       - Bills
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: 
+      https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     baseURL: https://api.fiscalnote.com
     humanURL: https://apidocs.fiscalnote.com/apis
     properties:
@@ -81,7 +75,8 @@ apis:
       - Government Officials
       - Politicians
       - Legislators
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: 
+      https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     baseURL: https://api.fiscalnote.com
     humanURL: https://apidocs.fiscalnote.com/apis
     properties:
@@ -102,7 +97,8 @@ apis:
       - Government Organizations
       - Committees
       - Federal Agencies
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: 
+      https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     baseURL: https://api.fiscalnote.com
     humanURL: https://apidocs.fiscalnote.com/apis
     properties:
