@@ -4,154 +4,107 @@ schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main
 provider: FiscalNote
 providerId: fiscalnote
 created: '2026-05-04'
-modified: '2026-05-04'
+modified: '2026-05-05'
+reconciled: false
 tags:
   - Government
   - Legislation
   - Policy
   - Political Intelligence
   - Regulation
-description: Machine-readable plans and pricing scaffold for this API provider. Conforms to the API Commons
-  Plans schema. Tier limits and prices are scaffold defaults; replace with provider-published values.
+description: FiscalNote sells policy-intelligence SaaS (PolicyNote, CQ, Roll Call, etc.) on annual contracts. The PolicyNote product page documents three tiers — Platform Only, Essential, and Advanced — but does not publish dollar pricing; all tiers route to "Request Pricing" or "Book a Demo". API access is bundled into customer subscriptions; there is no self-serve API plan.
+notes: Plan names (Platform Only / Essential / Advanced) are confirmed from fiscalnote.com/policynote-plans, but no public dollar amounts are published. Quotas / rate limits / feature gating are reflected as "contact sales".
+sources:
+  - https://www.fiscalnote.com/products
+  - https://fiscalnote.com/policynote-plans
 plans:
-  - id: fiscalnote-free
-    name: Free
-    type: freemium
-    description: Free entry tier for the FiscalNote API surface. Intended for evaluation, prototyping,
-      and low-volume integrations. Real limits and pricing must be reconciled with the provider's published
-      plan documentation.
+  - id: fiscalnote-policynote-platform-only
+    name: PolicyNote — Platform Only
+    type: subscription
+    description: Self-serve PolicyNote tier — comprehensive AI-powered U.S. state and federal policy monitoring with bill tracking, AI summaries, stakeholder database, reporting, and custom dashboard.
     entries:
-      - label: API Requests
-        description: Monthly API request quota across all included endpoints
-        name: api_requests
-        type: quota
-        metric: requests
-        limit: 1000
-        timeFrame: month
-        geo: global
-        domains:
-          - https://api.fiscalnote.com
-        unit: 1
-        price: '0.00'
-        userMultiplied: false
-      - label: Rate Limit
-        description: Maximum requests per minute on the free tier
-        name: rate_limit
-        type: rate
-        metric: requests_per_minute
-        limit: 10
-        timeFrame: minute
-        geo: global
-        domains:
-          - https://api.fiscalnote.com
-        unit: 1
-        price: '0.00'
-        userMultiplied: false
-    elements:
-      - name: Public Documentation
-      - name: Community Support
-      - name: Sandbox Access
-      - name: FiscalNote PolicyNote API
-      - name: FiscalNote AppData API
-      - name: FiscalNote People API
-      - name: FiscalNote Organization API
-  - id: fiscalnote-pro
-    name: Professional
-    type: paid
-    description: Production tier for FiscalNote. Provides higher quotas, priority support, and access
-      to the broader API portfolio. Pricing placeholder; align with the provider's pricing page.
-    entries:
-      - label: API Requests
-        description: Monthly API request quota
-        name: api_requests
-        type: quota
-        metric: requests
-        limit: 100000
-        timeFrame: month
-        geo: global
-        domains:
-          - https://api.fiscalnote.com
-        unit: 1
-        price: TBD
-        userMultiplied: false
-      - label: Rate Limit
-        description: Maximum requests per minute on the professional tier
-        name: rate_limit
-        type: rate
-        metric: requests_per_minute
-        limit: 100
-        timeFrame: minute
-        geo: global
-        domains:
-          - https://api.fiscalnote.com
-        unit: 1
-        price: '0.00'
-        userMultiplied: false
-      - label: Overage
-        description: Per-request price after monthly quota is exceeded
-        name: overage
-        type: metered
-        metric: requests
+      - label: Subscription
+        description: Annual contract; pricing not publicly disclosed
+        name: subscription
+        type: subscription
+        metric: seat
         limit: -1
-        timeFrame: month
-        geo: global
-        domains:
-          - https://api.fiscalnote.com
-        unit: 1000
-        price: TBD
-        userMultiplied: false
+        timeFrame: year
+        geo: US
+        domains: []
+        unit: 1
+        price: contact sales
+        userMultiplied: true
     elements:
-      - name: All Production Endpoints
-      - name: Email Support
-      - name: SLA Targets
-      - name: Webhook Subscriptions
-      - name: FiscalNote PolicyNote API
-      - name: FiscalNote AppData API
-      - name: FiscalNote People API
-      - name: FiscalNote Organization API
-  - id: fiscalnote-enterprise
-    name: Enterprise
+      - name: US State & Federal Data
+      - name: CQ News & Analysis
+      - name: AI Assistant
+      - name: AI Bill Summaries
+      - name: Stakeholder Database
+      - name: Reporting Tools
+      - name: Custom Dashboard
+  - id: fiscalnote-policynote-essential
+    name: PolicyNote — Essential (Most Popular)
+    type: subscription
+    description: Adds curation and hands-on monitoring support from a FiscalNote policy analyst on top of Platform Only, with unlimited modules in every email digest.
+    entries:
+      - label: Subscription
+        description: Annual contract; pricing not publicly disclosed
+        name: subscription
+        type: subscription
+        metric: seat
+        limit: -1
+        timeFrame: year
+        geo: US
+        domains: []
+        unit: 1
+        price: contact sales
+        userMultiplied: true
+    elements:
+      - name: All Platform Only Features
+      - name: Hands-On Analyst Curation
+      - name: Unlimited Modules per Email
+  - id: fiscalnote-policynote-advanced
+    name: PolicyNote — Advanced
+    type: subscription
+    description: Adds Weekly Briefs — executive-summary reports with connected analysis on key issues — on top of Essential.
+    entries:
+      - label: Subscription
+        description: Annual contract; pricing not publicly disclosed
+        name: subscription
+        type: subscription
+        metric: seat
+        limit: -1
+        timeFrame: year
+        geo: US
+        domains: []
+        unit: 1
+        price: contact sales
+        userMultiplied: true
+    elements:
+      - name: All Essential Features
+      - name: Weekly Briefs (Executive Summaries)
+  - id: fiscalnote-enterprise-api
+    name: Enterprise / API Access
     type: enterprise
-    description: Custom-negotiated tier for FiscalNote. Includes dedicated capacity, contractual SLAs,
-      security review, data residency options, and named technical account management.
+    description: API access to FiscalNote data (bills, regulations, hearings, members, stakeholders) is bundled into enterprise subscriptions and not sold as a standalone API tier. Access provisioned via account team.
     entries:
-      - label: API Requests
-        description: Negotiated request volume; -1 indicates uncapped subject to fair use
-        name: api_requests
-        type: quota
-        metric: requests
+      - label: API Access
+        description: Bundled with enterprise subscription
+        name: api_access
+        type: flat
+        metric: varies
         limit: -1
-        timeFrame: month
-        geo: configurable
-        domains:
-          - https://api.fiscalnote.com
+        timeFrame: usage
+        geo: US
+        domains: []
         unit: 1
-        price: custom
-        userMultiplied: false
-      - label: Rate Limit
-        description: Negotiated burst and steady-state rate
-        name: rate_limit
-        type: rate
-        metric: requests_per_minute
-        limit: 1000
-        timeFrame: minute
-        geo: configurable
-        domains:
-          - https://api.fiscalnote.com
-        unit: 1
-        price: custom
+        price: contact sales
         userMultiplied: false
     elements:
-      - name: Unlimited / Negotiated Volume
-      - name: 24/7 Dedicated Support
-      - name: Contractual SLA
-      - name: Security & Compliance Review
-      - name: Dedicated Account Manager
-      - name: Custom Data Residency
-      - name: FiscalNote PolicyNote API
-      - name: FiscalNote AppData API
-      - name: FiscalNote People API
-      - name: FiscalNote Organization API
-maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
+      - name: Bills & Legislation API
+      - name: Regulations API
+      - name: Stakeholder / People API
+      - name: Hearings & Schedule API
+      - name: Custom Data Feeds
+maintainers: []
