@@ -117,13 +117,13 @@ common:
     url: https://apidocs.fiscalnote.com/apis
   - type: Blog
     url: https://fiscalnote.com/blog
-  - type: Privacy Policy
+  - type: PrivacyPolicy
     url: https://fiscalnote.com/privacy
-  - type: Terms of Service
+  - type: TermsOfService
     url: https://fiscalnote.com/terms
   - type: Login
     url: https://app.fiscalnote.com/
-  - type: JSON-LD
+  - type: JSONLD
     url: json-ld/fiscalnote-context.jsonld
   - type: JSONSchema
     url: json-schema/fiscalnote-legislation-schema.json
