@@ -1,0 +1,104 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: FiscalNote PolicyNote API — Legislation
+  description: 'FiscalNote PolicyNote API — Legislation. 2 operations. Lead operation: FiscalNote List legislation. Self-contained
+    Naftiko capability covering one Fiscalnote business surface.'
+  tags:
+  - Fiscalnote
+  - Legislation
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    FISCALNOTE_API_KEY: FISCALNOTE_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: policynote-legislation
+    baseUri: https://api.fiscalnote.com
+    description: FiscalNote PolicyNote API — Legislation business capability. Self-contained, no shared references.
+    resources:
+    - name: policynote-v1-legislation
+      path: /policynote/v1/legislation
+      operations:
+      - name: listlegislation
+        method: GET
+        description: FiscalNote List legislation
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: policynote-v1-legislation-legislationId
+      path: /policynote/v1/legislation/{legislationId}
+      operations:
+      - name: getlegislation
+        method: GET
+        description: FiscalNote Get legislation by ID
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: apikey
+      key: Authorization
+      value: '{{env.FISCALNOTE_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: policynote-legislation-rest
+    port: 8080
+    description: REST adapter for FiscalNote PolicyNote API — Legislation. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/policynote/v1/legislation
+      name: policynote-v1-legislation
+      description: REST surface for policynote-v1-legislation.
+      operations:
+      - method: GET
+        name: listlegislation
+        description: FiscalNote List legislation
+        call: policynote-legislation.listlegislation
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/policynote/v1/legislation/{legislationid}
+      name: policynote-v1-legislation-legislationid
+      description: REST surface for policynote-v1-legislation-legislationId.
+      operations:
+      - method: GET
+        name: getlegislation
+        description: FiscalNote Get legislation by ID
+        call: policynote-legislation.getlegislation
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: policynote-legislation-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for FiscalNote PolicyNote API — Legislation. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: fiscalnote-list-legislation
+      description: FiscalNote List legislation
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: policynote-legislation.listlegislation
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: fiscalnote-get-legislation-id
+      description: FiscalNote Get legislation by ID
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: policynote-legislation.getlegislation
+      outputParameters:
+      - type: object
+        mapping: $.

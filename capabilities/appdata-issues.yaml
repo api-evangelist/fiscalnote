@@ -1,0 +1,114 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: FiscalNote AppData API — Issues
+  description: 'FiscalNote AppData API — Issues. 2 operations. Lead operation: FiscalNote List issues. Self-contained Naftiko
+    capability covering one Fiscalnote business surface.'
+  tags:
+  - Fiscalnote
+  - Issues
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    FISCALNOTE_API_KEY: FISCALNOTE_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: appdata-issues
+    baseUri: https://api.fiscalnote.com
+    description: FiscalNote AppData API — Issues business capability. Self-contained, no shared references.
+    resources:
+    - name: appdata-v1-issues
+      path: /appdata/v1/issues
+      operations:
+      - name: listissues
+        method: GET
+        description: FiscalNote List issues
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: appdata-v1-issues-issueId
+      path: /appdata/v1/issues/{issueId}
+      operations:
+      - name: getissue
+        method: GET
+        description: FiscalNote Get issue by ID
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: issueId
+          in: path
+          type: string
+          description: The unique identifier of the issue.
+          required: true
+    authentication:
+      type: apikey
+      key: Authorization
+      value: '{{env.FISCALNOTE_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: appdata-issues-rest
+    port: 8080
+    description: REST adapter for FiscalNote AppData API — Issues. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/appdata/v1/issues
+      name: appdata-v1-issues
+      description: REST surface for appdata-v1-issues.
+      operations:
+      - method: GET
+        name: listissues
+        description: FiscalNote List issues
+        call: appdata-issues.listissues
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/appdata/v1/issues/{issueid}
+      name: appdata-v1-issues-issueid
+      description: REST surface for appdata-v1-issues-issueId.
+      operations:
+      - method: GET
+        name: getissue
+        description: FiscalNote Get issue by ID
+        call: appdata-issues.getissue
+        with:
+          issueId: rest.issueId
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: appdata-issues-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for FiscalNote AppData API — Issues. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: fiscalnote-list-issues
+      description: FiscalNote List issues
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: appdata-issues.listissues
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: fiscalnote-get-issue-id
+      description: FiscalNote Get issue by ID
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: appdata-issues.getissue
+      with:
+        issueId: tools.issueId
+      outputParameters:
+      - type: object
+        mapping: $.

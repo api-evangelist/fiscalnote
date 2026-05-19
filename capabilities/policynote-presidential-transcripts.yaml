@@ -1,0 +1,135 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: FiscalNote PolicyNote API — Presidential Transcripts
+  description: 'FiscalNote PolicyNote API — Presidential Transcripts. 2 operations. Lead operation: FiscalNote List presidential
+    transcripts. Self-contained Naftiko capability covering one Fiscalnote business surface.'
+  tags:
+  - Fiscalnote
+  - Presidential Transcripts
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    FISCALNOTE_API_KEY: FISCALNOTE_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: policynote-presidential-transcripts
+    baseUri: https://api.fiscalnote.com
+    description: FiscalNote PolicyNote API — Presidential Transcripts business capability. Self-contained, no shared references.
+    resources:
+    - name: policynote-v1-transcripts
+      path: /policynote/v1/transcripts
+      operations:
+      - name: listpresidentialtranscripts
+        method: GET
+        description: FiscalNote List presidential transcripts
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: type
+          in: query
+          type: string
+          description: Filter by transcript type such as executive_order, proclamation, press_statement, or public_remarks.
+        - name: dateFrom
+          in: query
+          type: string
+          description: Filter transcripts from this date onward in ISO 8601 format.
+        - name: dateTo
+          in: query
+          type: string
+          description: Filter transcripts up to this date in ISO 8601 format.
+    - name: policynote-v1-transcripts-transcriptId
+      path: /policynote/v1/transcripts/{transcriptId}
+      operations:
+      - name: getpresidentialtranscript
+        method: GET
+        description: FiscalNote Get presidential transcript by ID
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: transcriptId
+          in: path
+          type: string
+          description: The unique identifier of the transcript.
+          required: true
+    authentication:
+      type: apikey
+      key: Authorization
+      value: '{{env.FISCALNOTE_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: policynote-presidential-transcripts-rest
+    port: 8080
+    description: REST adapter for FiscalNote PolicyNote API — Presidential Transcripts. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/policynote/v1/transcripts
+      name: policynote-v1-transcripts
+      description: REST surface for policynote-v1-transcripts.
+      operations:
+      - method: GET
+        name: listpresidentialtranscripts
+        description: FiscalNote List presidential transcripts
+        call: policynote-presidential-transcripts.listpresidentialtranscripts
+        with:
+          type: rest.type
+          dateFrom: rest.dateFrom
+          dateTo: rest.dateTo
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/policynote/v1/transcripts/{transcriptid}
+      name: policynote-v1-transcripts-transcriptid
+      description: REST surface for policynote-v1-transcripts-transcriptId.
+      operations:
+      - method: GET
+        name: getpresidentialtranscript
+        description: FiscalNote Get presidential transcript by ID
+        call: policynote-presidential-transcripts.getpresidentialtranscript
+        with:
+          transcriptId: rest.transcriptId
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: policynote-presidential-transcripts-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for FiscalNote PolicyNote API — Presidential Transcripts. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: fiscalnote-list-presidential-transcripts
+      description: FiscalNote List presidential transcripts
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: policynote-presidential-transcripts.listpresidentialtranscripts
+      with:
+        type: tools.type
+        dateFrom: tools.dateFrom
+        dateTo: tools.dateTo
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: fiscalnote-get-presidential-transcript-id
+      description: FiscalNote Get presidential transcript by ID
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: policynote-presidential-transcripts.getpresidentialtranscript
+      with:
+        transcriptId: tools.transcriptId
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,72 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: FiscalNote PolicyNote API — Policy Intelligence
+  description: 'FiscalNote PolicyNote API — Policy Intelligence. 1 operations. Lead operation: FiscalNote List policy impact
+    summaries. Self-contained Naftiko capability covering one Fiscalnote business surface.'
+  tags:
+  - Fiscalnote
+  - Policy Intelligence
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    FISCALNOTE_API_KEY: FISCALNOTE_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: policynote-policy-intelligence
+    baseUri: https://api.fiscalnote.com
+    description: FiscalNote PolicyNote API — Policy Intelligence business capability. Self-contained, no shared references.
+    resources:
+    - name: policynote-v1-intelligence-impact
+      path: /policynote/v1/intelligence/impact
+      operations:
+      - name: listpolicyimpactsummaries
+        method: GET
+        description: FiscalNote List policy impact summaries
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: apikey
+      key: Authorization
+      value: '{{env.FISCALNOTE_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: policynote-policy-intelligence-rest
+    port: 8080
+    description: REST adapter for FiscalNote PolicyNote API — Policy Intelligence. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/policynote/v1/intelligence/impact
+      name: policynote-v1-intelligence-impact
+      description: REST surface for policynote-v1-intelligence-impact.
+      operations:
+      - method: GET
+        name: listpolicyimpactsummaries
+        description: FiscalNote List policy impact summaries
+        call: policynote-policy-intelligence.listpolicyimpactsummaries
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: policynote-policy-intelligence-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for FiscalNote PolicyNote API — Policy Intelligence. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: fiscalnote-list-policy-impact-summaries
+      description: FiscalNote List policy impact summaries
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: policynote-policy-intelligence.listpolicyimpactsummaries
+      outputParameters:
+      - type: object
+        mapping: $.

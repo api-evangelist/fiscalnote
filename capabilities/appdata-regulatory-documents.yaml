@@ -1,0 +1,123 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: FiscalNote AppData API — Regulatory Documents
+  description: 'FiscalNote AppData API — Regulatory Documents. 2 operations. Lead operation: FiscalNote List regulatory documents.
+    Self-contained Naftiko capability covering one Fiscalnote business surface.'
+  tags:
+  - Fiscalnote
+  - Regulatory Documents
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    FISCALNOTE_API_KEY: FISCALNOTE_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: appdata-regulatory-documents
+    baseUri: https://api.fiscalnote.com
+    description: FiscalNote AppData API — Regulatory Documents business capability. Self-contained, no shared references.
+    resources:
+    - name: appdata-v1-regulatory-documents
+      path: /appdata/v1/regulatory-documents
+      operations:
+      - name: listregulatorydocuments
+        method: GET
+        description: FiscalNote List regulatory documents
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: agency
+          in: query
+          type: string
+          description: Filter by issuing agency name or identifier.
+    - name: appdata-v1-regulatory-documents-documentId
+      path: /appdata/v1/regulatory-documents/{documentId}
+      operations:
+      - name: getregulatorydocument
+        method: GET
+        description: FiscalNote Get regulatory document by ID
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: documentId
+          in: path
+          type: string
+          description: The unique identifier of the regulatory document.
+          required: true
+    authentication:
+      type: apikey
+      key: Authorization
+      value: '{{env.FISCALNOTE_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: appdata-regulatory-documents-rest
+    port: 8080
+    description: REST adapter for FiscalNote AppData API — Regulatory Documents. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/appdata/v1/regulatory-documents
+      name: appdata-v1-regulatory-documents
+      description: REST surface for appdata-v1-regulatory-documents.
+      operations:
+      - method: GET
+        name: listregulatorydocuments
+        description: FiscalNote List regulatory documents
+        call: appdata-regulatory-documents.listregulatorydocuments
+        with:
+          agency: rest.agency
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/appdata/v1/regulatory-documents/{documentid}
+      name: appdata-v1-regulatory-documents-documentid
+      description: REST surface for appdata-v1-regulatory-documents-documentId.
+      operations:
+      - method: GET
+        name: getregulatorydocument
+        description: FiscalNote Get regulatory document by ID
+        call: appdata-regulatory-documents.getregulatorydocument
+        with:
+          documentId: rest.documentId
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: appdata-regulatory-documents-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for FiscalNote AppData API — Regulatory Documents. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: fiscalnote-list-regulatory-documents
+      description: FiscalNote List regulatory documents
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: appdata-regulatory-documents.listregulatorydocuments
+      with:
+        agency: tools.agency
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: fiscalnote-get-regulatory-document-id
+      description: FiscalNote Get regulatory document by ID
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: appdata-regulatory-documents.getregulatorydocument
+      with:
+        documentId: tools.documentId
+      outputParameters:
+      - type: object
+        mapping: $.

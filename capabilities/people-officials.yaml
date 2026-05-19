@@ -1,0 +1,114 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: FiscalNote People API — Officials
+  description: 'FiscalNote People API — Officials. 2 operations. Lead operation: FiscalNote List government officials. Self-contained
+    Naftiko capability covering one Fiscalnote business surface.'
+  tags:
+  - Fiscalnote
+  - Officials
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    FISCALNOTE_API_KEY: FISCALNOTE_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: people-officials
+    baseUri: https://api.fiscalnote.com
+    description: FiscalNote People API — Officials business capability. Self-contained, no shared references.
+    resources:
+    - name: people-v2-officials
+      path: /people/v2/officials
+      operations:
+      - name: listofficials
+        method: GET
+        description: FiscalNote List government officials
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: people-v2-officials-officialId
+      path: /people/v2/officials/{officialId}
+      operations:
+      - name: getofficial
+        method: GET
+        description: FiscalNote Get government official by ID
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: officialId
+          in: path
+          type: string
+          description: The unique identifier of the government official.
+          required: true
+    authentication:
+      type: apikey
+      key: Authorization
+      value: '{{env.FISCALNOTE_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: people-officials-rest
+    port: 8080
+    description: REST adapter for FiscalNote People API — Officials. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/people/v2/officials
+      name: people-v2-officials
+      description: REST surface for people-v2-officials.
+      operations:
+      - method: GET
+        name: listofficials
+        description: FiscalNote List government officials
+        call: people-officials.listofficials
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/people/v2/officials/{officialid}
+      name: people-v2-officials-officialid
+      description: REST surface for people-v2-officials-officialId.
+      operations:
+      - method: GET
+        name: getofficial
+        description: FiscalNote Get government official by ID
+        call: people-officials.getofficial
+        with:
+          officialId: rest.officialId
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: people-officials-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for FiscalNote People API — Officials. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: fiscalnote-list-government-officials
+      description: FiscalNote List government officials
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: people-officials.listofficials
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: fiscalnote-get-government-official-id
+      description: FiscalNote Get government official by ID
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: people-officials.getofficial
+      with:
+        officialId: tools.officialId
+      outputParameters:
+      - type: object
+        mapping: $.
