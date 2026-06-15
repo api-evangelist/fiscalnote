@@ -1,0 +1,1296 @@
+{
+  "item": [
+    {
+      "id": "b7a7f4d3-8a08-45b3-9328-6d498912321c",
+      "name": "Committees",
+      "description": {
+        "content": "Access legislative committee records including membership and jurisdiction information.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "6431a4d2-6994-41d6-b5a8-e3cbe1a16712",
+          "name": "FiscalNote List legislative committees",
+          "request": {
+            "name": "FiscalNote List legislative committees",
+            "description": {
+              "content": "Returns a paginated list of legislative committees from federal, state, and international legislatures including standing committees, select committees, and subcommittees.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "organization",
+                "v1",
+                "committees"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "jurisdiction",
+                  "value": "<string>",
+                  "description": "Filter by jurisdiction code such as US, US-CA, GB, or EU."
+                },
+                {
+                  "disabled": false,
+                  "key": "chamber",
+                  "value": "<string>",
+                  "description": "Filter by legislative chamber."
+                },
+                {
+                  "disabled": false,
+                  "key": "committeeType",
+                  "value": "<string>",
+                  "description": "Filter by committee type."
+                },
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "Full-text search query to filter results."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "25",
+                  "description": "Maximum number of results to return per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Number of results to skip for pagination."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9268f1dd-1fcc-4398-8a82-2aeb0302d3fd",
+              "name": "A paginated list of committee records.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organization",
+                    "v1",
+                    "committees"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "jurisdiction",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "chamber",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "committeeType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "25"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"chamber\": \"joint\",\n      \"type\": \"joint\",\n      \"jurisdiction\": \"string\",\n      \"parentCommitteeId\": \"string\",\n      \"description\": \"string\",\n      \"website\": \"https://NiCAXSklXYTdDsJEHI.qmBVSWY6O1hjgIHA+uwDSeUMhTE4UtasRkk4F9jhQn85sRxuFglyhg\",\n      \"chair\": {\n        \"officialId\": \"string\",\n        \"name\": \"string\",\n        \"title\": \"string\"\n      },\n      \"rankingMember\": {\n        \"officialId\": \"string\",\n        \"name\": \"string\",\n        \"title\": \"string\"\n      },\n      \"memberCount\": 3640,\n      \"url\": \"http://YoWEXTQ.vflVA,UNL.Y.ZzYfeedUi6iSLr+9RHZ3nK5WfB5M.I9jy+tX\",\n      \"createdAt\": \"2010-08-10T11:32:22.203Z\",\n      \"updatedAt\": \"1958-08-30T15:57:10.209Z\"\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"chamber\": \"joint\",\n      \"type\": \"standing\",\n      \"jurisdiction\": \"string\",\n      \"parentCommitteeId\": \"string\",\n      \"description\": \"string\",\n      \"website\": \"https://pfXWP.gbobhtZsWaHP8WWrgnGno+R-u5Adi-\",\n      \"chair\": {\n        \"officialId\": \"string\",\n        \"name\": \"string\",\n        \"title\": \"string\"\n      },\n      \"rankingMember\": {\n        \"officialId\": \"string\",\n        \"name\": \"string\",\n        \"title\": \"string\"\n      },\n      \"memberCount\": 7669,\n      \"url\": \"https://kgcRDzmPmGUHytNFoUl.bqF7FAtGpvJ+k\",\n      \"createdAt\": \"1986-06-07T06:41:28.042Z\",\n      \"updatedAt\": \"2002-05-18T18:57:28.836Z\"\n    }\n  ],\n  \"pagination\": {\n    \"total\": 1112,\n    \"limit\": 5416,\n    \"offset\": 7523,\n    \"hasMore\": false\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2eae8f68-80b6-4ced-808c-af1a62f6d1a7",
+              "name": "Authentication credentials are missing or invalid.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organization",
+                    "v1",
+                    "committees"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "jurisdiction",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "chamber",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "committeeType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "25"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 7820,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ad5b241f-ec76-472c-88a7-97f5bfa958d3",
+              "name": "Rate limit exceeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organization",
+                    "v1",
+                    "committees"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "jurisdiction",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "chamber",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "committeeType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "25"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 7820,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "598a07cd-4b96-40ef-ba5a-e76392b774a2",
+          "name": "FiscalNote Get committee by ID",
+          "request": {
+            "name": "FiscalNote Get committee by ID",
+            "description": {
+              "content": "Returns detailed information about a specific legislative committee including its members, jurisdiction, and subcommittees.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "organization",
+                "v1",
+                "committees",
+                ":committeeId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "committeeId",
+                  "description": "(Required) The unique identifier of the committee."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6b65252f-eaa9-41e2-a5ba-546f701437cd",
+              "name": "Detailed committee record.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organization",
+                    "v1",
+                    "committees",
+                    ":committeeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "committeeId",
+                      "description": "(Required) The unique identifier of the committee."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"chamber\": \"house\",\n  \"type\": \"subcommittee\",\n  \"jurisdiction\": \"string\",\n  \"parentCommitteeId\": \"string\",\n  \"description\": \"string\",\n  \"website\": \"https://XXkKqeNTVgngtduUSZvvUDU.imC87MkdPOxcJ-gZ00HzsNhzQrgznA-jz0jsqg29o37RKxB-1QpsFNKHgXU9uVF5oVfZXBgExy90J+JXsA6\",\n  \"chair\": {\n    \"officialId\": \"string\",\n    \"name\": \"string\",\n    \"title\": \"string\"\n  },\n  \"rankingMember\": {\n    \"officialId\": \"string\",\n    \"name\": \"string\",\n    \"title\": \"string\"\n  },\n  \"memberCount\": 5219,\n  \"url\": \"https://jlmOAItatgBjUgDbVI.lanmSNwPVkqaciY\",\n  \"createdAt\": \"1989-11-13T19:55:47.682Z\",\n  \"updatedAt\": \"1957-06-13T04:09:32.681Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c81eab0c-c525-4b59-87b6-39dc4cc93c23",
+              "name": "Authentication credentials are missing or invalid.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organization",
+                    "v1",
+                    "committees",
+                    ":committeeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "committeeId",
+                      "description": "(Required) The unique identifier of the committee."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 7820,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "06f11b83-1350-4e9f-8b0b-8aa1f4410552",
+              "name": "Committee not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organization",
+                    "v1",
+                    "committees",
+                    ":committeeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "committeeId",
+                      "description": "(Required) The unique identifier of the committee."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 7820,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f09c7a86-d4a0-43a8-84ce-1fb88a1145ed",
+          "name": "FiscalNote List committee members",
+          "request": {
+            "name": "FiscalNote List committee members",
+            "description": {
+              "content": "Returns a paginated list of members serving on a specific legislative committee.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "organization",
+                "v1",
+                "committees",
+                ":committeeId",
+                "members"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "25",
+                  "description": "Maximum number of results to return per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Number of results to skip for pagination."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "committeeId",
+                  "description": "(Required) The unique identifier of the committee."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ab03aefd-1ec3-47c9-b3a2-968a60bb0050",
+              "name": "A paginated list of committee member records.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organization",
+                    "v1",
+                    "committees",
+                    ":committeeId",
+                    "members"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "25"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "committeeId",
+                      "description": "(Required) The unique identifier of the committee."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"officialId\": \"string\",\n      \"name\": \"string\",\n      \"party\": \"string\",\n      \"role\": \"chair\",\n      \"state\": \"string\"\n    },\n    {\n      \"officialId\": \"string\",\n      \"name\": \"string\",\n      \"party\": \"string\",\n      \"role\": \"ranking_member\",\n      \"state\": \"string\"\n    }\n  ],\n  \"pagination\": {\n    \"total\": 2560,\n    \"limit\": 1188,\n    \"offset\": 3002,\n    \"hasMore\": false\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "328139ab-4ca6-413b-8b5c-0e09676eacca",
+              "name": "Authentication credentials are missing or invalid.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organization",
+                    "v1",
+                    "committees",
+                    ":committeeId",
+                    "members"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "25"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "committeeId",
+                      "description": "(Required) The unique identifier of the committee."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 7820,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "65e1a9f8-3dbd-4900-80fb-4e7b8acb84be",
+              "name": "Committee not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organization",
+                    "v1",
+                    "committees",
+                    ":committeeId",
+                    "members"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "25"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "committeeId",
+                      "description": "(Required) The unique identifier of the committee."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 7820,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "b8340967-b66d-496c-b9e1-c01e8712714d",
+      "name": "Organizations",
+      "description": {
+        "content": "Access government organization records including agencies, departments, and independent bodies.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2804ce0b-abf0-4e66-97be-660b17d0b839",
+          "name": "FiscalNote List government organizations",
+          "request": {
+            "name": "FiscalNote List government organizations",
+            "description": {
+              "content": "Returns a paginated list of government organizations including federal agencies, state agencies, legislative committees, and international governmental bodies.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "organization",
+                "v1",
+                "organizations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "jurisdiction",
+                  "value": "<string>",
+                  "description": "Filter by jurisdiction code such as US, US-CA, GB, or EU."
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>",
+                  "description": "Filter by organization type such as agency, committee, or department."
+                },
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "Full-text search query to filter results."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "25",
+                  "description": "Maximum number of results to return per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Number of results to skip for pagination."
+                },
+                {
+                  "disabled": false,
+                  "key": "updatedSince",
+                  "value": "<dateTime>",
+                  "description": "Return only records updated after this ISO 8601 datetime."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1c41e0de-c6a8-488d-b15c-347b72cce944",
+              "name": "A paginated list of organization records.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organization",
+                    "v1",
+                    "organizations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "jurisdiction",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "25"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "updatedSince",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"abbreviation\": \"string\",\n      \"type\": \"committee\",\n      \"jurisdiction\": \"string\",\n      \"parentOrganizationId\": \"string\",\n      \"description\": \"string\",\n      \"website\": \"https://YKrBMsBx.rxFZKrYJg4YeE2Gu6ub3JWC1EzDqKoPMqtv.N3gYb,iG3OCZ\",\n      \"leadership\": [\n        {\n          \"officialId\": \"string\",\n          \"name\": \"string\",\n          \"title\": \"string\"\n        },\n        {\n          \"officialId\": \"string\",\n          \"name\": \"string\",\n          \"title\": \"string\"\n        }\n      ],\n      \"url\": \"https://YAEcdFmYkzjZpRqPHxsSzO.mog2j\",\n      \"createdAt\": \"2009-08-04T18:27:03.675Z\",\n      \"updatedAt\": \"1959-08-29T21:43:06.677Z\"\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"abbreviation\": \"string\",\n      \"type\": \"department\",\n      \"jurisdiction\": \"string\",\n      \"parentOrganizationId\": \"string\",\n      \"description\": \"string\",\n      \"website\": \"https://SINBarYZCZQiDLoTxlLESOKTeyvb.zszwxvsCQHUAxHNFXbHqmBL2Cfu\",\n      \"leadership\": [\n        {\n          \"officialId\": \"string\",\n          \"name\": \"string\",\n          \"title\": \"string\"\n        },\n        {\n          \"officialId\": \"string\",\n          \"name\": \"string\",\n          \"title\": \"string\"\n        }\n      ],\n      \"url\": \"http://CLPOzJv.ibwLIf6,JROP\",\n      \"createdAt\": \"1956-02-29T14:11:43.226Z\",\n      \"updatedAt\": \"2008-08-31T16:23:54.381Z\"\n    }\n  ],\n  \"pagination\": {\n    \"total\": 9617,\n    \"limit\": 345,\n    \"offset\": 980,\n    \"hasMore\": true\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "86630e62-bedd-4597-8735-15b46c6a20a2",
+              "name": "Authentication credentials are missing or invalid.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organization",
+                    "v1",
+                    "organizations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "jurisdiction",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "25"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "updatedSince",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 7820,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d59c2a81-164e-46a5-8c05-b92531974179",
+              "name": "Rate limit exceeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organization",
+                    "v1",
+                    "organizations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "jurisdiction",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "25"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "updatedSince",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 7820,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a010b1f7-4777-44a2-93d4-3ab0d7a627e5",
+          "name": "FiscalNote Get organization by ID",
+          "request": {
+            "name": "FiscalNote Get organization by ID",
+            "description": {
+              "content": "Returns detailed information about a specific government organization including its mandate, leadership, and sub-organizations.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "organization",
+                "v1",
+                "organizations",
+                ":organizationId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "organizationId",
+                  "description": "(Required) The unique identifier of the organization."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "84650c89-64a3-427f-b3da-c4b128f8f447",
+              "name": "Detailed organization record.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organization",
+                    "v1",
+                    "organizations",
+                    ":organizationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "organizationId",
+                      "description": "(Required) The unique identifier of the organization."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"abbreviation\": \"string\",\n  \"type\": \"department\",\n  \"jurisdiction\": \"string\",\n  \"parentOrganizationId\": \"string\",\n  \"description\": \"string\",\n  \"website\": \"http://FaFgDfueoAtZVfEUdbWflOuihvJu.stoeRRe+1Vpqk2Ho1QIcgVMaqQijd4\",\n  \"leadership\": [\n    {\n      \"officialId\": \"string\",\n      \"name\": \"string\",\n      \"title\": \"string\"\n    },\n    {\n      \"officialId\": \"string\",\n      \"name\": \"string\",\n      \"title\": \"string\"\n    }\n  ],\n  \"url\": \"https://hFyvzarEzr.tfzxw7.L-9Bf-dmV5\",\n  \"createdAt\": \"1982-05-13T06:41:27.396Z\",\n  \"updatedAt\": \"1955-11-18T21:00:25.851Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ab3c68c6-338b-4088-9c46-7c579ea93c50",
+              "name": "Authentication credentials are missing or invalid.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organization",
+                    "v1",
+                    "organizations",
+                    ":organizationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "organizationId",
+                      "description": "(Required) The unique identifier of the organization."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 7820,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b338c896-1603-4e6f-83fb-5c07f87c2eea",
+              "name": "Organization not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organization",
+                    "v1",
+                    "organizations",
+                    ":organizationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "organizationId",
+                      "description": "(Required) The unique identifier of the organization."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 7820,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.fiscalnote.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "503e5489-c4a4-4a3e-b8f7-f177a6b074e0",
+    "name": "FiscalNote Organization API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The FiscalNote Organization API provides access to FiscalNote's data on government organizations in the United States and globally. It covers legislative committees, federal agencies, and other governmental bodies. Developers can use this API to retrieve structured information about government organizations, enabling integration of organizational data into policy tracking, compliance, and government relations applications.\n\nContact Support:\n Name: FiscalNote Support",
+      "type": "text/plain"
+    }
+  }
+}

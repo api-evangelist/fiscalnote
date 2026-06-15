@@ -1,0 +1,360 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "FiscalNote PolicyNote API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Legislation",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "FiscalNote List legislation",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.fiscalnote.com/policynote/v1/legislation",
+            "params": [
+              {
+                "name": "jurisdiction",
+                "value": "",
+                "type": "query",
+                "description": "Filter by jurisdiction code such as US, US-CA, GB, or EU."
+              },
+              {
+                "name": "session",
+                "value": "",
+                "type": "query",
+                "description": "Filter by legislative session identifier."
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "Filter by legislation status such as introduced, passed, enacted, or vetoed."
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Full-text search query to filter results."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of results to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to skip for pagination."
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sort order for results. Use field name with optional - prefix for descending order."
+              },
+              {
+                "name": "updatedSince",
+                "value": "",
+                "type": "query",
+                "description": "Return only records updated after this ISO 8601 datetime."
+              }
+            ]
+          },
+          "docs": "Returns a paginated list of legislation records matching the specified filter criteria. Results include bills, resolutions, and other legislative measures from federal, state, and international jurisdictions."
+        },
+        {
+          "info": {
+            "name": "FiscalNote Get legislation by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.fiscalnote.com/policynote/v1/legislation/:legislationId",
+            "params": [
+              {
+                "name": "legislationId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the legislation."
+              }
+            ]
+          },
+          "docs": "Returns detailed information about a specific piece of legislation including its full text, sponsors, co-sponsors, committee assignments, vote history, and current status."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Regulations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "FiscalNote List regulations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.fiscalnote.com/policynote/v1/regulations",
+            "params": [
+              {
+                "name": "jurisdiction",
+                "value": "",
+                "type": "query",
+                "description": "Filter by jurisdiction code such as US, US-CA, GB, or EU."
+              },
+              {
+                "name": "agency",
+                "value": "",
+                "type": "query",
+                "description": "Filter by issuing agency name or identifier."
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "Filter by regulation status such as proposed, final, or withdrawn."
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Full-text search query to filter results."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of results to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to skip for pagination."
+              },
+              {
+                "name": "updatedSince",
+                "value": "",
+                "type": "query",
+                "description": "Return only records updated after this ISO 8601 datetime."
+              }
+            ]
+          },
+          "docs": "Returns a paginated list of regulatory records including proposed rules, final rules, and notices from federal and state regulatory agencies."
+        },
+        {
+          "info": {
+            "name": "FiscalNote Get regulation by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.fiscalnote.com/policynote/v1/regulations/:regulationId",
+            "params": [
+              {
+                "name": "regulationId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the regulation."
+              }
+            ]
+          },
+          "docs": "Returns detailed information about a specific regulation including its full text, issuing agency, comment period, and current status."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Stakeholders",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "FiscalNote List stakeholders",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.fiscalnote.com/policynote/v1/stakeholders",
+            "params": [
+              {
+                "name": "jurisdiction",
+                "value": "",
+                "type": "query",
+                "description": "Filter by jurisdiction code such as US, US-CA, GB, or EU."
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Full-text search query to filter results."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of results to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to skip for pagination."
+              }
+            ]
+          },
+          "docs": "Returns a paginated list of stakeholder records including government officials, legislators, and other key policy actors."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Presidential Transcripts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "FiscalNote List presidential transcripts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.fiscalnote.com/policynote/v1/transcripts",
+            "params": [
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "Filter by transcript type such as executive_order, proclamation, press_statement, or public_remarks."
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Full-text search query to filter results."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of results to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to skip for pagination."
+              },
+              {
+                "name": "updatedSince",
+                "value": "",
+                "type": "query",
+                "description": "Return only records updated after this ISO 8601 datetime."
+              },
+              {
+                "name": "dateFrom",
+                "value": "",
+                "type": "query",
+                "description": "Filter transcripts from this date onward in ISO 8601 format."
+              },
+              {
+                "name": "dateTo",
+                "value": "",
+                "type": "query",
+                "description": "Filter transcripts up to this date in ISO 8601 format."
+              }
+            ]
+          },
+          "docs": "Returns a paginated list of presidential transcripts including executive orders, proclamations, press statements, and public remarks. This feed delivers primary-source, verified transcripts purpose-built for programmatic consumption to eliminate AI hallucinations."
+        },
+        {
+          "info": {
+            "name": "FiscalNote Get presidential transcript by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.fiscalnote.com/policynote/v1/transcripts/:transcriptId",
+            "params": [
+              {
+                "name": "transcriptId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the transcript."
+              }
+            ]
+          },
+          "docs": "Returns the full text and metadata of a specific presidential transcript, including the verified primary-source record of the communication."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Policy Intelligence",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "FiscalNote List policy impact summaries",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.fiscalnote.com/policynote/v1/intelligence/impact",
+            "params": [
+              {
+                "name": "jurisdiction",
+                "value": "",
+                "type": "query",
+                "description": "Filter by jurisdiction code such as US, US-CA, GB, or EU."
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Full-text search query to filter results."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of results to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to skip for pagination."
+              }
+            ]
+          },
+          "docs": "Returns AI-powered, personalized impact summaries that analyze how policy changes may affect specific industries, organizations, or compliance requirements."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

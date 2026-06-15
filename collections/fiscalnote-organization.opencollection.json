@@ -1,0 +1,201 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "FiscalNote Organization API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Organizations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "FiscalNote List government organizations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.fiscalnote.com/organization/v1/organizations",
+            "params": [
+              {
+                "name": "jurisdiction",
+                "value": "",
+                "type": "query",
+                "description": "Filter by jurisdiction code such as US, US-CA, GB, or EU."
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "Filter by organization type such as agency, committee, or department."
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Full-text search query to filter results."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of results to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to skip for pagination."
+              },
+              {
+                "name": "updatedSince",
+                "value": "",
+                "type": "query",
+                "description": "Return only records updated after this ISO 8601 datetime."
+              }
+            ]
+          },
+          "docs": "Returns a paginated list of government organizations including federal agencies, state agencies, legislative committees, and international governmental bodies."
+        },
+        {
+          "info": {
+            "name": "FiscalNote Get organization by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.fiscalnote.com/organization/v1/organizations/:organizationId",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the organization."
+              }
+            ]
+          },
+          "docs": "Returns detailed information about a specific government organization including its mandate, leadership, and sub-organizations."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Committees",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "FiscalNote List legislative committees",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.fiscalnote.com/organization/v1/committees",
+            "params": [
+              {
+                "name": "jurisdiction",
+                "value": "",
+                "type": "query",
+                "description": "Filter by jurisdiction code such as US, US-CA, GB, or EU."
+              },
+              {
+                "name": "chamber",
+                "value": "",
+                "type": "query",
+                "description": "Filter by legislative chamber."
+              },
+              {
+                "name": "committeeType",
+                "value": "",
+                "type": "query",
+                "description": "Filter by committee type."
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Full-text search query to filter results."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of results to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to skip for pagination."
+              }
+            ]
+          },
+          "docs": "Returns a paginated list of legislative committees from federal, state, and international legislatures including standing committees, select committees, and subcommittees."
+        },
+        {
+          "info": {
+            "name": "FiscalNote Get committee by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.fiscalnote.com/organization/v1/committees/:committeeId",
+            "params": [
+              {
+                "name": "committeeId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the committee."
+              }
+            ]
+          },
+          "docs": "Returns detailed information about a specific legislative committee including its members, jurisdiction, and subcommittees."
+        },
+        {
+          "info": {
+            "name": "FiscalNote List committee members",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.fiscalnote.com/organization/v1/committees/:committeeId/members",
+            "params": [
+              {
+                "name": "committeeId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the committee."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of results to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to skip for pagination."
+              }
+            ]
+          },
+          "docs": "Returns a paginated list of members serving on a specific legislative committee."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,231 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "FiscalNote People API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Officials",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "FiscalNote List government officials",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.fiscalnote.com/people/v2/officials",
+            "params": [
+              {
+                "name": "jurisdiction",
+                "value": "",
+                "type": "query",
+                "description": "Filter by jurisdiction code such as US, US-CA, GB, or EU."
+              },
+              {
+                "name": "chamber",
+                "value": "",
+                "type": "query",
+                "description": "Filter by legislative chamber such as senate or house."
+              },
+              {
+                "name": "party",
+                "value": "",
+                "type": "query",
+                "description": "Filter by political party affiliation."
+              },
+              {
+                "name": "state",
+                "value": "",
+                "type": "query",
+                "description": "Filter by U.S. state abbreviation."
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Full-text search query to filter results."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of results to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to skip for pagination."
+              },
+              {
+                "name": "updatedSince",
+                "value": "",
+                "type": "query",
+                "description": "Return only records updated after this ISO 8601 datetime."
+              }
+            ]
+          },
+          "docs": "Returns a paginated list of government officials including legislators, executives, and appointees from the United States and international jurisdictions."
+        },
+        {
+          "info": {
+            "name": "FiscalNote Get government official by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.fiscalnote.com/people/v2/officials/:officialId",
+            "params": [
+              {
+                "name": "officialId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the government official."
+              }
+            ]
+          },
+          "docs": "Returns detailed information about a specific government official including biography, contact details, committee assignments, and political affiliation."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Legislators",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "FiscalNote List legislators",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.fiscalnote.com/people/v2/legislators",
+            "params": [
+              {
+                "name": "jurisdiction",
+                "value": "",
+                "type": "query",
+                "description": "Filter by jurisdiction code such as US, US-CA, GB, or EU."
+              },
+              {
+                "name": "chamber",
+                "value": "",
+                "type": "query",
+                "description": "Filter by legislative chamber such as senate or house."
+              },
+              {
+                "name": "party",
+                "value": "",
+                "type": "query",
+                "description": "Filter by political party affiliation."
+              },
+              {
+                "name": "state",
+                "value": "",
+                "type": "query",
+                "description": "Filter by U.S. state abbreviation."
+              },
+              {
+                "name": "district",
+                "value": "",
+                "type": "query",
+                "description": "Filter by district number or identifier."
+              },
+              {
+                "name": "active",
+                "value": "",
+                "type": "query",
+                "description": "Filter by active status. Set to true for currently serving legislators."
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Full-text search query to filter results."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of results to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to skip for pagination."
+              }
+            ]
+          },
+          "docs": "Returns a paginated list of current and former legislators from federal, state, and international legislatures."
+        },
+        {
+          "info": {
+            "name": "FiscalNote Get legislator by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.fiscalnote.com/people/v2/legislators/:legislatorId",
+            "params": [
+              {
+                "name": "legislatorId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the legislator."
+              }
+            ]
+          },
+          "docs": "Returns detailed information about a specific legislator including biography, voting record, sponsored legislation, and committee memberships."
+        },
+        {
+          "info": {
+            "name": "FiscalNote List legislator votes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.fiscalnote.com/people/v2/legislators/:legislatorId/votes",
+            "params": [
+              {
+                "name": "legislatorId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the legislator."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of results to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to skip for pagination."
+              }
+            ]
+          },
+          "docs": "Returns a paginated list of votes cast by a specific legislator."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
