@@ -1,0 +1,275 @@
+generated: '2026-07-15'
+method: generated
+source: openapi/fiscalnote-appdata-openapi.yml, openapi/fiscalnote-organization-openapi.yml,
+  openapi/fiscalnote-people-openapi.yml, openapi/fiscalnote-policynote-openapi.yml
+description: Recommended x-agentic-access execution contracts, classified heuristically from
+  the OpenAPI. A governance starting point for exposing this API to AI agents — review and bind
+  audience per deployment. See research/curity/agentic-governance/.
+summary:
+  operations: 26
+  by_action_class:
+    connected: 26
+  by_consequence:
+    read: 26
+  human_in_the_loop_required: 0
+operations:
+- path: /appdata/v1/bills
+  method: get
+  operationId: listBills
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /appdata/v1/bills/{billId}
+  method: get
+  operationId: getBill
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /appdata/v1/issues
+  method: get
+  operationId: listIssues
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /appdata/v1/issues/{issueId}
+  method: get
+  operationId: getIssue
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /appdata/v1/labels
+  method: get
+  operationId: listLabels
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /appdata/v1/labels/{labelId}
+  method: get
+  operationId: getLabel
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /appdata/v1/regulatory-documents
+  method: get
+  operationId: listRegulatoryDocuments
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /appdata/v1/regulatory-documents/{documentId}
+  method: get
+  operationId: getRegulatoryDocument
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /organization/v1/organizations
+  method: get
+  operationId: listOrganizations
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /organization/v1/organizations/{organizationId}
+  method: get
+  operationId: getOrganization
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /organization/v1/committees
+  method: get
+  operationId: listCommittees
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /organization/v1/committees/{committeeId}
+  method: get
+  operationId: getCommittee
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /organization/v1/committees/{committeeId}/members
+  method: get
+  operationId: listCommitteeMembers
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /people/v2/officials
+  method: get
+  operationId: listOfficials
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /people/v2/officials/{officialId}
+  method: get
+  operationId: getOfficial
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /people/v2/legislators
+  method: get
+  operationId: listLegislators
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /people/v2/legislators/{legislatorId}
+  method: get
+  operationId: getLegislator
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /people/v2/legislators/{legislatorId}/votes
+  method: get
+  operationId: listLegislatorVotes
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /policynote/v1/legislation
+  method: get
+  operationId: listLegislation
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /policynote/v1/legislation/{legislationId}
+  method: get
+  operationId: getLegislation
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /policynote/v1/regulations
+  method: get
+  operationId: listRegulations
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /policynote/v1/regulations/{regulationId}
+  method: get
+  operationId: getRegulation
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /policynote/v1/stakeholders
+  method: get
+  operationId: listStakeholders
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /policynote/v1/transcripts
+  method: get
+  operationId: listPresidentialTranscripts
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /policynote/v1/transcripts/{transcriptId}
+  method: get
+  operationId: getPresidentialTranscript
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /policynote/v1/intelligence/impact
+  method: get
+  operationId: listPolicyImpactSummaries
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none

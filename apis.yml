@@ -99,6 +99,8 @@ apis:
       can use this API to retrieve structured information about government organizations, enabling integration of
       organizational data into policy tracking, compliance, and government relations applications.
 common:
+  - type: AgenticAccess
+    url: agentic-access/fiscalnote-agentic-access.yml
   - type: DomainSecurity
     url: security/fiscalnote-domain-security.yml
   - type: Authentication
