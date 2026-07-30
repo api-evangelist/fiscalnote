@@ -2,7 +2,20 @@ aid: fiscalnote
 url: https://raw.githubusercontent.com/api-evangelist/fiscalnote/refs/heads/main/apis.yml
 name: FiscalNote
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: paid
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Paid · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/fiscalnote.png
 tags:
   - Government
   - Legislation
@@ -17,87 +30,198 @@ created: '2026-03-24'
 modified: '2026-05-19'
 specificationVersion: '0.19'
 apis:
-  - aid: fiscalnote:policynote-api
-    name: FiscalNote PolicyNote API
-    tags:
-      - AI Agents
-      - Compliance
-      - Legislation
-      - MCP
-      - Policy
-      - Regulation
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    baseURL: https://api.fiscalnote.com
-    humanURL: https://fiscalnote.com/products/policynote-api
-    properties:
-      - url: https://fiscalnote.com/products/policynote-api
-        type: Documentation
-      - url: openapi/fiscalnote-policynote-openapi.yml
-        type: OpenAPI
-    description: >-
-      The FiscalNote PolicyNote API delivers programmatic access to legislative, regulatory, and stakeholder
-      intelligence datasets spanning Congress, all 50 U.S. states, and more than 100 countries through a secure,
-      governed architecture designed for machine consumption. The API includes an MCP server enabling MCP-compatible AI
-      agents from platforms such as Anthropic, OpenAI, Google Gemini, and Microsoft to query structured policy data,
-      verified analysis, and real-time monitoring signals.
-  - aid: fiscalnote:appdata-api
-    name: FiscalNote AppData API
-    tags:
-      - Bills
-      - Government Data
-      - Legislation
-      - Regulation
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    baseURL: https://api.fiscalnote.com
-    humanURL: https://apidocs.fiscalnote.com/apis
-    properties:
-      - url: https://apidocs.fiscalnote.com/apis
-        type: Documentation
-      - url: openapi/fiscalnote-appdata-openapi.yml
-        type: OpenAPI
-    description: >-
-      The FiscalNote AppData API provides access to FiscalNote's data on legislation and regulations, both past and
-      present, in the United States and globally. It also exposes organizational data from the FiscalNote platform
-      including issues and labels. Developers can use the API to integrate legislative tracking, regulatory monitoring,
-      and policy analysis capabilities into their own applications and workflows.
-  - aid: fiscalnote:people-api
-    name: FiscalNote People API
-    tags:
-      - Government Officials
-      - Legislators
-      - Politicians
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    baseURL: https://api.fiscalnote.com
-    humanURL: https://apidocs.fiscalnote.com/apis
-    properties:
-      - url: https://apidocs.fiscalnote.com/apis
-        type: Documentation
-      - url: openapi/fiscalnote-people-openapi.yml
-        type: OpenAPI
-    description: >-
-      The FiscalNote People API allows developers to access FiscalNote's data on government officials in the United
-      States and globally. The API provides structured information about legislators, elected officials, and other
-      government personnel, enabling applications to look up representatives, track official profiles, and integrate
-      government personnel data into political intelligence and advocacy workflows.
-  - aid: fiscalnote:organization-api
-    name: FiscalNote Organization API
-    tags:
-      - Committees
-      - Federal Agencies
-      - Government Organizations
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    baseURL: https://api.fiscalnote.com
-    humanURL: https://apidocs.fiscalnote.com/apis
-    properties:
-      - url: https://apidocs.fiscalnote.com/apis
-        type: Documentation
-      - url: openapi/fiscalnote-organization-openapi.yml
-        type: OpenAPI
-    description: >-
-      The FiscalNote Organization API provides access to FiscalNote's data on government organizations in the United
-      States and globally. It covers legislative committees, federal agencies, and other governmental bodies. Developers
-      can use this API to retrieve structured information about government organizations, enabling integration of
-      organizational data into policy tracking, compliance, and government relations applications.
+- aid: fiscalnote:fiscalnote-bills-api
+  name: FiscalNote Bills API
+  description: Access legislation and bill data from federal, state, and international jurisdictions.
+  humanURL: https://fiscalnote.com/products/policynote-api
+  baseURL: https://api.fiscalnote.com
+  tags:
+  - Bills
+  properties:
+  - type: OpenAPI
+    url: openapi/fiscalnote-bills-api-openapi.yml
+  - type: Documentation
+    url: https://fiscalnote.com/products/policynote-api
+  - type: Documentation
+    url: https://apidocs.fiscalnote.com/apis
+- aid: fiscalnote:fiscalnote-committees-api
+  name: FiscalNote Committees API
+  description: Access legislative committee records including membership and jurisdiction information.
+  humanURL: https://fiscalnote.com/products/policynote-api
+  baseURL: https://api.fiscalnote.com
+  tags:
+  - Committees
+  properties:
+  - type: OpenAPI
+    url: openapi/fiscalnote-committees-api-openapi.yml
+  - type: Documentation
+    url: https://fiscalnote.com/products/policynote-api
+  - type: Documentation
+    url: https://apidocs.fiscalnote.com/apis
+- aid: fiscalnote:fiscalnote-issues-api
+  name: FiscalNote Issues API
+  description: >-
+    Manage and retrieve organizational issues for tracking policy topics and legislative priorities.
+  humanURL: https://fiscalnote.com/products/policynote-api
+  baseURL: https://api.fiscalnote.com
+  tags:
+  - Issues
+  properties:
+  - type: OpenAPI
+    url: openapi/fiscalnote-issues-api-openapi.yml
+  - type: Documentation
+    url: https://fiscalnote.com/products/policynote-api
+  - type: Documentation
+    url: https://apidocs.fiscalnote.com/apis
+- aid: fiscalnote:fiscalnote-labels-api
+  name: FiscalNote Labels API
+  description: Manage and retrieve labels used to categorize and organize legislation and policy items.
+  humanURL: https://fiscalnote.com/products/policynote-api
+  baseURL: https://api.fiscalnote.com
+  tags:
+  - Labels
+  properties:
+  - type: OpenAPI
+    url: openapi/fiscalnote-labels-api-openapi.yml
+  - type: Documentation
+    url: https://fiscalnote.com/products/policynote-api
+  - type: Documentation
+    url: https://apidocs.fiscalnote.com/apis
+- aid: fiscalnote:fiscalnote-legislation-api
+  name: FiscalNote Legislation API
+  description: >-
+    Access legislative data spanning Congress, all 50 U.S. states, and international jurisdictions.
+  humanURL: https://fiscalnote.com/products/policynote-api
+  baseURL: https://api.fiscalnote.com
+  tags:
+  - Legislation
+  properties:
+  - type: OpenAPI
+    url: openapi/fiscalnote-legislation-api-openapi.yml
+  - type: Documentation
+    url: https://fiscalnote.com/products/policynote-api
+  - type: Documentation
+    url: https://apidocs.fiscalnote.com/apis
+- aid: fiscalnote:fiscalnote-legislators-api
+  name: FiscalNote Legislators API
+  description: >-
+    Access legislator-specific data including voting records, sponsored legislation, and committee memberships.
+  humanURL: https://fiscalnote.com/products/policynote-api
+  baseURL: https://api.fiscalnote.com
+  tags:
+  - Legislators
+  properties:
+  - type: OpenAPI
+    url: openapi/fiscalnote-legislators-api-openapi.yml
+  - type: Documentation
+    url: https://fiscalnote.com/products/policynote-api
+  - type: Documentation
+    url: https://apidocs.fiscalnote.com/apis
+- aid: fiscalnote:fiscalnote-officials-api
+  name: FiscalNote Officials API
+  description: Access government official profiles including legislators, executives, and appointees.
+  humanURL: https://fiscalnote.com/products/policynote-api
+  baseURL: https://api.fiscalnote.com
+  tags:
+  - Officials
+  properties:
+  - type: OpenAPI
+    url: openapi/fiscalnote-officials-api-openapi.yml
+  - type: Documentation
+    url: https://fiscalnote.com/products/policynote-api
+  - type: Documentation
+    url: https://apidocs.fiscalnote.com/apis
+- aid: fiscalnote:fiscalnote-organizations-api
+  name: FiscalNote Organizations API
+  description: >-
+    Access government organization records including agencies, departments, and independent bodies.
+  humanURL: https://fiscalnote.com/products/policynote-api
+  baseURL: https://api.fiscalnote.com
+  tags:
+  - Organizations
+  properties:
+  - type: OpenAPI
+    url: openapi/fiscalnote-organizations-api-openapi.yml
+  - type: Documentation
+    url: https://fiscalnote.com/products/policynote-api
+  - type: Documentation
+    url: https://apidocs.fiscalnote.com/apis
+- aid: fiscalnote:fiscalnote-policy-intelligence-api
+  name: FiscalNote Policy Intelligence API
+  description: >-
+    Access AI-powered policy analysis, impact summaries, and monitoring signals for policy changes.
+  humanURL: https://fiscalnote.com/products/policynote-api
+  baseURL: https://api.fiscalnote.com
+  tags:
+  - Policy Intelligence
+  properties:
+  - type: OpenAPI
+    url: openapi/fiscalnote-policy-intelligence-api-openapi.yml
+  - type: Documentation
+    url: https://fiscalnote.com/products/policynote-api
+  - type: Documentation
+    url: https://apidocs.fiscalnote.com/apis
+- aid: fiscalnote:fiscalnote-presidential-transcripts-api
+  name: FiscalNote Presidential Transcripts API
+  description: >-
+    Access the real-time presidential transcript feed delivering primary-source transcripts of presidential
+    communications.
+  humanURL: https://fiscalnote.com/products/policynote-api
+  baseURL: https://api.fiscalnote.com
+  tags:
+  - Presidential Transcripts
+  properties:
+  - type: OpenAPI
+    url: openapi/fiscalnote-presidential-transcripts-api-openapi.yml
+  - type: Documentation
+    url: https://fiscalnote.com/products/policynote-api
+  - type: Documentation
+    url: https://apidocs.fiscalnote.com/apis
+- aid: fiscalnote:fiscalnote-regulations-api
+  name: FiscalNote Regulations API
+  description: >-
+    Access regulatory data including proposed and final rules across federal and state agencies.
+  humanURL: https://fiscalnote.com/products/policynote-api
+  baseURL: https://api.fiscalnote.com
+  tags:
+  - Regulations
+  properties:
+  - type: OpenAPI
+    url: openapi/fiscalnote-regulations-api-openapi.yml
+  - type: Documentation
+    url: https://fiscalnote.com/products/policynote-api
+  - type: Documentation
+    url: https://apidocs.fiscalnote.com/apis
+- aid: fiscalnote:fiscalnote-regulatory-documents-api
+  name: FiscalNote Regulatory Documents API
+  description: >-
+    Access regulatory documents including proposed rules, final rules, and notices from government agencies.
+  humanURL: https://fiscalnote.com/products/policynote-api
+  baseURL: https://api.fiscalnote.com
+  tags:
+  - Regulatory Documents
+  properties:
+  - type: OpenAPI
+    url: openapi/fiscalnote-regulatory-documents-api-openapi.yml
+  - type: Documentation
+    url: https://fiscalnote.com/products/policynote-api
+  - type: Documentation
+    url: https://apidocs.fiscalnote.com/apis
+- aid: fiscalnote:fiscalnote-stakeholders-api
+  name: FiscalNote Stakeholders API
+  description: >-
+    Access stakeholder intelligence including government officials and organizational relationships.
+  humanURL: https://fiscalnote.com/products/policynote-api
+  baseURL: https://api.fiscalnote.com
+  tags:
+  - Stakeholders
+  properties:
+  - type: OpenAPI
+    url: openapi/fiscalnote-stakeholders-api-openapi.yml
+  - type: Documentation
+    url: https://fiscalnote.com/products/policynote-api
+  - type: Documentation
+    url: https://apidocs.fiscalnote.com/apis
 common:
   - type: AgenticAccess
     url: agentic-access/fiscalnote-agentic-access.yml
