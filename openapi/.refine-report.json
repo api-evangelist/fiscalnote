@@ -1,0 +1,38 @@
+{
+  "provider": "fiscalnote",
+  "sources": [
+    "fiscalnote-bills-api-openapi.yml",
+    "fiscalnote-committees-api-openapi.yml",
+    "fiscalnote-issues-api-openapi.yml",
+    "fiscalnote-labels-api-openapi.yml",
+    "fiscalnote-legislation-api-openapi.yml",
+    "fiscalnote-legislators-api-openapi.yml",
+    "fiscalnote-officials-api-openapi.yml",
+    "fiscalnote-organizations-api-openapi.yml",
+    "fiscalnote-policy-intelligence-api-openapi.yml",
+    "fiscalnote-presidential-transcripts-api-openapi.yml",
+    "fiscalnote-regulations-api-openapi.yml",
+    "fiscalnote-regulatory-documents-api-openapi.yml",
+    "fiscalnote-stakeholders-api-openapi.yml"
+  ],
+  "outputs": [
+    "fiscalnote-bills-api-openapi.yml",
+    "fiscalnote-committees-api-openapi.yml",
+    "fiscalnote-issues-api-openapi.yml",
+    "fiscalnote-labels-api-openapi.yml",
+    "fiscalnote-legislation-api-openapi.yml",
+    "fiscalnote-legislators-api-openapi.yml",
+    "fiscalnote-officials-api-openapi.yml",
+    "fiscalnote-organizations-api-openapi.yml",
+    "fiscalnote-policy-intelligence-api-openapi.yml",
+    "fiscalnote-presidential-transcripts-api-openapi.yml",
+    "fiscalnote-regulations-api-openapi.yml",
+    "fiscalnote-regulatory-documents-api-openapi.yml",
+    "fiscalnote-stakeholders-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
