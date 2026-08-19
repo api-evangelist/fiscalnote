@@ -1,0 +1,577 @@
+{
+  "item": [
+    {
+      "id": "b0fb2ddf-f8e4-449f-a5e9-b70a053461a2",
+      "name": "Legislation",
+      "description": {
+        "content": "Access legislative data spanning Congress, all 50 U.S. states, and international jurisdictions.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4979dab1-d43a-42fd-8198-6e10acf3d0a7",
+          "name": "FiscalNote List legislation",
+          "request": {
+            "name": "FiscalNote List legislation",
+            "description": {
+              "content": "Returns a paginated list of legislation records matching the specified filter criteria. Results include bills, resolutions, and other legislative measures from federal, state, and international jurisdictions.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "policynote",
+                "v1",
+                "legislation"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "jurisdiction",
+                  "value": "<string>",
+                  "description": "Filter by jurisdiction code such as US, US-CA, GB, or EU."
+                },
+                {
+                  "disabled": false,
+                  "key": "session",
+                  "value": "<string>",
+                  "description": "Filter by legislative session identifier."
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>",
+                  "description": "Filter by legislation status such as introduced, passed, enacted, or vetoed."
+                },
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "Full-text search query to filter results."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "25",
+                  "description": "Maximum number of results to return per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Number of results to skip for pagination."
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "Sort order for results. Use field name with optional - prefix for descending order."
+                },
+                {
+                  "disabled": false,
+                  "key": "updatedSince",
+                  "value": "<dateTime>",
+                  "description": "Return only records updated after this ISO 8601 datetime."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f40832bc-41d2-4e86-bed5-ad9fb345bbe4",
+              "name": "A paginated list of legislation records.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "policynote",
+                    "v1",
+                    "legislation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "jurisdiction",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "session",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "25"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "updatedSince",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": \"string\",\n      \"title\": \"string\",\n      \"shortTitle\": \"string\",\n      \"number\": \"string\",\n      \"type\": \"concurrent_resolution\",\n      \"jurisdiction\": \"string\",\n      \"session\": \"string\",\n      \"status\": \"string\",\n      \"introducedDate\": \"2003-09-17\",\n      \"lastActionDate\": \"2005-05-13\",\n      \"lastAction\": \"string\",\n      \"sponsors\": [\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"role\": \"primary\",\n          \"party\": \"string\",\n          \"jurisdiction\": \"string\"\n        },\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"role\": \"cosponsor\",\n          \"party\": \"string\",\n          \"jurisdiction\": \"string\"\n        }\n      ],\n      \"committees\": [\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"chamber\": \"string\"\n        },\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"chamber\": \"string\"\n        }\n      ],\n      \"subjects\": [\n        \"string\",\n        \"string\"\n      ],\n      \"summary\": \"string\",\n      \"fullTextUrl\": \"http://NHxDqWKGgZwOINq.qac1,ofxJEniENpZrj48bVTCHJfst4hfh6-8u8M2tL\",\n      \"url\": \"https://fbWKpqjmeMRoASmvRSIoVODXShzBmMbYL.hxqamIQUl7XljWNS7jN.3MkhjHPWJi55kQ\",\n      \"createdAt\": \"2025-02-16T06:05:18.818Z\",\n      \"updatedAt\": \"2014-05-11T19:01:50.628Z\"\n    },\n    {\n      \"id\": \"string\",\n      \"title\": \"string\",\n      \"shortTitle\": \"string\",\n      \"number\": \"string\",\n      \"type\": \"resolution\",\n      \"jurisdiction\": \"string\",\n      \"session\": \"string\",\n      \"status\": \"string\",\n      \"introducedDate\": \"1999-08-26\",\n      \"lastActionDate\": \"1985-01-28\",\n      \"lastAction\": \"string\",\n      \"sponsors\": [\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"role\": \"cosponsor\",\n          \"party\": \"string\",\n          \"jurisdiction\": \"string\"\n        },\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"role\": \"cosponsor\",\n          \"party\": \"string\",\n          \"jurisdiction\": \"string\"\n        }\n      ],\n      \"committees\": [\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"chamber\": \"string\"\n        },\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"chamber\": \"string\"\n        }\n      ],\n      \"subjects\": [\n        \"string\",\n        \"string\"\n      ],\n      \"summary\": \"string\",\n      \"fullTextUrl\": \"https://omeTjRmJrObgGsPbmML.unqyiJQFlXQhuNMYEU0M+nkku9RcaK\",\n      \"url\": \"http://fhvPLDysczgwW.ajmBuIEgGO-toLLNS1WeGhOLsDEtNCyrOEO.bZ-m8RE1lVGMLGLKhbohx\",\n      \"createdAt\": \"2014-10-03T15:14:41.081Z\",\n      \"updatedAt\": \"1993-02-28T01:52:14.549Z\"\n    }\n  ],\n  \"pagination\": {\n    \"total\": 7702,\n    \"limit\": 6985,\n    \"offset\": 8703,\n    \"hasMore\": false\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d973708f-9582-430f-9914-76c401ee3ca5",
+              "name": "Authentication credentials are missing or invalid.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "policynote",
+                    "v1",
+                    "legislation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "jurisdiction",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "session",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "25"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "updatedSince",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 7657,\n  \"message\": \"string\",\n  \"details\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "45b80e18-45f9-461b-8dfe-91b256cba2eb",
+              "name": "Rate limit exceeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "policynote",
+                    "v1",
+                    "legislation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "jurisdiction",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "session",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "25"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "updatedSince",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 7657,\n  \"message\": \"string\",\n  \"details\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d47e7dfd-09d1-48d6-b2c5-91abc896dbfc",
+          "name": "FiscalNote Get legislation by ID",
+          "request": {
+            "name": "FiscalNote Get legislation by ID",
+            "description": {
+              "content": "Returns detailed information about a specific piece of legislation including its full text, sponsors, co-sponsors, committee assignments, vote history, and current status.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "policynote",
+                "v1",
+                "legislation",
+                ":legislationId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "legislationId",
+                  "description": "(Required) The unique identifier of the legislation."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "21681972-97e4-440d-be76-7b9806a33a2e",
+              "name": "Detailed legislation record.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "policynote",
+                    "v1",
+                    "legislation",
+                    ":legislationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "legislationId",
+                      "description": "(Required) The unique identifier of the legislation."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"title\": \"string\",\n  \"shortTitle\": \"string\",\n  \"number\": \"string\",\n  \"type\": \"resolution\",\n  \"jurisdiction\": \"string\",\n  \"session\": \"string\",\n  \"status\": \"string\",\n  \"introducedDate\": \"2018-11-08\",\n  \"lastActionDate\": \"1996-10-06\",\n  \"lastAction\": \"string\",\n  \"sponsors\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"role\": \"primary\",\n      \"party\": \"string\",\n      \"jurisdiction\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"role\": \"primary\",\n      \"party\": \"string\",\n      \"jurisdiction\": \"string\"\n    }\n  ],\n  \"committees\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"chamber\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"chamber\": \"string\"\n    }\n  ],\n  \"subjects\": [\n    \"string\",\n    \"string\"\n  ],\n  \"summary\": \"string\",\n  \"fullTextUrl\": \"http://aLqcR.codnXEemg2cl9MfnVydzMvlR-GZeCcR1kbTTn\",\n  \"url\": \"http://nUsTktQPfKtOYlLSCKXumqNfJ.dnv9RfsxEn6QHOePDdk,ypMS\",\n  \"createdAt\": \"1953-04-17T03:45:10.195Z\",\n  \"updatedAt\": \"1961-11-06T20:44:34.099Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a4f12370-7530-4db5-b65d-dc09df9bb4ba",
+              "name": "Authentication credentials are missing or invalid.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "policynote",
+                    "v1",
+                    "legislation",
+                    ":legislationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "legislationId",
+                      "description": "(Required) The unique identifier of the legislation."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 7657,\n  \"message\": \"string\",\n  \"details\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8acee82f-3c7d-4b2b-a19b-e3df6416f428",
+              "name": "Legislation not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "policynote",
+                    "v1",
+                    "legislation",
+                    ":legislationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "legislationId",
+                      "description": "(Required) The unique identifier of the legislation."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 7657,\n  \"message\": \"string\",\n  \"details\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.fiscalnote.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "da43a056-7958-481e-8641-324e05f21a79",
+    "name": "FiscalNote AppData Bills Legislation API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The FiscalNote AppData API provides access to FiscalNote's data on legislation and regulations, both past and present, in the United States and globally. It also exposes organizational data from the FiscalNote platform including issues and labels. Developers can use the API to integrate legislative tracking, regulatory monitoring, and policy analysis capabilities into their own applications and workflows.\n\nContact Support:\n Name: FiscalNote Support",
+      "type": "text/plain"
+    }
+  }
+}

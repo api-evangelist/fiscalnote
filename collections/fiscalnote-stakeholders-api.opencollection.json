@@ -1,0 +1,63 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "FiscalNote AppData Bills Stakeholders API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Stakeholders",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "FiscalNote List stakeholders",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.fiscalnote.com/policynote/v1/stakeholders",
+            "params": [
+              {
+                "name": "jurisdiction",
+                "value": "",
+                "type": "query",
+                "description": "Filter by jurisdiction code such as US, US-CA, GB, or EU."
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Full-text search query to filter results."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of results to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to skip for pagination."
+              }
+            ]
+          },
+          "docs": "Returns a paginated list of stakeholder records including government officials, legislators, and other key policy actors."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

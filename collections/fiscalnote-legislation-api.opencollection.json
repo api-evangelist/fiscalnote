@@ -1,0 +1,106 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "FiscalNote AppData Bills Legislation API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Legislation",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "FiscalNote List legislation",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.fiscalnote.com/policynote/v1/legislation",
+            "params": [
+              {
+                "name": "jurisdiction",
+                "value": "",
+                "type": "query",
+                "description": "Filter by jurisdiction code such as US, US-CA, GB, or EU."
+              },
+              {
+                "name": "session",
+                "value": "",
+                "type": "query",
+                "description": "Filter by legislative session identifier."
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "Filter by legislation status such as introduced, passed, enacted, or vetoed."
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Full-text search query to filter results."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of results to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to skip for pagination."
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sort order for results. Use field name with optional - prefix for descending order."
+              },
+              {
+                "name": "updatedSince",
+                "value": "",
+                "type": "query",
+                "description": "Return only records updated after this ISO 8601 datetime."
+              }
+            ]
+          },
+          "docs": "Returns a paginated list of legislation records matching the specified filter criteria. Results include bills, resolutions, and other legislative measures from federal, state, and international jurisdictions."
+        },
+        {
+          "info": {
+            "name": "FiscalNote Get legislation by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.fiscalnote.com/policynote/v1/legislation/:legislationId",
+            "params": [
+              {
+                "name": "legislationId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the legislation."
+              }
+            ]
+          },
+          "docs": "Returns detailed information about a specific piece of legislation including its full text, sponsors, co-sponsors, committee assignments, vote history, and current status."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

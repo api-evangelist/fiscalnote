@@ -1,0 +1,100 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "FiscalNote AppData Bills Presidential Transcripts API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Presidential Transcripts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "FiscalNote List presidential transcripts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.fiscalnote.com/policynote/v1/transcripts",
+            "params": [
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "Filter by transcript type such as executive_order, proclamation, press_statement, or public_remarks."
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Full-text search query to filter results."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of results to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to skip for pagination."
+              },
+              {
+                "name": "updatedSince",
+                "value": "",
+                "type": "query",
+                "description": "Return only records updated after this ISO 8601 datetime."
+              },
+              {
+                "name": "dateFrom",
+                "value": "",
+                "type": "query",
+                "description": "Filter transcripts from this date onward in ISO 8601 format."
+              },
+              {
+                "name": "dateTo",
+                "value": "",
+                "type": "query",
+                "description": "Filter transcripts up to this date in ISO 8601 format."
+              }
+            ]
+          },
+          "docs": "Returns a paginated list of presidential transcripts including executive orders, proclamations, press statements, and public remarks. This feed delivers primary-source, verified transcripts purpose-built for programmatic consumption to eliminate AI hallucinations."
+        },
+        {
+          "info": {
+            "name": "FiscalNote Get presidential transcript by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.fiscalnote.com/policynote/v1/transcripts/:transcriptId",
+            "params": [
+              {
+                "name": "transcriptId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the transcript."
+              }
+            ]
+          },
+          "docs": "Returns the full text and metadata of a specific presidential transcript, including the verified primary-source record of the communication."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,100 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "FiscalNote AppData Bills API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Bills",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "FiscalNote List bills",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.fiscalnote.com/appdata/v1/bills",
+            "params": [
+              {
+                "name": "jurisdiction",
+                "value": "",
+                "type": "query",
+                "description": "Filter by jurisdiction code such as US, US-CA, GB, or EU."
+              },
+              {
+                "name": "session",
+                "value": "",
+                "type": "query",
+                "description": "Filter by legislative session identifier."
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "Filter by legislation status."
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Full-text search query to filter results."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of results to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to skip for pagination."
+              },
+              {
+                "name": "updatedSince",
+                "value": "",
+                "type": "query",
+                "description": "Return only records updated after this ISO 8601 datetime."
+              }
+            ]
+          },
+          "docs": "Returns a paginated list of bills and legislative measures. Supports filtering by jurisdiction, session, status, keyword search, and other criteria. Results include both current and historical legislation from the US and international jurisdictions."
+        },
+        {
+          "info": {
+            "name": "FiscalNote Get bill by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.fiscalnote.com/appdata/v1/bills/:billId",
+            "params": [
+              {
+                "name": "billId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the bill."
+              }
+            ]
+          },
+          "docs": "Returns detailed information about a specific bill including its full text, sponsors, committee assignments, vote history, and current status."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

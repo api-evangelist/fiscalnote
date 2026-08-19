@@ -1,0 +1,301 @@
+{
+  "item": [
+    {
+      "id": "7f7e7ac2-d8a5-4a2c-aaec-ecc2755e139e",
+      "name": "Policy Intelligence",
+      "description": {
+        "content": "Access AI-powered policy analysis, impact summaries, and monitoring signals for policy changes.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0aa04e4a-735b-4b9c-90cd-ba12d744abde",
+          "name": "FiscalNote List policy impact summaries",
+          "request": {
+            "name": "FiscalNote List policy impact summaries",
+            "description": {
+              "content": "Returns AI-powered, personalized impact summaries that analyze how policy changes may affect specific industries, organizations, or compliance requirements.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "policynote",
+                "v1",
+                "intelligence",
+                "impact"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "jurisdiction",
+                  "value": "<string>",
+                  "description": "Filter by jurisdiction code such as US, US-CA, GB, or EU."
+                },
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "Full-text search query to filter results."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "25",
+                  "description": "Maximum number of results to return per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Number of results to skip for pagination."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cdaa09fc-45c0-4a3c-8d47-f57325289288",
+              "name": "A paginated list of policy impact summaries.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "policynote",
+                    "v1",
+                    "intelligence",
+                    "impact"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "jurisdiction",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "25"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": \"string\",\n      \"policyId\": \"string\",\n      \"policyTitle\": \"string\",\n      \"jurisdiction\": \"string\",\n      \"summary\": \"string\",\n      \"impactAreas\": [\n        \"string\",\n        \"string\"\n      ],\n      \"severity\": \"critical\",\n      \"createdAt\": \"1992-08-26T23:14:42.901Z\"\n    },\n    {\n      \"id\": \"string\",\n      \"policyId\": \"string\",\n      \"policyTitle\": \"string\",\n      \"jurisdiction\": \"string\",\n      \"summary\": \"string\",\n      \"impactAreas\": [\n        \"string\",\n        \"string\"\n      ],\n      \"severity\": \"high\",\n      \"createdAt\": \"1977-08-18T04:28:32.443Z\"\n    }\n  ],\n  \"pagination\": {\n    \"total\": 4486,\n    \"limit\": 9934,\n    \"offset\": 7688,\n    \"hasMore\": false\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f4825ecf-b3f9-4918-8c83-05d944a6dc3f",
+              "name": "Authentication credentials are missing or invalid.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "policynote",
+                    "v1",
+                    "intelligence",
+                    "impact"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "jurisdiction",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "25"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 2181,\n  \"message\": \"string\",\n  \"details\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fc551414-06f8-44b7-87f3-7f0c66125ab9",
+              "name": "Rate limit exceeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "policynote",
+                    "v1",
+                    "intelligence",
+                    "impact"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "jurisdiction",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "25"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 2181,\n  \"message\": \"string\",\n  \"details\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.fiscalnote.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "d34662a3-e11a-4c91-a49d-1b012a31f8e1",
+    "name": "FiscalNote AppData Bills Policy Intelligence API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The FiscalNote AppData API provides access to FiscalNote's data on legislation and regulations, both past and present, in the United States and globally. It also exposes organizational data from the FiscalNote platform including issues and labels. Developers can use the API to integrate legislative tracking, regulatory monitoring, and policy analysis capabilities into their own applications and workflows.\n\nContact Support:\n Name: FiscalNote Support",
+      "type": "text/plain"
+    }
+  }
+}

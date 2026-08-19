@@ -1,0 +1,559 @@
+{
+  "item": [
+    {
+      "id": "af0cb54f-be33-4550-a879-7cfdce807b26",
+      "name": "Regulations",
+      "description": {
+        "content": "Access regulatory data including proposed and final rules across federal and state agencies.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f1550f07-b39a-4219-9ecb-c5c8a6dcc251",
+          "name": "FiscalNote List regulations",
+          "request": {
+            "name": "FiscalNote List regulations",
+            "description": {
+              "content": "Returns a paginated list of regulatory records including proposed rules, final rules, and notices from federal and state regulatory agencies.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "policynote",
+                "v1",
+                "regulations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "jurisdiction",
+                  "value": "<string>",
+                  "description": "Filter by jurisdiction code such as US, US-CA, GB, or EU."
+                },
+                {
+                  "disabled": false,
+                  "key": "agency",
+                  "value": "<string>",
+                  "description": "Filter by issuing agency name or identifier."
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>",
+                  "description": "Filter by regulation status such as proposed, final, or withdrawn."
+                },
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "Full-text search query to filter results."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "25",
+                  "description": "Maximum number of results to return per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Number of results to skip for pagination."
+                },
+                {
+                  "disabled": false,
+                  "key": "updatedSince",
+                  "value": "<dateTime>",
+                  "description": "Return only records updated after this ISO 8601 datetime."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "275a944e-243d-40fe-b430-1614e4d090e4",
+              "name": "A paginated list of regulation records.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "policynote",
+                    "v1",
+                    "regulations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "jurisdiction",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "agency",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "25"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "updatedSince",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": \"string\",\n      \"title\": \"string\",\n      \"agency\": \"string\",\n      \"type\": \"notice\",\n      \"status\": \"string\",\n      \"jurisdiction\": \"string\",\n      \"publishedDate\": \"1961-05-04\",\n      \"effectiveDate\": \"1968-12-05\",\n      \"commentPeriodEnd\": \"1983-07-31\",\n      \"summary\": \"string\",\n      \"fullTextUrl\": \"http://gKuqrsUqRcSWdMnjQjOwRTeONYa.ifoufMAU4mZrrm9YKQpAb2t4utm0U+JVBORyUKTAyiwzrrE60pyKMh2jp7YeWXd\",\n      \"url\": \"http://HQwTrTpADqXvwQjZNCw.qwsFfiYaZLaWEfPtg95qvYR0nfT3zgWp6+uBvTAkMAkVOWBHIauJPx\",\n      \"createdAt\": \"1998-05-29T12:03:22.880Z\",\n      \"updatedAt\": \"1962-09-24T18:27:45.068Z\"\n    },\n    {\n      \"id\": \"string\",\n      \"title\": \"string\",\n      \"agency\": \"string\",\n      \"type\": \"notice\",\n      \"status\": \"string\",\n      \"jurisdiction\": \"string\",\n      \"publishedDate\": \"1974-01-26\",\n      \"effectiveDate\": \"1953-11-23\",\n      \"commentPeriodEnd\": \"2012-05-05\",\n      \"summary\": \"string\",\n      \"fullTextUrl\": \"http://oq.bdnSYL4RywmZnPJYA1LiVNPphHhA1x,Hi8BRc8H1Tii.eE5a.Y1ZCvhj7Ke,zBx6kW5sghk\",\n      \"url\": \"https://GvPaEHEFeLbKDFdoIMu.oqiJ7va6E88X-ByZvwfYSr-Xb+vrjIdTx8vz\",\n      \"createdAt\": \"1986-02-17T06:58:09.788Z\",\n      \"updatedAt\": \"1980-06-26T03:50:53.970Z\"\n    }\n  ],\n  \"pagination\": {\n    \"total\": 6376,\n    \"limit\": 8937,\n    \"offset\": 865,\n    \"hasMore\": false\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6a67ee46-c704-4bb5-83a7-e9bb40706b60",
+              "name": "Authentication credentials are missing or invalid.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "policynote",
+                    "v1",
+                    "regulations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "jurisdiction",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "agency",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "25"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "updatedSince",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 2574,\n  \"message\": \"string\",\n  \"details\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0bdd3cc2-9171-45f2-a029-9aabe433445c",
+              "name": "Rate limit exceeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "policynote",
+                    "v1",
+                    "regulations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "jurisdiction",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "agency",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "25"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "updatedSince",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 2574,\n  \"message\": \"string\",\n  \"details\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f065a47c-e00e-49e8-afd7-80c304d5552d",
+          "name": "FiscalNote Get regulation by ID",
+          "request": {
+            "name": "FiscalNote Get regulation by ID",
+            "description": {
+              "content": "Returns detailed information about a specific regulation including its full text, issuing agency, comment period, and current status.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "policynote",
+                "v1",
+                "regulations",
+                ":regulationId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "regulationId",
+                  "description": "(Required) The unique identifier of the regulation."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e12c3b01-b147-463e-b43e-08953b6433ad",
+              "name": "Detailed regulation record.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "policynote",
+                    "v1",
+                    "regulations",
+                    ":regulationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "regulationId",
+                      "description": "(Required) The unique identifier of the regulation."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"title\": \"string\",\n  \"agency\": \"string\",\n  \"type\": \"executive_order\",\n  \"status\": \"string\",\n  \"jurisdiction\": \"string\",\n  \"publishedDate\": \"1957-06-28\",\n  \"effectiveDate\": \"1960-04-01\",\n  \"commentPeriodEnd\": \"2014-08-05\",\n  \"summary\": \"string\",\n  \"fullTextUrl\": \"http://B.zeKuD28i+v.IcsA.MIa5iCDDsH66QMgId.teF1QTiIEDtQ\",\n  \"url\": \"https://RHwZ.cequoSf3j+HdaTcQz.FSD7cfvvt\",\n  \"createdAt\": \"1972-12-15T12:58:01.667Z\",\n  \"updatedAt\": \"1987-09-24T10:33:14.620Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "25cd23ca-49fc-45a4-9787-bf259aa50d05",
+              "name": "Authentication credentials are missing or invalid.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "policynote",
+                    "v1",
+                    "regulations",
+                    ":regulationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "regulationId",
+                      "description": "(Required) The unique identifier of the regulation."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 2574,\n  \"message\": \"string\",\n  \"details\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9b20cf96-2f7f-4147-99d0-bcf5faa83d1f",
+              "name": "Regulation not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "policynote",
+                    "v1",
+                    "regulations",
+                    ":regulationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "regulationId",
+                      "description": "(Required) The unique identifier of the regulation."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 2574,\n  \"message\": \"string\",\n  \"details\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.fiscalnote.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "b90680f0-b941-44ce-b7ff-158a67653ae9",
+    "name": "FiscalNote AppData Bills Regulations API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The FiscalNote AppData API provides access to FiscalNote's data on legislation and regulations, both past and present, in the United States and globally. It also exposes organizational data from the FiscalNote platform including issues and labels. Developers can use the API to integrate legislative tracking, regulatory monitoring, and policy analysis capabilities into their own applications and workflows.\n\nContact Support:\n Name: FiscalNote Support",
+      "type": "text/plain"
+    }
+  }
+}

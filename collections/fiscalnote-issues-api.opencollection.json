@@ -1,0 +1,76 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "FiscalNote AppData Bills Issues API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Issues",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "FiscalNote List issues",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.fiscalnote.com/appdata/v1/issues",
+            "params": [
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Full-text search query to filter results."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of results to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to skip for pagination."
+              }
+            ]
+          },
+          "docs": "Returns a paginated list of organizational issues used to track policy topics and legislative priorities within the FiscalNote platform."
+        },
+        {
+          "info": {
+            "name": "FiscalNote Get issue by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.fiscalnote.com/appdata/v1/issues/:issueId",
+            "params": [
+              {
+                "name": "issueId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the issue."
+              }
+            ]
+          },
+          "docs": "Returns detailed information about a specific organizational issue including associated bills and labels."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

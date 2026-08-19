@@ -1,0 +1,559 @@
+{
+  "item": [
+    {
+      "id": "ab9c3247-f95d-45f7-82ea-c382e1d29f46",
+      "name": "Bills",
+      "description": {
+        "content": "Access legislation and bill data from federal, state, and international jurisdictions.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "bc8519f9-9689-412a-ab37-8a942a4d0221",
+          "name": "FiscalNote List bills",
+          "request": {
+            "name": "FiscalNote List bills",
+            "description": {
+              "content": "Returns a paginated list of bills and legislative measures. Supports filtering by jurisdiction, session, status, keyword search, and other criteria. Results include both current and historical legislation from the US and international jurisdictions.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "appdata",
+                "v1",
+                "bills"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "jurisdiction",
+                  "value": "<string>",
+                  "description": "Filter by jurisdiction code such as US, US-CA, GB, or EU."
+                },
+                {
+                  "disabled": false,
+                  "key": "session",
+                  "value": "<string>",
+                  "description": "Filter by legislative session identifier."
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>",
+                  "description": "Filter by legislation status."
+                },
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "Full-text search query to filter results."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "25",
+                  "description": "Maximum number of results to return per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Number of results to skip for pagination."
+                },
+                {
+                  "disabled": false,
+                  "key": "updatedSince",
+                  "value": "<dateTime>",
+                  "description": "Return only records updated after this ISO 8601 datetime."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a010accd-dc4e-49e9-a6b1-074d37e72b8e",
+              "name": "A paginated list of bill records.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "appdata",
+                    "v1",
+                    "bills"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "jurisdiction",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "session",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "25"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "updatedSince",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": \"string\",\n      \"title\": \"string\",\n      \"number\": \"string\",\n      \"type\": \"string\",\n      \"jurisdiction\": \"string\",\n      \"session\": \"string\",\n      \"status\": \"string\",\n      \"introducedDate\": \"2025-10-27\",\n      \"lastActionDate\": \"1949-04-30\",\n      \"lastAction\": \"string\",\n      \"sponsors\": [\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"role\": \"string\"\n        },\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"role\": \"string\"\n        }\n      ],\n      \"subjects\": [\n        \"string\",\n        \"string\"\n      ],\n      \"summary\": \"string\",\n      \"url\": \"http://lPZEwMwBETbVoZKmFxI.uyzJYeHdgOoBvJLXB93VkzOsLUpMKe6\",\n      \"createdAt\": \"2015-05-28T16:30:36.090Z\",\n      \"updatedAt\": \"2014-03-23T02:55:27.824Z\"\n    },\n    {\n      \"id\": \"string\",\n      \"title\": \"string\",\n      \"number\": \"string\",\n      \"type\": \"string\",\n      \"jurisdiction\": \"string\",\n      \"session\": \"string\",\n      \"status\": \"string\",\n      \"introducedDate\": \"2020-01-25\",\n      \"lastActionDate\": \"1952-02-18\",\n      \"lastAction\": \"string\",\n      \"sponsors\": [\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"role\": \"string\"\n        },\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"role\": \"string\"\n        }\n      ],\n      \"subjects\": [\n        \"string\",\n        \"string\"\n      ],\n      \"summary\": \"string\",\n      \"url\": \"https://VohzaOEMDlMssgUoUDdby.lya865biljEDoxdFm9DE,HzE+g0GcM,,,qYIWXet0WYtg8JA0du4\",\n      \"createdAt\": \"2025-10-31T23:59:36.652Z\",\n      \"updatedAt\": \"1955-04-13T02:22:48.240Z\"\n    }\n  ],\n  \"pagination\": {\n    \"total\": 1772,\n    \"limit\": 426,\n    \"offset\": 7570,\n    \"hasMore\": true\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c599c2c0-7356-4da0-8814-dfb1fe887a06",
+              "name": "Authentication credentials are missing or invalid.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "appdata",
+                    "v1",
+                    "bills"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "jurisdiction",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "session",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "25"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "updatedSince",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6139,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e1c26792-37aa-4041-ba73-6ad00a8b5cb5",
+              "name": "Rate limit exceeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "appdata",
+                    "v1",
+                    "bills"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "jurisdiction",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "session",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "25"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "updatedSince",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6139,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "032bcbbd-2866-44cf-8680-40d745986e0a",
+          "name": "FiscalNote Get bill by ID",
+          "request": {
+            "name": "FiscalNote Get bill by ID",
+            "description": {
+              "content": "Returns detailed information about a specific bill including its full text, sponsors, committee assignments, vote history, and current status.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "appdata",
+                "v1",
+                "bills",
+                ":billId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "billId",
+                  "description": "(Required) The unique identifier of the bill."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "226e0d09-db7d-47a5-92a9-11dde0e40a3d",
+              "name": "Detailed bill record.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "appdata",
+                    "v1",
+                    "bills",
+                    ":billId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "billId",
+                      "description": "(Required) The unique identifier of the bill."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"title\": \"string\",\n  \"number\": \"string\",\n  \"type\": \"string\",\n  \"jurisdiction\": \"string\",\n  \"session\": \"string\",\n  \"status\": \"string\",\n  \"introducedDate\": \"1992-05-01\",\n  \"lastActionDate\": \"1967-01-04\",\n  \"lastAction\": \"string\",\n  \"sponsors\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"role\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"role\": \"string\"\n    }\n  ],\n  \"subjects\": [\n    \"string\",\n    \"string\"\n  ],\n  \"summary\": \"string\",\n  \"url\": \"https://KFYKuRjNekDHbrAYIhctPoBEHEPsaC.wwivyEbHd1hn8DVbQ-AN2ZCANzowxXi6c0EF\",\n  \"createdAt\": \"1957-05-27T05:48:48.007Z\",\n  \"updatedAt\": \"2015-05-26T13:06:57.879Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "679ea638-349f-4fb4-a3aa-de0613f2ac7d",
+              "name": "Authentication credentials are missing or invalid.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "appdata",
+                    "v1",
+                    "bills",
+                    ":billId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "billId",
+                      "description": "(Required) The unique identifier of the bill."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6139,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ef38db4f-afe8-4370-8da2-723b517a19a0",
+              "name": "Bill not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "appdata",
+                    "v1",
+                    "bills",
+                    ":billId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "billId",
+                      "description": "(Required) The unique identifier of the bill."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6139,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.fiscalnote.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "c14a6696-0e3b-41f3-a8f6-538c7e38065d",
+    "name": "FiscalNote AppData Bills API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The FiscalNote AppData API provides access to FiscalNote's data on legislation and regulations, both past and present, in the United States and globally. It also exposes organizational data from the FiscalNote platform including issues and labels. Developers can use the API to integrate legislative tracking, regulatory monitoring, and policy analysis capabilities into their own applications and workflows.\n\nContact Support:\n Name: FiscalNote Support",
+      "type": "text/plain"
+    }
+  }
+}
