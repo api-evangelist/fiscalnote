@@ -21,6 +21,12 @@ tags:
   - Legislation
   - Policy
   - Political Intelligence
+  - Regulations
+tags_raw:
+  - Government
+  - Legislation
+  - Policy
+  - Political Intelligence
   - Regulation
 description: >-
   FiscalNote is a policy intelligence platform that provides legislative, regulatory, and stakeholder data spanning
@@ -138,6 +144,8 @@ apis:
   humanURL: https://fiscalnote.com/products/policynote-api
   baseURL: https://api.fiscalnote.com
   tags:
+  - Organization
+  tags_raw:
   - Organizations
   properties:
   - type: OpenAPI
