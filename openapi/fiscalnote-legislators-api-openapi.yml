@@ -1,8 +1,8 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: FiscalNote AppData Bills Legislators API
-  description: The FiscalNote AppData API provides access to FiscalNote's data on legislation and regulations, both past and present, in the United States and globally. It also exposes organizational data from the FiscalNote platform including issues and labels. Developers can use the API to integrate legislative tracking, regulatory monitoring, and policy analysis capabilities into their own applications and workflows.
-  version: '1.0'
+  title: FiscalNote People Legislators API
+  description: The FiscalNote People API allows developers to access FiscalNote's data on government officials in the United States and globally. The API provides structured information about legislators, elected officials, and other government personnel, enabling applications to look up representatives, track official profiles, and integrate government personnel data into political intelligence and advocacy workflows.
+  version: '2.0'
   contact:
     name: FiscalNote Support
     url: https://fiscalnote.com/contact
@@ -132,6 +132,23 @@ paths:
                 $ref: '#/components/schemas/Error'
 components:
   parameters:
+    chamberParam:
+      name: chamber
+      in: query
+      required: false
+      description: Filter by legislative chamber such as senate or house.
+      schema:
+        type: string
+        enum:
+        - senate
+        - house
+    jurisdictionParam:
+      name: jurisdiction
+      in: query
+      required: false
+      description: Filter by jurisdiction code such as US, US-CA, GB, or EU.
+      schema:
+        type: string
     limitParam:
       name: limit
       in: query
@@ -142,13 +159,15 @@ components:
         minimum: 1
         maximum: 100
         default: 25
-    jurisdictionParam:
-      name: jurisdiction
+    stateParam:
+      name: state
       in: query
       required: false
-      description: Filter by jurisdiction code such as US, US-CA, GB, or EU.
+      description: Filter by U.S. state abbreviation.
       schema:
         type: string
+        minLength: 2
+        maxLength: 2
     partyParam:
       name: party
       in: query
@@ -172,26 +191,25 @@ components:
       description: Full-text search query to filter results.
       schema:
         type: string
-    stateParam:
-      name: state
-      in: query
-      required: false
-      description: Filter by U.S. state abbreviation.
-      schema:
-        type: string
-        minLength: 2
-        maxLength: 2
-    chamberParam:
-      name: chamber
-      in: query
-      required: false
-      description: Filter by legislative chamber such as senate or house.
-      schema:
-        type: string
-        enum:
-        - senate
-        - house
   schemas:
+    ContactInfo:
+      type: object
+      description: Contact information for a government official.
+      properties:
+        email:
+          type: string
+          format: email
+          description: Email address.
+        phone:
+          type: string
+          description: Phone number.
+        address:
+          type: string
+          description: Mailing address.
+        website:
+          type: string
+          format: uri
+          description: Official website.
     LegislatorListResponse:
       type: object
       description: Paginated response containing a list of legislators.
@@ -215,6 +233,58 @@ components:
         youtube:
           type: string
           description: YouTube channel URL.
+    Legislator:
+      type: object
+      description: A legislator with detailed information including voting record and committee memberships.
+      allOf:
+      - $ref: '#/components/schemas/Official'
+      - type: object
+        properties:
+          committees:
+            type: array
+            description: Committees the legislator serves on.
+            items:
+              $ref: '#/components/schemas/CommitteeMembership'
+          sponsoredBillCount:
+            type: integer
+            description: Number of bills sponsored by the legislator.
+          cosponsoredBillCount:
+            type: integer
+            description: Number of bills co-sponsored by the legislator.
+          termStart:
+            type: string
+            format: date
+            description: Start date of the current term.
+          termEnd:
+            type: string
+            format: date
+            description: End date of the current term.
+    Pagination:
+      type: object
+      description: Pagination metadata for list responses.
+      properties:
+        total:
+          type: integer
+          description: Total number of records matching the query.
+        limit:
+          type: integer
+          description: Maximum number of records returned per page.
+        offset:
+          type: integer
+          description: Number of records skipped.
+        hasMore:
+          type: boolean
+          description: Indicates whether more records are available.
+    Error:
+      type: object
+      description: Error response returned when a request fails.
+      properties:
+        code:
+          type: integer
+          description: HTTP status code.
+        message:
+          type: string
+          description: Human-readable error message.
     Vote:
       type: object
       description: A vote record for a legislator.
@@ -243,6 +313,34 @@ components:
         chamber:
           type: string
           description: Chamber where the vote took place.
+    VoteListResponse:
+      type: object
+      description: Paginated response containing a list of vote records.
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Vote'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+    CommitteeMembership:
+      type: object
+      description: A legislator's membership in a committee.
+      properties:
+        committeeId:
+          type: string
+          description: Unique identifier of the committee.
+        committeeName:
+          type: string
+          description: Name of the committee.
+        role:
+          type: string
+          description: Role on the committee such as chair, ranking_member, or member.
+          enum:
+          - chair
+          - vice_chair
+          - ranking_member
+          - member
     Official:
       type: object
       description: A government official including legislators, executives, and appointees.
@@ -303,104 +401,6 @@ components:
           type: string
           format: date-time
           description: Timestamp when the record was last updated.
-    CommitteeMembership:
-      type: object
-      description: A legislator's membership in a committee.
-      properties:
-        committeeId:
-          type: string
-          description: Unique identifier of the committee.
-        committeeName:
-          type: string
-          description: Name of the committee.
-        role:
-          type: string
-          description: Role on the committee such as chair, ranking_member, or member.
-          enum:
-          - chair
-          - vice_chair
-          - ranking_member
-          - member
-    VoteListResponse:
-      type: object
-      description: Paginated response containing a list of vote records.
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Vote'
-        pagination:
-          $ref: '#/components/schemas/Pagination'
-    ContactInfo:
-      type: object
-      description: Contact information for a government official.
-      properties:
-        email:
-          type: string
-          format: email
-          description: Email address.
-        phone:
-          type: string
-          description: Phone number.
-        address:
-          type: string
-          description: Mailing address.
-        website:
-          type: string
-          format: uri
-          description: Official website.
-    Pagination:
-      type: object
-      description: Pagination metadata for list responses.
-      properties:
-        total:
-          type: integer
-          description: Total number of records matching the query.
-        limit:
-          type: integer
-          description: Maximum number of records returned per page.
-        offset:
-          type: integer
-          description: Number of records skipped.
-        hasMore:
-          type: boolean
-          description: Indicates whether more records are available.
-    Error:
-      type: object
-      description: Error response returned when a request fails.
-      properties:
-        code:
-          type: integer
-          description: HTTP status code.
-        message:
-          type: string
-          description: Human-readable error message.
-    Legislator:
-      type: object
-      description: A legislator with detailed information including voting record and committee memberships.
-      allOf:
-      - $ref: '#/components/schemas/Official'
-      - type: object
-        properties:
-          committees:
-            type: array
-            description: Committees the legislator serves on.
-            items:
-              $ref: '#/components/schemas/CommitteeMembership'
-          sponsoredBillCount:
-            type: integer
-            description: Number of bills sponsored by the legislator.
-          cosponsoredBillCount:
-            type: integer
-            description: Number of bills co-sponsored by the legislator.
-          termStart:
-            type: string
-            format: date
-            description: Start date of the current term.
-          termEnd:
-            type: string
-            format: date
-            description: End date of the current term.
   securitySchemes:
     apiKey:
       type: apiKey
@@ -408,5 +408,5 @@ components:
       name: Authorization
       description: API key provided by FiscalNote. Include in the Authorization header of each request.
 externalDocs:
-  description: FiscalNote AppData API Documentation
+  description: FiscalNote People API Documentation
   url: https://apidocs.fiscalnote.com/apis

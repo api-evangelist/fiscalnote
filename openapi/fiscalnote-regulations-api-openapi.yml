@@ -1,7 +1,7 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: FiscalNote AppData Bills Regulations API
-  description: The FiscalNote AppData API provides access to FiscalNote's data on legislation and regulations, both past and present, in the United States and globally. It also exposes organizational data from the FiscalNote platform including issues and labels. Developers can use the API to integrate legislative tracking, regulatory monitoring, and policy analysis capabilities into their own applications and workflows.
+  title: FiscalNote PolicyNote Regulations API
+  description: The FiscalNote PolicyNote API delivers programmatic access to legislative, regulatory, and stakeholder intelligence datasets spanning Congress, all 50 U.S.
   version: '1.0'
   contact:
     name: FiscalNote Support
@@ -85,30 +85,6 @@ paths:
                 $ref: '#/components/schemas/Error'
 components:
   parameters:
-    limitParam:
-      name: limit
-      in: query
-      required: false
-      description: Maximum number of results to return per page.
-      schema:
-        type: integer
-        minimum: 1
-        maximum: 100
-        default: 25
-    jurisdictionParam:
-      name: jurisdiction
-      in: query
-      required: false
-      description: Filter by jurisdiction code such as US, US-CA, GB, or EU.
-      schema:
-        type: string
-    queryParam:
-      name: q
-      in: query
-      required: false
-      description: Full-text search query to filter results.
-      schema:
-        type: string
     updatedSinceParam:
       name: updatedSince
       in: query
@@ -117,13 +93,6 @@ components:
       schema:
         type: string
         format: date-time
-    agencyParam:
-      name: agency
-      in: query
-      required: false
-      description: Filter by issuing agency name or identifier.
-      schema:
-        type: string
     regulationStatusParam:
       name: status
       in: query
@@ -136,6 +105,30 @@ components:
         - comment_period
         - final
         - withdrawn
+    jurisdictionParam:
+      name: jurisdiction
+      in: query
+      required: false
+      description: Filter by jurisdiction code such as US, US-CA, GB, or EU.
+      schema:
+        type: string
+    limitParam:
+      name: limit
+      in: query
+      required: false
+      description: Maximum number of results to return per page.
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 100
+        default: 25
+    agencyParam:
+      name: agency
+      in: query
+      required: false
+      description: Filter by issuing agency name or identifier.
+      schema:
+        type: string
     offsetParam:
       name: offset
       in: query
@@ -145,7 +138,53 @@ components:
         type: integer
         minimum: 0
         default: 0
+    queryParam:
+      name: q
+      in: query
+      required: false
+      description: Full-text search query to filter results.
+      schema:
+        type: string
   schemas:
+    RegulationListResponse:
+      type: object
+      description: Paginated response containing a list of regulation records.
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Regulation'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+    Error:
+      type: object
+      description: Error response returned when a request fails.
+      properties:
+        code:
+          type: integer
+          description: HTTP status code.
+        message:
+          type: string
+          description: Human-readable error message.
+        details:
+          type: string
+          description: Additional details about the error.
+    Pagination:
+      type: object
+      description: Pagination metadata for list responses.
+      properties:
+        total:
+          type: integer
+          description: Total number of records matching the query.
+        limit:
+          type: integer
+          description: Maximum number of records returned per page.
+        offset:
+          type: integer
+          description: Number of records skipped.
+        hasMore:
+          type: boolean
+          description: Indicates whether more records are available.
     Regulation:
       type: object
       description: A regulatory record including proposed rules, final rules, and notices from federal and state agencies.
@@ -204,45 +243,6 @@ components:
           type: string
           format: date-time
           description: Timestamp when the record was last updated.
-    RegulationListResponse:
-      type: object
-      description: Paginated response containing a list of regulation records.
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Regulation'
-        pagination:
-          $ref: '#/components/schemas/Pagination'
-    Pagination:
-      type: object
-      description: Pagination metadata for list responses.
-      properties:
-        total:
-          type: integer
-          description: Total number of records matching the query.
-        limit:
-          type: integer
-          description: Maximum number of records returned per page.
-        offset:
-          type: integer
-          description: Number of records skipped.
-        hasMore:
-          type: boolean
-          description: Indicates whether more records are available.
-    Error:
-      type: object
-      description: Error response returned when a request fails.
-      properties:
-        code:
-          type: integer
-          description: HTTP status code.
-        message:
-          type: string
-          description: Human-readable error message.
-        details:
-          type: string
-          description: Additional details about the error.
   securitySchemes:
     apiKey:
       type: apiKey
@@ -250,5 +250,5 @@ components:
       name: Authorization
       description: API key provided by FiscalNote. Include in the Authorization header of each request.
 externalDocs:
-  description: FiscalNote AppData API Documentation
-  url: https://apidocs.fiscalnote.com/apis
+  description: PolicyNote API Documentation
+  url: https://fiscalnote.com/products/policynote-api

@@ -1,7 +1,7 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: FiscalNote AppData Bills Committees API
-  description: The FiscalNote AppData API provides access to FiscalNote's data on legislation and regulations, both past and present, in the United States and globally. It also exposes organizational data from the FiscalNote platform including issues and labels. Developers can use the API to integrate legislative tracking, regulatory monitoring, and policy analysis capabilities into their own applications and workflows.
+  title: FiscalNote Organization Committees API
+  description: The FiscalNote Organization API provides access to FiscalNote's data on government organizations in the United States and globally. It covers legislative committees, federal agencies, and other governmental bodies. Developers can use this API to retrieve structured information about government organizations, enabling integration of organizational data into policy tracking, compliance, and government relations applications.
   version: '1.0'
   contact:
     name: FiscalNote Support
@@ -139,29 +139,6 @@ paths:
                 $ref: '#/components/schemas/Error'
 components:
   schemas:
-    LeaderRef:
-      type: object
-      description: A reference to an organizational or committee leader.
-      properties:
-        officialId:
-          type: string
-          description: Unique identifier of the official.
-        name:
-          type: string
-          description: Full name of the leader.
-        title:
-          type: string
-          description: Title or role of the leader.
-    CommitteeMemberListResponse:
-      type: object
-      description: Paginated response containing a list of committee members.
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/CommitteeMember'
-        pagination:
-          $ref: '#/components/schemas/Pagination'
     Committee:
       type: object
       description: A legislative committee including standing, select, and special committees.
@@ -220,6 +197,16 @@ components:
           type: string
           format: date-time
           description: Timestamp when the record was last updated.
+    CommitteeMemberListResponse:
+      type: object
+      description: Paginated response containing a list of committee members.
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/CommitteeMember'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
     CommitteeMember:
       type: object
       description: A member of a legislative committee.
@@ -244,6 +231,19 @@ components:
         state:
           type: string
           description: State the member represents.
+    LeaderRef:
+      type: object
+      description: A reference to an organizational or committee leader.
+      properties:
+        officialId:
+          type: string
+          description: Unique identifier of the official.
+        name:
+          type: string
+          description: Full name of the leader.
+        title:
+          type: string
+          description: Title or role of the leader.
     Pagination:
       type: object
       description: Pagination metadata for list responses.
@@ -260,16 +260,6 @@ components:
         hasMore:
           type: boolean
           description: Indicates whether more records are available.
-    CommitteeListResponse:
-      type: object
-      description: Paginated response containing a list of committees.
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Committee'
-        pagination:
-          $ref: '#/components/schemas/Pagination'
     Error:
       type: object
       description: Error response returned when a request fails.
@@ -280,7 +270,24 @@ components:
         message:
           type: string
           description: Human-readable error message.
+    CommitteeListResponse:
+      type: object
+      description: Paginated response containing a list of committees.
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Committee'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
   parameters:
+    jurisdictionParam:
+      name: jurisdiction
+      in: query
+      required: false
+      description: Filter by jurisdiction code such as US, US-CA, GB, or EU.
+      schema:
+        type: string
     limitParam:
       name: limit
       in: query
@@ -291,20 +298,6 @@ components:
         minimum: 1
         maximum: 100
         default: 25
-    jurisdictionParam:
-      name: jurisdiction
-      in: query
-      required: false
-      description: Filter by jurisdiction code such as US, US-CA, GB, or EU.
-      schema:
-        type: string
-    queryParam:
-      name: q
-      in: query
-      required: false
-      description: Full-text search query to filter results.
-      schema:
-        type: string
     offsetParam:
       name: offset
       in: query
@@ -314,6 +307,13 @@ components:
         type: integer
         minimum: 0
         default: 0
+    queryParam:
+      name: q
+      in: query
+      required: false
+      description: Full-text search query to filter results.
+      schema:
+        type: string
   securitySchemes:
     apiKey:
       type: apiKey
@@ -321,5 +321,5 @@ components:
       name: Authorization
       description: API key provided by FiscalNote. Include in the Authorization header of each request.
 externalDocs:
-  description: FiscalNote AppData API Documentation
+  description: FiscalNote Organization API Documentation
   url: https://apidocs.fiscalnote.com/apis
