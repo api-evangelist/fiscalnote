@@ -85,14 +85,20 @@ paths:
                 $ref: '#/components/schemas/Error'
 components:
   parameters:
-    updatedSinceParam:
-      name: updatedSince
+    agencyParam:
+      name: agency
       in: query
       required: false
-      description: Return only records updated after this ISO 8601 datetime.
+      description: Filter by issuing agency name or identifier.
       schema:
         type: string
-        format: date-time
+    jurisdictionParam:
+      name: jurisdiction
+      in: query
+      required: false
+      description: Filter by jurisdiction code such as US, US-CA, GB, or EU.
+      schema:
+        type: string
     regulationStatusParam:
       name: status
       in: query
@@ -105,28 +111,11 @@ components:
         - comment_period
         - final
         - withdrawn
-    jurisdictionParam:
-      name: jurisdiction
+    queryParam:
+      name: q
       in: query
       required: false
-      description: Filter by jurisdiction code such as US, US-CA, GB, or EU.
-      schema:
-        type: string
-    limitParam:
-      name: limit
-      in: query
-      required: false
-      description: Maximum number of results to return per page.
-      schema:
-        type: integer
-        minimum: 1
-        maximum: 100
-        default: 25
-    agencyParam:
-      name: agency
-      in: query
-      required: false
-      description: Filter by issuing agency name or identifier.
+      description: Full-text search query to filter results.
       schema:
         type: string
     offsetParam:
@@ -138,13 +127,24 @@ components:
         type: integer
         minimum: 0
         default: 0
-    queryParam:
-      name: q
+    limitParam:
+      name: limit
       in: query
       required: false
-      description: Full-text search query to filter results.
+      description: Maximum number of results to return per page.
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 100
+        default: 25
+    updatedSinceParam:
+      name: updatedSince
+      in: query
+      required: false
+      description: Return only records updated after this ISO 8601 datetime.
       schema:
         type: string
+        format: date-time
   schemas:
     RegulationListResponse:
       type: object
@@ -169,22 +169,6 @@ components:
         details:
           type: string
           description: Additional details about the error.
-    Pagination:
-      type: object
-      description: Pagination metadata for list responses.
-      properties:
-        total:
-          type: integer
-          description: Total number of records matching the query.
-        limit:
-          type: integer
-          description: Maximum number of records returned per page.
-        offset:
-          type: integer
-          description: Number of records skipped.
-        hasMore:
-          type: boolean
-          description: Indicates whether more records are available.
     Regulation:
       type: object
       description: A regulatory record including proposed rules, final rules, and notices from federal and state agencies.
@@ -243,6 +227,22 @@ components:
           type: string
           format: date-time
           description: Timestamp when the record was last updated.
+    Pagination:
+      type: object
+      description: Pagination metadata for list responses.
+      properties:
+        total:
+          type: integer
+          description: Total number of records matching the query.
+        limit:
+          type: integer
+          description: Maximum number of records returned per page.
+        offset:
+          type: integer
+          description: Number of records skipped.
+        hasMore:
+          type: boolean
+          description: Indicates whether more records are available.
   securitySchemes:
     apiKey:
       type: apiKey
