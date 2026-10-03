@@ -85,16 +85,6 @@ components:
         message:
           type: string
           description: Human-readable error message.
-    LabelListResponse:
-      type: object
-      description: Paginated response containing a list of labels.
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Label'
-        pagination:
-          $ref: '#/components/schemas/Pagination'
     Pagination:
       type: object
       description: Pagination metadata for list responses.
@@ -111,6 +101,16 @@ components:
         hasMore:
           type: boolean
           description: Indicates whether more records are available.
+    LabelListResponse:
+      type: object
+      description: Paginated response containing a list of labels.
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Label'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
     Label:
       type: object
       description: A label used to categorize and organize legislation and policy items.
@@ -133,13 +133,6 @@ components:
           format: date-time
           description: Timestamp when the label was created.
   parameters:
-    queryParam:
-      name: q
-      in: query
-      required: false
-      description: Full-text search query to filter results.
-      schema:
-        type: string
     offsetParam:
       name: offset
       in: query
@@ -159,6 +152,13 @@ components:
         minimum: 1
         maximum: 100
         default: 25
+    queryParam:
+      name: q
+      in: query
+      required: false
+      description: Full-text search query to filter results.
+      schema:
+        type: string
   securitySchemes:
     apiKey:
       type: apiKey

@@ -139,16 +139,6 @@ paths:
                 $ref: '#/components/schemas/Error'
 components:
   schemas:
-    CommitteeListResponse:
-      type: object
-      description: Paginated response containing a list of committees.
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Committee'
-        pagination:
-          $ref: '#/components/schemas/Pagination'
     Error:
       type: object
       description: Error response returned when a request fails.
@@ -159,6 +149,16 @@ components:
         message:
           type: string
           description: Human-readable error message.
+    CommitteeMemberListResponse:
+      type: object
+      description: Paginated response containing a list of committee members.
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/CommitteeMember'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
     CommitteeMember:
       type: object
       description: A member of a legislative committee.
@@ -183,14 +183,43 @@ components:
         state:
           type: string
           description: State the member represents.
-    CommitteeMemberListResponse:
+    Pagination:
       type: object
-      description: Paginated response containing a list of committee members.
+      description: Pagination metadata for list responses.
+      properties:
+        total:
+          type: integer
+          description: Total number of records matching the query.
+        limit:
+          type: integer
+          description: Maximum number of records returned per page.
+        offset:
+          type: integer
+          description: Number of records skipped.
+        hasMore:
+          type: boolean
+          description: Indicates whether more records are available.
+    LeaderRef:
+      type: object
+      description: A reference to an organizational or committee leader.
+      properties:
+        officialId:
+          type: string
+          description: Unique identifier of the official.
+        name:
+          type: string
+          description: Full name of the leader.
+        title:
+          type: string
+          description: Title or role of the leader.
+    CommitteeListResponse:
+      type: object
+      description: Paginated response containing a list of committees.
       properties:
         data:
           type: array
           items:
-            $ref: '#/components/schemas/CommitteeMember'
+            $ref: '#/components/schemas/Committee'
         pagination:
           $ref: '#/components/schemas/Pagination'
     Committee:
@@ -251,48 +280,12 @@ components:
           type: string
           format: date-time
           description: Timestamp when the record was last updated.
-    LeaderRef:
-      type: object
-      description: A reference to an organizational or committee leader.
-      properties:
-        officialId:
-          type: string
-          description: Unique identifier of the official.
-        name:
-          type: string
-          description: Full name of the leader.
-        title:
-          type: string
-          description: Title or role of the leader.
-    Pagination:
-      type: object
-      description: Pagination metadata for list responses.
-      properties:
-        total:
-          type: integer
-          description: Total number of records matching the query.
-        limit:
-          type: integer
-          description: Maximum number of records returned per page.
-        offset:
-          type: integer
-          description: Number of records skipped.
-        hasMore:
-          type: boolean
-          description: Indicates whether more records are available.
   parameters:
     jurisdictionParam:
       name: jurisdiction
       in: query
       required: false
       description: Filter by jurisdiction code such as US, US-CA, GB, or EU.
-      schema:
-        type: string
-    queryParam:
-      name: q
-      in: query
-      required: false
-      description: Full-text search query to filter results.
       schema:
         type: string
     offsetParam:
@@ -314,6 +307,13 @@ components:
         minimum: 1
         maximum: 100
         default: 25
+    queryParam:
+      name: q
+      in: query
+      required: false
+      description: Full-text search query to filter results.
+      schema:
+        type: string
   securitySchemes:
     apiKey:
       type: apiKey

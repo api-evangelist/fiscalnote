@@ -96,16 +96,6 @@ paths:
                 $ref: '#/components/schemas/Error'
 components:
   schemas:
-    OrganizationListResponse:
-      type: object
-      description: Paginated response containing a list of organizations.
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Organization'
-        pagination:
-          $ref: '#/components/schemas/Pagination'
     Error:
       type: object
       description: Error response returned when a request fails.
@@ -116,6 +106,22 @@ components:
         message:
           type: string
           description: Human-readable error message.
+    Pagination:
+      type: object
+      description: Pagination metadata for list responses.
+      properties:
+        total:
+          type: integer
+          description: Total number of records matching the query.
+        limit:
+          type: integer
+          description: Maximum number of records returned per page.
+        offset:
+          type: integer
+          description: Number of records skipped.
+        hasMore:
+          type: boolean
+          description: Indicates whether more records are available.
     LeaderRef:
       type: object
       description: A reference to an organizational or committee leader.
@@ -182,35 +188,22 @@ components:
           type: string
           format: date-time
           description: Timestamp when the record was last updated.
-    Pagination:
+    OrganizationListResponse:
       type: object
-      description: Pagination metadata for list responses.
+      description: Paginated response containing a list of organizations.
       properties:
-        total:
-          type: integer
-          description: Total number of records matching the query.
-        limit:
-          type: integer
-          description: Maximum number of records returned per page.
-        offset:
-          type: integer
-          description: Number of records skipped.
-        hasMore:
-          type: boolean
-          description: Indicates whether more records are available.
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Organization'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
   parameters:
     jurisdictionParam:
       name: jurisdiction
       in: query
       required: false
       description: Filter by jurisdiction code such as US, US-CA, GB, or EU.
-      schema:
-        type: string
-    queryParam:
-      name: q
-      in: query
-      required: false
-      description: Full-text search query to filter results.
       schema:
         type: string
     offsetParam:
@@ -222,6 +215,13 @@ components:
         type: integer
         minimum: 0
         default: 0
+    queryParam:
+      name: q
+      in: query
+      required: false
+      description: Full-text search query to filter results.
+      schema:
+        type: string
     limitParam:
       name: limit
       in: query
