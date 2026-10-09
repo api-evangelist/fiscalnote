@@ -111,3 +111,44 @@ plans:
       - name: Hearings & Schedule API
       - name: Custom Data Feeds
 maintainers: []
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - subscription
+  units:
+  - negotiated
+  - seat
+  plans:
+  - name: PolicyNote — Platform Only
+    access: other
+    model: subscription
+    model_how: stated
+    units:
+    - seat
+    periods:
+    - year
+  - name: PolicyNote — Essential (Most Popular)
+    access: other
+    model: subscription
+    model_how: stated
+    units:
+    - seat
+    periods:
+    - year
+  - name: PolicyNote — Advanced
+    access: other
+    model: subscription
+    model_how: stated
+    units:
+    - seat
+    periods:
+    - year
+  - name: Enterprise / API Access
+    access: enterprise
+    model: subscription
+    model_how: derived
+    units:
+    - negotiated
+    periods:
+    - per-use
