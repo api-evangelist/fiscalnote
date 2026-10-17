@@ -95,20 +95,6 @@ components:
         minimum: 1
         maximum: 100
         default: 25
-    statusParam:
-      name: status
-      in: query
-      required: false
-      description: Filter by legislation status.
-      schema:
-        type: string
-    queryParam:
-      name: q
-      in: query
-      required: false
-      description: Full-text search query to filter results.
-      schema:
-        type: string
     sessionParam:
       name: session
       in: query
@@ -131,6 +117,13 @@ components:
       schema:
         type: string
         format: date-time
+    statusParam:
+      name: status
+      in: query
+      required: false
+      description: Filter by legislation status.
+      schema:
+        type: string
     offsetParam:
       name: offset
       in: query
@@ -140,20 +133,14 @@ components:
         type: integer
         minimum: 0
         default: 0
+    queryParam:
+      name: q
+      in: query
+      required: false
+      description: Full-text search query to filter results.
+      schema:
+        type: string
   schemas:
-    SponsorRef:
-      type: object
-      description: A reference to a bill sponsor.
-      properties:
-        id:
-          type: string
-          description: Unique identifier of the sponsor.
-        name:
-          type: string
-          description: Full name of the sponsor.
-        role:
-          type: string
-          description: Role such as primary or cosponsor.
     Pagination:
       type: object
       description: Pagination metadata for list responses.
@@ -170,6 +157,16 @@ components:
         hasMore:
           type: boolean
           description: Indicates whether more records are available.
+    BillListResponse:
+      type: object
+      description: Paginated response containing a list of bills.
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Bill'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
     Bill:
       type: object
       description: A bill or legislative measure from a federal, state, or international jurisdiction.
@@ -241,16 +238,19 @@ components:
         message:
           type: string
           description: Human-readable error message.
-    BillListResponse:
+    SponsorRef:
       type: object
-      description: Paginated response containing a list of bills.
+      description: A reference to a bill sponsor.
       properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Bill'
-        pagination:
-          $ref: '#/components/schemas/Pagination'
+        id:
+          type: string
+          description: Unique identifier of the sponsor.
+        name:
+          type: string
+          description: Full name of the sponsor.
+        role:
+          type: string
+          description: Role such as primary or cosponsor.
   securitySchemes:
     apiKey:
       type: apiKey

@@ -95,49 +95,17 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
 components:
-  parameters:
-    limitParam:
-      name: limit
-      in: query
-      required: false
-      description: Maximum number of results to return per page.
-      schema:
-        type: integer
-        minimum: 1
-        maximum: 100
-        default: 25
-    queryParam:
-      name: q
-      in: query
-      required: false
-      description: Full-text search query to filter results.
-      schema:
-        type: string
-    jurisdictionParam:
-      name: jurisdiction
-      in: query
-      required: false
-      description: Filter by jurisdiction code such as US, US-CA, GB, or EU.
-      schema:
-        type: string
-    offsetParam:
-      name: offset
-      in: query
-      required: false
-      description: Number of results to skip for pagination.
-      schema:
-        type: integer
-        minimum: 0
-        default: 0
-    updatedSinceParam:
-      name: updatedSince
-      in: query
-      required: false
-      description: Return only records updated after this ISO 8601 datetime.
-      schema:
-        type: string
-        format: date-time
   schemas:
+    OrganizationListResponse:
+      type: object
+      description: Paginated response containing a list of organizations.
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Organization'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
     Pagination:
       type: object
       description: Pagination metadata for list responses.
@@ -154,16 +122,19 @@ components:
         hasMore:
           type: boolean
           description: Indicates whether more records are available.
-    Error:
+    LeaderRef:
       type: object
-      description: Error response returned when a request fails.
+      description: A reference to an organizational or committee leader.
       properties:
-        code:
-          type: integer
-          description: HTTP status code.
-        message:
+        officialId:
           type: string
-          description: Human-readable error message.
+          description: Unique identifier of the official.
+        name:
+          type: string
+          description: Full name of the leader.
+        title:
+          type: string
+          description: Title or role of the leader.
     Organization:
       type: object
       description: A government organization such as a federal agency, state agency, or governmental body.
@@ -217,29 +188,58 @@ components:
           type: string
           format: date-time
           description: Timestamp when the record was last updated.
-    OrganizationListResponse:
+    Error:
       type: object
-      description: Paginated response containing a list of organizations.
+      description: Error response returned when a request fails.
       properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Organization'
-        pagination:
-          $ref: '#/components/schemas/Pagination'
-    LeaderRef:
-      type: object
-      description: A reference to an organizational or committee leader.
-      properties:
-        officialId:
+        code:
+          type: integer
+          description: HTTP status code.
+        message:
           type: string
-          description: Unique identifier of the official.
-        name:
-          type: string
-          description: Full name of the leader.
-        title:
-          type: string
-          description: Title or role of the leader.
+          description: Human-readable error message.
+  parameters:
+    limitParam:
+      name: limit
+      in: query
+      required: false
+      description: Maximum number of results to return per page.
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 100
+        default: 25
+    jurisdictionParam:
+      name: jurisdiction
+      in: query
+      required: false
+      description: Filter by jurisdiction code such as US, US-CA, GB, or EU.
+      schema:
+        type: string
+    updatedSinceParam:
+      name: updatedSince
+      in: query
+      required: false
+      description: Return only records updated after this ISO 8601 datetime.
+      schema:
+        type: string
+        format: date-time
+    offsetParam:
+      name: offset
+      in: query
+      required: false
+      description: Number of results to skip for pagination.
+      schema:
+        type: integer
+        minimum: 0
+        default: 0
+    queryParam:
+      name: q
+      in: query
+      required: false
+      description: Full-text search query to filter results.
+      schema:
+        type: string
   securitySchemes:
     apiKey:
       type: apiKey

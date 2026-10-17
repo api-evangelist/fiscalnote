@@ -85,13 +85,6 @@ components:
         minimum: 1
         maximum: 100
         default: 25
-    queryParam:
-      name: q
-      in: query
-      required: false
-      description: Full-text search query to filter results.
-      schema:
-        type: string
     offsetParam:
       name: offset
       in: query
@@ -101,6 +94,13 @@ components:
         type: integer
         minimum: 0
         default: 0
+    queryParam:
+      name: q
+      in: query
+      required: false
+      description: Full-text search query to filter results.
+      schema:
+        type: string
   schemas:
     Pagination:
       type: object
@@ -118,16 +118,6 @@ components:
         hasMore:
           type: boolean
           description: Indicates whether more records are available.
-    Error:
-      type: object
-      description: Error response returned when a request fails.
-      properties:
-        code:
-          type: integer
-          description: HTTP status code.
-        message:
-          type: string
-          description: Human-readable error message.
     IssueListResponse:
       type: object
       description: Paginated response containing a list of issues.
@@ -138,6 +128,16 @@ components:
             $ref: '#/components/schemas/Issue'
         pagination:
           $ref: '#/components/schemas/Pagination'
+    Error:
+      type: object
+      description: Error response returned when a request fails.
+      properties:
+        code:
+          type: integer
+          description: HTTP status code.
+        message:
+          type: string
+          description: Human-readable error message.
     Issue:
       type: object
       description: An organizational issue used to track policy topics and legislative priorities.

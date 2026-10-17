@@ -149,13 +149,6 @@ components:
         minimum: 1
         maximum: 100
         default: 25
-    queryParam:
-      name: q
-      in: query
-      required: false
-      description: Full-text search query to filter results.
-      schema:
-        type: string
     jurisdictionParam:
       name: jurisdiction
       in: query
@@ -172,6 +165,13 @@ components:
         type: integer
         minimum: 0
         default: 0
+    queryParam:
+      name: q
+      in: query
+      required: false
+      description: Full-text search query to filter results.
+      schema:
+        type: string
   schemas:
     Pagination:
       type: object
@@ -189,16 +189,29 @@ components:
         hasMore:
           type: boolean
           description: Indicates whether more records are available.
-    Error:
+    CommitteeMemberListResponse:
       type: object
-      description: Error response returned when a request fails.
+      description: Paginated response containing a list of committee members.
       properties:
-        code:
-          type: integer
-          description: HTTP status code.
-        message:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/CommitteeMember'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+    LeaderRef:
+      type: object
+      description: A reference to an organizational or committee leader.
+      properties:
+        officialId:
           type: string
-          description: Human-readable error message.
+          description: Unique identifier of the official.
+        name:
+          type: string
+          description: Full name of the leader.
+        title:
+          type: string
+          description: Title or role of the leader.
     Committee:
       type: object
       description: A legislative committee including standing, select, and special committees.
@@ -257,6 +270,16 @@ components:
           type: string
           format: date-time
           description: Timestamp when the record was last updated.
+    Error:
+      type: object
+      description: Error response returned when a request fails.
+      properties:
+        code:
+          type: integer
+          description: HTTP status code.
+        message:
+          type: string
+          description: Human-readable error message.
     CommitteeListResponse:
       type: object
       description: Paginated response containing a list of committees.
@@ -291,29 +314,6 @@ components:
         state:
           type: string
           description: State the member represents.
-    LeaderRef:
-      type: object
-      description: A reference to an organizational or committee leader.
-      properties:
-        officialId:
-          type: string
-          description: Unique identifier of the official.
-        name:
-          type: string
-          description: Full name of the leader.
-        title:
-          type: string
-          description: Title or role of the leader.
-    CommitteeMemberListResponse:
-      type: object
-      description: Paginated response containing a list of committee members.
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/CommitteeMember'
-        pagination:
-          $ref: '#/components/schemas/Pagination'
   securitySchemes:
     apiKey:
       type: apiKey
