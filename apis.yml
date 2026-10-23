@@ -244,6 +244,8 @@ apis:
   - type: Documentation
     url: https://apidocs.fiscalnote.com/apis
 common:
+  - type: PostmanWorkspace
+    url: https://www.postman.com/kinlaneapi/fiscalnote/overview
   - type: Plans
     url: plans/fiscalnote-plans-pricing.yml
   - type: RateLimits
