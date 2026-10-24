@@ -1,533 +1,555 @@
 {
+  "info": {
+    "_postman_id": "9cdf0711-d827-4092-816d-b6376c3a3ee6",
+    "name": "FiscalNote PolicyNote Presidential Transcripts API",
+    "description": "The FiscalNote PolicyNote API delivers programmatic access to legislative, regulatory, and stakeholder intelligence datasets spanning Congress, all 50 U.S.\n\nContact Support:\n Name: FiscalNote Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T21:21:14.000Z",
+    "updatedAt": "2026-10-21T21:21:15.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-9cdf0711-d827-4092-816d-b6376c3a3ee6"
+  },
   "item": [
     {
-      "id": "1b88d1cf-1ff0-407c-b006-67909ca90b9e",
-      "name": "Presidential Transcripts",
-      "description": {
-        "content": "Access the real-time presidential transcript feed delivering primary-source transcripts of presidential communications.",
-        "type": "text/plain"
-      },
+      "name": "policynote",
       "item": [
         {
-          "id": "d98a1b32-6371-429b-be65-a91b64528c70",
-          "name": "FiscalNote List presidential transcripts",
-          "request": {
-            "name": "FiscalNote List presidential transcripts",
-            "description": {
-              "content": "Returns a paginated list of presidential transcripts including executive orders, proclamations, press statements, and public remarks. This feed delivers primary-source, verified transcripts purpose-built for programmatic consumption to eliminate AI hallucinations.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "policynote",
-                "v1",
-                "transcripts"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "type",
-                  "value": "<string>",
-                  "description": "Filter by transcript type such as executive_order, proclamation, press_statement, or public_remarks."
-                },
-                {
-                  "disabled": false,
-                  "key": "q",
-                  "value": "<string>",
-                  "description": "Full-text search query to filter results."
-                },
-                {
-                  "disabled": false,
-                  "key": "limit",
-                  "value": "25",
-                  "description": "Maximum number of results to return per page."
-                },
-                {
-                  "disabled": false,
-                  "key": "offset",
-                  "value": "0",
-                  "description": "Number of results to skip for pagination."
-                },
-                {
-                  "disabled": false,
-                  "key": "updatedSince",
-                  "value": "<dateTime>",
-                  "description": "Return only records updated after this ISO 8601 datetime."
-                },
-                {
-                  "disabled": false,
-                  "key": "dateFrom",
-                  "value": "<date>",
-                  "description": "Filter transcripts from this date onward in ISO 8601 format."
-                },
-                {
-                  "disabled": false,
-                  "key": "dateTo",
-                  "value": "<date>",
-                  "description": "Filter transcripts up to this date in ISO 8601 format."
-                }
-              ],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "v1",
+          "item": [
             {
-              "id": "e35caa49-c51b-4ebf-93c1-37a40c0f32e0",
-              "name": "A paginated list of presidential transcript records.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "policynote",
-                    "v1",
-                    "transcripts"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
+              "name": "transcripts",
+              "item": [
+                {
+                  "name": "{transcriptId}",
+                  "item": [
                     {
-                      "key": "type",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "q",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "limit",
-                      "value": "25"
-                    },
-                    {
-                      "key": "offset",
-                      "value": "0"
-                    },
-                    {
-                      "key": "updatedSince",
-                      "value": "<dateTime>"
-                    },
-                    {
-                      "key": "dateFrom",
-                      "value": "<date>"
-                    },
-                    {
-                      "key": "dateTo",
-                      "value": "<date>"
+                      "name": "FiscalNote Get presidential transcript by ID",
+                      "id": "82aa2892-6ffb-4830-8650-b2562744bfbe",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/policynote/v1/transcripts/:transcriptId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "policynote",
+                            "v1",
+                            "transcripts",
+                            ":transcriptId"
+                          ],
+                          "variable": [
+                            {
+                              "id": "e450e750-5d9d-4755-a35a-abd069d347af",
+                              "key": "transcriptId",
+                              "value": "<string>",
+                              "description": "(Required) The unique identifier of the transcript."
+                            }
+                          ]
+                        },
+                        "description": "Returns the full text and metadata of a specific presidential transcript, including the verified primary-source record of the communication."
+                      },
+                      "response": [
+                        {
+                          "id": "1e9c1c3b-f8f4-4874-b878-65ce92194be3",
+                          "name": "Detailed presidential transcript record.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/policynote/v1/transcripts/:transcriptId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "policynote",
+                                "v1",
+                                "transcripts",
+                                ":transcriptId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "transcriptId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": \"<string>\",\n  \"title\": \"<string>\",\n  \"type\": \"press_statement\",\n  \"date\": \"<date>\",\n  \"location\": \"<string>\",\n  \"duration\": \"<string>\",\n  \"wordCount\": \"<integer>\",\n  \"fullText\": \"<string>\",\n  \"summary\": \"<string>\",\n  \"videoUrl\": \"<uri>\",\n  \"sourceUrl\": \"<uri>\",\n  \"verified\": \"<boolean>\",\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\"\n}",
+                          "createdAt": "2026-10-21T21:21:15.000Z",
+                          "updatedAt": "2026-10-21T21:21:15.000Z",
+                          "uid": "35240-1e9c1c3b-f8f4-4874-b878-65ce92194be3"
+                        },
+                        {
+                          "id": "05fba615-76c7-4ae1-b306-ab7b9e51c478",
+                          "name": "Authentication credentials are missing or invalid.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/policynote/v1/transcripts/:transcriptId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "policynote",
+                                "v1",
+                                "transcripts",
+                                ":transcriptId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "transcriptId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": \"<string>\"\n}",
+                          "createdAt": "2026-10-21T21:21:15.000Z",
+                          "updatedAt": "2026-10-21T21:21:15.000Z",
+                          "uid": "35240-05fba615-76c7-4ae1-b306-ab7b9e51c478"
+                        },
+                        {
+                          "id": "20588946-359f-46a6-a4cc-dbd04fb1e53e",
+                          "name": "Transcript not found.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/policynote/v1/transcripts/:transcriptId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "policynote",
+                                "v1",
+                                "transcripts",
+                                ":transcriptId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "transcriptId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": \"<string>\"\n}",
+                          "createdAt": "2026-10-21T21:21:15.000Z",
+                          "updatedAt": "2026-10-21T21:21:15.000Z",
+                          "uid": "35240-20588946-359f-46a6-a4cc-dbd04fb1e53e"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T21:21:15.000Z",
+                      "updatedAt": "2026-10-21T21:21:15.000Z",
+                      "uid": "35240-82aa2892-6ffb-4830-8650-b2562744bfbe"
                     }
                   ],
-                  "variable": []
+                  "id": "eb61b8d1-09f5-4191-b089-dc9c594a1463",
+                  "createdAt": "2026-10-21T21:21:15.000Z",
+                  "updatedAt": "2026-10-21T21:21:15.000Z",
+                  "uid": "35240-eb61b8d1-09f5-4191-b089-dc9c594a1463"
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"data\": [\n    {\n      \"id\": \"string\",\n      \"title\": \"string\",\n      \"type\": \"executive_order\",\n      \"date\": \"1989-10-30\",\n      \"location\": \"string\",\n      \"duration\": \"string\",\n      \"wordCount\": 4900,\n      \"fullText\": \"string\",\n      \"summary\": \"string\",\n      \"videoUrl\": \"http://pAUBHhzXxrhxPoeyGNokUyEzTSyDS.htfdi0eOo04ixdiSYB2K8FL\",\n      \"sourceUrl\": \"https://tVxbmYMX.gewnLpXRjozJQ4e6pNyLlytAh4PpmwdZ3QM4i7cg\",\n      \"verified\": false,\n      \"createdAt\": \"1953-05-04T20:58:29.316Z\",\n      \"updatedAt\": \"1988-06-22T12:07:43.025Z\"\n    },\n    {\n      \"id\": \"string\",\n      \"title\": \"string\",\n      \"type\": \"public_remarks\",\n      \"date\": \"1985-01-20\",\n      \"location\": \"string\",\n      \"duration\": \"string\",\n      \"wordCount\": 9324,\n      \"fullText\": \"string\",\n      \"summary\": \"string\",\n      \"videoUrl\": \"http://hszGjVFmHZXpHy.iprziAidggINFLYe5+5yF78mwevD\",\n      \"sourceUrl\": \"http://ygVhPbsStvRhHDWgv.dvjmt.D-ZHGgZikylhuCTbQ3hSMM9wuay4SLYPZVH+-jnuF11YgRj4TgVhA2F+z6.ybnOiZF\",\n      \"verified\": false,\n      \"createdAt\": \"1982-07-23T05:11:55.928Z\",\n      \"updatedAt\": \"2009-07-26T04:59:25.605Z\"\n    }\n  ],\n  \"pagination\": {\n    \"total\": 8078,\n    \"limit\": 1090,\n    \"offset\": 852,\n    \"hasMore\": false\n  }\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "b0f1b97c-1bca-4db6-befc-a61e00967bb9",
-              "name": "Authentication credentials are missing or invalid.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "policynote",
-                    "v1",
-                    "transcripts"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
+                  "name": "FiscalNote List presidential transcripts",
+                  "id": "c511c261-c740-4b5a-bc67-a10701d5a775",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/policynote/v1/transcripts?type=proclamation&q=<string>&limit=25&offset=0&updatedSince=<dateTime>&dateFrom=<date>&dateTo=<date>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "policynote",
+                        "v1",
+                        "transcripts"
+                      ],
+                      "query": [
+                        {
+                          "description": "Filter by transcript type such as executive_order, proclamation, press_statement, or public_remarks.",
+                          "key": "type",
+                          "value": "proclamation"
+                        },
+                        {
+                          "description": "Full-text search query to filter results.",
+                          "key": "q",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Maximum number of results to return per page.",
+                          "key": "limit",
+                          "value": "25"
+                        },
+                        {
+                          "description": "Number of results to skip for pagination.",
+                          "key": "offset",
+                          "value": "0"
+                        },
+                        {
+                          "description": "Return only records updated after this ISO 8601 datetime.",
+                          "key": "updatedSince",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "description": "Filter transcripts from this date onward in ISO 8601 format.",
+                          "key": "dateFrom",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "Filter transcripts up to this date in ISO 8601 format.",
+                          "key": "dateTo",
+                          "value": "<date>"
+                        }
+                      ]
+                    },
+                    "description": "Returns a paginated list of presidential transcripts including executive orders, proclamations, press statements, and public remarks. This feed delivers primary-source, verified transcripts purpose-built for programmatic consumption to eliminate AI hallucinations."
+                  },
+                  "response": [
                     {
-                      "key": "type",
-                      "value": "<string>"
+                      "id": "9f458b47-0a72-4d23-9c44-7a109d6edf39",
+                      "name": "A paginated list of presidential transcript records.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/policynote/v1/transcripts?type=proclamation&q=<string>&limit=25&offset=0&updatedSince=<dateTime>&dateFrom=<date>&dateTo=<date>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "policynote",
+                            "v1",
+                            "transcripts"
+                          ],
+                          "query": [
+                            {
+                              "description": "Filter by transcript type such as executive_order, proclamation, press_statement, or public_remarks.",
+                              "key": "type",
+                              "value": "proclamation"
+                            },
+                            {
+                              "description": "Full-text search query to filter results.",
+                              "key": "q",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Maximum number of results to return per page.",
+                              "key": "limit",
+                              "value": "25"
+                            },
+                            {
+                              "description": "Number of results to skip for pagination.",
+                              "key": "offset",
+                              "value": "0"
+                            },
+                            {
+                              "description": "Return only records updated after this ISO 8601 datetime.",
+                              "key": "updatedSince",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "description": "Filter transcripts from this date onward in ISO 8601 format.",
+                              "key": "dateFrom",
+                              "value": "<date>"
+                            },
+                            {
+                              "description": "Filter transcripts up to this date in ISO 8601 format.",
+                              "key": "dateTo",
+                              "value": "<date>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"data\": [\n    {\n      \"id\": \"<string>\",\n      \"title\": \"<string>\",\n      \"type\": \"formal_event\",\n      \"date\": \"<date>\",\n      \"location\": \"<string>\",\n      \"duration\": \"<string>\",\n      \"wordCount\": \"<integer>\",\n      \"fullText\": \"<string>\",\n      \"summary\": \"<string>\",\n      \"videoUrl\": \"<uri>\",\n      \"sourceUrl\": \"<uri>\",\n      \"verified\": \"<boolean>\",\n      \"createdAt\": \"<dateTime>\",\n      \"updatedAt\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"title\": \"<string>\",\n      \"type\": \"proclamation\",\n      \"date\": \"<date>\",\n      \"location\": \"<string>\",\n      \"duration\": \"<string>\",\n      \"wordCount\": \"<integer>\",\n      \"fullText\": \"<string>\",\n      \"summary\": \"<string>\",\n      \"videoUrl\": \"<uri>\",\n      \"sourceUrl\": \"<uri>\",\n      \"verified\": \"<boolean>\",\n      \"createdAt\": \"<dateTime>\",\n      \"updatedAt\": \"<dateTime>\"\n    }\n  ],\n  \"pagination\": {\n    \"total\": \"<integer>\",\n    \"limit\": \"<integer>\",\n    \"offset\": \"<integer>\",\n    \"hasMore\": \"<boolean>\"\n  }\n}",
+                      "createdAt": "2026-10-21T21:21:15.000Z",
+                      "updatedAt": "2026-10-21T21:21:15.000Z",
+                      "uid": "35240-9f458b47-0a72-4d23-9c44-7a109d6edf39"
                     },
                     {
-                      "key": "q",
-                      "value": "<string>"
+                      "id": "e33e86c3-2834-47a2-a9f4-1dc49331c0a7",
+                      "name": "Authentication credentials are missing or invalid.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/policynote/v1/transcripts?type=proclamation&q=<string>&limit=25&offset=0&updatedSince=<dateTime>&dateFrom=<date>&dateTo=<date>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "policynote",
+                            "v1",
+                            "transcripts"
+                          ],
+                          "query": [
+                            {
+                              "description": "Filter by transcript type such as executive_order, proclamation, press_statement, or public_remarks.",
+                              "key": "type",
+                              "value": "proclamation"
+                            },
+                            {
+                              "description": "Full-text search query to filter results.",
+                              "key": "q",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Maximum number of results to return per page.",
+                              "key": "limit",
+                              "value": "25"
+                            },
+                            {
+                              "description": "Number of results to skip for pagination.",
+                              "key": "offset",
+                              "value": "0"
+                            },
+                            {
+                              "description": "Return only records updated after this ISO 8601 datetime.",
+                              "key": "updatedSince",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "description": "Filter transcripts from this date onward in ISO 8601 format.",
+                              "key": "dateFrom",
+                              "value": "<date>"
+                            },
+                            {
+                              "description": "Filter transcripts up to this date in ISO 8601 format.",
+                              "key": "dateTo",
+                              "value": "<date>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T21:21:15.000Z",
+                      "updatedAt": "2026-10-21T21:21:15.000Z",
+                      "uid": "35240-e33e86c3-2834-47a2-a9f4-1dc49331c0a7"
                     },
                     {
-                      "key": "limit",
-                      "value": "25"
-                    },
-                    {
-                      "key": "offset",
-                      "value": "0"
-                    },
-                    {
-                      "key": "updatedSince",
-                      "value": "<dateTime>"
-                    },
-                    {
-                      "key": "dateFrom",
-                      "value": "<date>"
-                    },
-                    {
-                      "key": "dateTo",
-                      "value": "<date>"
+                      "id": "070f577f-c769-4c11-879a-41fdf175fb5d",
+                      "name": "Rate limit exceeded.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/policynote/v1/transcripts?type=proclamation&q=<string>&limit=25&offset=0&updatedSince=<dateTime>&dateFrom=<date>&dateTo=<date>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "policynote",
+                            "v1",
+                            "transcripts"
+                          ],
+                          "query": [
+                            {
+                              "description": "Filter by transcript type such as executive_order, proclamation, press_statement, or public_remarks.",
+                              "key": "type",
+                              "value": "proclamation"
+                            },
+                            {
+                              "description": "Full-text search query to filter results.",
+                              "key": "q",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Maximum number of results to return per page.",
+                              "key": "limit",
+                              "value": "25"
+                            },
+                            {
+                              "description": "Number of results to skip for pagination.",
+                              "key": "offset",
+                              "value": "0"
+                            },
+                            {
+                              "description": "Return only records updated after this ISO 8601 datetime.",
+                              "key": "updatedSince",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "description": "Filter transcripts from this date onward in ISO 8601 format.",
+                              "key": "dateFrom",
+                              "value": "<date>"
+                            },
+                            {
+                              "description": "Filter transcripts up to this date in ISO 8601 format.",
+                              "key": "dateTo",
+                              "value": "<date>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Too Many Requests",
+                      "code": 429,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T21:21:15.000Z",
+                      "updatedAt": "2026-10-21T21:21:15.000Z",
+                      "uid": "35240-070f577f-c769-4c11-879a-41fdf175fb5d"
                     }
                   ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "createdAt": "2026-10-21T21:21:15.000Z",
+                  "updatedAt": "2026-10-21T21:21:15.000Z",
+                  "uid": "35240-c511c261-c740-4b5a-bc67-a10701d5a775"
                 }
               ],
-              "body": "{\n  \"code\": 6037,\n  \"message\": \"string\",\n  \"details\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "50a7614c-b252-4336-937c-eb3b77744e29",
-              "name": "Rate limit exceeded.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "policynote",
-                    "v1",
-                    "transcripts"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "type",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "q",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "limit",
-                      "value": "25"
-                    },
-                    {
-                      "key": "offset",
-                      "value": "0"
-                    },
-                    {
-                      "key": "updatedSince",
-                      "value": "<dateTime>"
-                    },
-                    {
-                      "key": "dateFrom",
-                      "value": "<date>"
-                    },
-                    {
-                      "key": "dateTo",
-                      "value": "<date>"
-                    }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Too Many Requests",
-              "code": 429,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 6037,\n  \"message\": \"string\",\n  \"details\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "id": "0203f21d-cbae-4f54-a3e0-408e03ba2d72",
+              "createdAt": "2026-10-21T21:21:15.000Z",
+              "updatedAt": "2026-10-21T21:21:15.000Z",
+              "uid": "35240-0203f21d-cbae-4f54-a3e0-408e03ba2d72"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "e48b4f67-f42b-4fb4-989c-335e0763d58c",
-          "name": "FiscalNote Get presidential transcript by ID",
-          "request": {
-            "name": "FiscalNote Get presidential transcript by ID",
-            "description": {
-              "content": "Returns the full text and metadata of a specific presidential transcript, including the verified primary-source record of the communication.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "policynote",
-                "v1",
-                "transcripts",
-                ":transcriptId"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "transcriptId",
-                  "description": "(Required) The unique identifier of the transcript."
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "91910e16-cb54-40d8-9d35-8b8d3cfe3388",
-              "name": "Detailed presidential transcript record.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "policynote",
-                    "v1",
-                    "transcripts",
-                    ":transcriptId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "transcriptId",
-                      "description": "(Required) The unique identifier of the transcript."
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"id\": \"string\",\n  \"title\": \"string\",\n  \"type\": \"public_remarks\",\n  \"date\": \"2019-07-02\",\n  \"location\": \"string\",\n  \"duration\": \"string\",\n  \"wordCount\": 2537,\n  \"fullText\": \"string\",\n  \"summary\": \"string\",\n  \"videoUrl\": \"http://VTsGdzl.qtdDkulXZL1J6XD,BF0KmqCKQ1pld2Q84ml.T5RFrCAn\",\n  \"sourceUrl\": \"http://fckPWjuWErQaGJJzt.czdgaEb0W1x3eem-l+GEyrRX29Mg1iqt3zs\",\n  \"verified\": true,\n  \"createdAt\": \"1962-10-16T03:56:11.472Z\",\n  \"updatedAt\": \"1950-07-06T08:42:12.300Z\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "b79be98f-9022-4791-a7b9-3030d361f8fb",
-              "name": "Authentication credentials are missing or invalid.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "policynote",
-                    "v1",
-                    "transcripts",
-                    ":transcriptId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "transcriptId",
-                      "description": "(Required) The unique identifier of the transcript."
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 6037,\n  \"message\": \"string\",\n  \"details\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "568df679-b275-47b0-9e9a-5c41068ee7f4",
-              "name": "Transcript not found.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "policynote",
-                    "v1",
-                    "transcripts",
-                    ":transcriptId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "transcriptId",
-                      "description": "(Required) The unique identifier of the transcript."
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 6037,\n  \"message\": \"string\",\n  \"details\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "18daf786-8b9b-44c4-b5d4-383e01cd823e",
+          "createdAt": "2026-10-21T21:21:15.000Z",
+          "updatedAt": "2026-10-21T21:21:15.000Z",
+          "uid": "35240-18daf786-8b9b-44c4-b5d4-383e01cd823e"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://api.fiscalnote.com",
-      "key": "baseUrl"
+      "id": "b0c01d4c-6a76-4d09-be9e-15bb1b6632f0",
+      "createdAt": "2026-10-21T21:21:15.000Z",
+      "updatedAt": "2026-10-21T21:21:15.000Z",
+      "uid": "35240-b0c01d4c-6a76-4d09-be9e-15bb1b6632f0"
     }
   ],
   "auth": {
@@ -535,25 +557,25 @@
     "apikey": [
       {
         "key": "key",
-        "value": "Authorization"
+        "value": "Authorization",
+        "type": "string"
       },
       {
         "key": "value",
-        "value": "{{apiKey}}"
+        "value": "{{apiKey}}",
+        "type": "string"
       },
       {
         "key": "in",
-        "value": "header"
+        "value": "header",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "a51e0324-9b93-48ba-b676-5cd2f864464e",
-    "name": "FiscalNote AppData Bills Presidential Transcripts API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "The FiscalNote AppData API provides access to FiscalNote's data on legislation and regulations, both past and present, in the United States and globally. It also exposes organizational data from the FiscalNote platform including issues and labels. Developers can use the API to integrate legislative tracking, regulatory monitoring, and policy analysis capabilities into their own applications and workflows.\n\nContact Support:\n Name: FiscalNote Support",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.fiscalnote.com"
     }
-  }
+  ]
 }

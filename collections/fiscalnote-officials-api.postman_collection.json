@@ -1,551 +1,575 @@
 {
+  "info": {
+    "_postman_id": "81b4de69-fd2a-46cd-a140-526b9606b6fb",
+    "name": "FiscalNote People Officials API",
+    "description": "The FiscalNote People API allows developers to access FiscalNote's data on government officials in the United States and globally. The API provides structured information about legislators, elected officials, and other government personnel, enabling applications to look up representatives, track official profiles, and integrate government personnel data into political intelligence and advocacy workflows.\n\nContact Support:\n Name: FiscalNote Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T21:20:55.000Z",
+    "updatedAt": "2026-10-21T21:20:56.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-81b4de69-fd2a-46cd-a140-526b9606b6fb"
+  },
   "item": [
     {
-      "id": "66f7d269-c3ed-42a3-89d5-61931762059a",
-      "name": "Officials",
-      "description": {
-        "content": "Access government official profiles including legislators, executives, and appointees.",
-        "type": "text/plain"
-      },
+      "name": "people",
       "item": [
         {
-          "id": "6371f25b-2d6b-4803-80a3-a97907a21a69",
-          "name": "FiscalNote List government officials",
-          "request": {
-            "name": "FiscalNote List government officials",
-            "description": {
-              "content": "Returns a paginated list of government officials including legislators, executives, and appointees from the United States and international jurisdictions.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "people",
-                "v2",
-                "officials"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "jurisdiction",
-                  "value": "<string>",
-                  "description": "Filter by jurisdiction code such as US, US-CA, GB, or EU."
-                },
-                {
-                  "disabled": false,
-                  "key": "chamber",
-                  "value": "<string>",
-                  "description": "Filter by legislative chamber such as senate or house."
-                },
-                {
-                  "disabled": false,
-                  "key": "party",
-                  "value": "<string>",
-                  "description": "Filter by political party affiliation."
-                },
-                {
-                  "disabled": false,
-                  "key": "state",
-                  "value": "<string>",
-                  "description": "Filter by U.S. state abbreviation."
-                },
-                {
-                  "disabled": false,
-                  "key": "q",
-                  "value": "<string>",
-                  "description": "Full-text search query to filter results."
-                },
-                {
-                  "disabled": false,
-                  "key": "limit",
-                  "value": "25",
-                  "description": "Maximum number of results to return per page."
-                },
-                {
-                  "disabled": false,
-                  "key": "offset",
-                  "value": "0",
-                  "description": "Number of results to skip for pagination."
-                },
-                {
-                  "disabled": false,
-                  "key": "updatedSince",
-                  "value": "<dateTime>",
-                  "description": "Return only records updated after this ISO 8601 datetime."
-                }
-              ],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "v2",
+          "item": [
             {
-              "id": "75370453-087d-46d9-8b6d-b94e134a438a",
-              "name": "A paginated list of government official records.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "people",
-                    "v2",
-                    "officials"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
+              "name": "officials",
+              "item": [
+                {
+                  "name": "{officialId}",
+                  "item": [
                     {
-                      "key": "jurisdiction",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "chamber",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "party",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "state",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "q",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "limit",
-                      "value": "25"
-                    },
-                    {
-                      "key": "offset",
-                      "value": "0"
-                    },
-                    {
-                      "key": "updatedSince",
-                      "value": "<dateTime>"
+                      "name": "FiscalNote Get government official by ID",
+                      "id": "382a0a34-eb1e-4907-a201-6cb85f2f75a5",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/people/v2/officials/:officialId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "people",
+                            "v2",
+                            "officials",
+                            ":officialId"
+                          ],
+                          "variable": [
+                            {
+                              "id": "4e78623d-4057-47fb-9a78-ac403ea52bea",
+                              "key": "officialId",
+                              "value": "<string>",
+                              "description": "(Required) The unique identifier of the government official."
+                            }
+                          ]
+                        },
+                        "description": "Returns detailed information about a specific government official including biography, contact details, committee assignments, and political affiliation."
+                      },
+                      "response": [
+                        {
+                          "id": "e8054a84-f878-420c-8aa3-f8a05122b2db",
+                          "name": "Detailed government official record.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/people/v2/officials/:officialId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "people",
+                                "v2",
+                                "officials",
+                                ":officialId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "officialId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": \"<string>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"fullName\": \"<string>\",\n  \"title\": \"<string>\",\n  \"party\": \"<string>\",\n  \"jurisdiction\": \"<string>\",\n  \"state\": \"<string>\",\n  \"chamber\": \"<string>\",\n  \"district\": \"<string>\",\n  \"active\": \"<boolean>\",\n  \"biography\": \"<string>\",\n  \"photoUrl\": \"<uri>\",\n  \"contactInfo\": {\n    \"email\": \"<email>\",\n    \"phone\": \"<string>\",\n    \"address\": \"<string>\",\n    \"website\": \"<uri>\"\n  },\n  \"socialMedia\": {\n    \"twitter\": \"<string>\",\n    \"facebook\": \"<string>\",\n    \"youtube\": \"<string>\"\n  },\n  \"url\": \"<uri>\",\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\"\n}",
+                          "createdAt": "2026-10-21T21:20:56.000Z",
+                          "updatedAt": "2026-10-21T21:20:56.000Z",
+                          "uid": "35240-e8054a84-f878-420c-8aa3-f8a05122b2db"
+                        },
+                        {
+                          "id": "5c16eb15-5792-4ad3-8f79-cb7cc93a9dbf",
+                          "name": "Authentication credentials are missing or invalid.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/people/v2/officials/:officialId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "people",
+                                "v2",
+                                "officials",
+                                ":officialId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "officialId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-10-21T21:20:56.000Z",
+                          "updatedAt": "2026-10-21T21:20:56.000Z",
+                          "uid": "35240-5c16eb15-5792-4ad3-8f79-cb7cc93a9dbf"
+                        },
+                        {
+                          "id": "a1a6c62f-4429-4f5c-9b63-6a975ee6ea0c",
+                          "name": "Official not found.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/people/v2/officials/:officialId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "people",
+                                "v2",
+                                "officials",
+                                ":officialId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "officialId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-10-21T21:20:56.000Z",
+                          "updatedAt": "2026-10-21T21:20:56.000Z",
+                          "uid": "35240-a1a6c62f-4429-4f5c-9b63-6a975ee6ea0c"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T21:20:56.000Z",
+                      "updatedAt": "2026-10-21T21:20:56.000Z",
+                      "uid": "35240-382a0a34-eb1e-4907-a201-6cb85f2f75a5"
                     }
                   ],
-                  "variable": []
+                  "id": "b0579082-848d-4553-8d84-7d31d8664d14",
+                  "createdAt": "2026-10-21T21:20:56.000Z",
+                  "updatedAt": "2026-10-21T21:20:56.000Z",
+                  "uid": "35240-b0579082-848d-4553-8d84-7d31d8664d14"
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"data\": [\n    {\n      \"id\": \"string\",\n      \"firstName\": \"string\",\n      \"lastName\": \"string\",\n      \"fullName\": \"string\",\n      \"title\": \"string\",\n      \"party\": \"string\",\n      \"jurisdiction\": \"string\",\n      \"state\": \"string\",\n      \"chamber\": \"string\",\n      \"district\": \"string\",\n      \"active\": true,\n      \"biography\": \"string\",\n      \"photoUrl\": \"http://uGWnxe.qkZ299-Zb7A1JvCyrHfQFfofiqOSn5LbfPdNjgYI,UF6pUgwoTmcjMZCckChqP4x14f.8\",\n      \"contactInfo\": {\n        \"email\": \"N4worGC0SCm@nRiqANbZbUaAlN.kg\",\n        \"phone\": \"string\",\n        \"address\": \"string\",\n        \"website\": \"https://loo.cneqhUTRXgPz.zl39EjzI\"\n      },\n      \"socialMedia\": {\n        \"twitter\": \"string\",\n        \"facebook\": \"string\",\n        \"youtube\": \"string\"\n      },\n      \"url\": \"https://eqLeYpBEKWTdnsprzljwdbkYS.xdvX-IFbL\",\n      \"createdAt\": \"1972-02-24T18:14:19.143Z\",\n      \"updatedAt\": \"2022-11-27T00:03:03.245Z\"\n    },\n    {\n      \"id\": \"string\",\n      \"firstName\": \"string\",\n      \"lastName\": \"string\",\n      \"fullName\": \"string\",\n      \"title\": \"string\",\n      \"party\": \"string\",\n      \"jurisdiction\": \"string\",\n      \"state\": \"string\",\n      \"chamber\": \"string\",\n      \"district\": \"string\",\n      \"active\": false,\n      \"biography\": \"string\",\n      \"photoUrl\": \"http://VcRHuoIfZAmyVmybFWaGbroZoCHoVzZM.fmtS8,irVDSew0dVx7NNiy6Sm7DZ8z7,sStJU5PodLyXM-1DYMGNSyOMlck1mWzrzm-lHct3-s\",\n      \"contactInfo\": {\n        \"email\": \"lQoACvQkMiylz@YESoz.su\",\n        \"phone\": \"string\",\n        \"address\": \"string\",\n        \"website\": \"https://EBpWuXXBV.jybDpwrmC0HKqO6RcNEYXjvr2YLqiqjr3qVv8V6tNk774\"\n      },\n      \"socialMedia\": {\n        \"twitter\": \"string\",\n        \"facebook\": \"string\",\n        \"youtube\": \"string\"\n      },\n      \"url\": \"https://PqvqNqBUUxbvnZKqSQymKZmQYJh.obtaYA4xRkctInDhBxIFnJvUHoc7e\",\n      \"createdAt\": \"1955-06-15T06:23:52.472Z\",\n      \"updatedAt\": \"2002-12-05T08:42:27.700Z\"\n    }\n  ],\n  \"pagination\": {\n    \"total\": 2477,\n    \"limit\": 1895,\n    \"offset\": 3697,\n    \"hasMore\": true\n  }\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "16074713-75b5-4306-91d8-d458725a8765",
-              "name": "Authentication credentials are missing or invalid.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "people",
-                    "v2",
-                    "officials"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
+                  "name": "FiscalNote List government officials",
+                  "id": "49de0d22-eb91-40b3-af71-fcc90a05c393",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/people/v2/officials?jurisdiction=<string>&chamber=house&party=<string>&state=<string>&q=<string>&limit=25&offset=0&updatedSince=<dateTime>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "people",
+                        "v2",
+                        "officials"
+                      ],
+                      "query": [
+                        {
+                          "description": "Filter by jurisdiction code such as US, US-CA, GB, or EU.",
+                          "key": "jurisdiction",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter by legislative chamber such as senate or house.",
+                          "key": "chamber",
+                          "value": "house"
+                        },
+                        {
+                          "description": "Filter by political party affiliation.",
+                          "key": "party",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter by U.S. state abbreviation.",
+                          "key": "state",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Full-text search query to filter results.",
+                          "key": "q",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Maximum number of results to return per page.",
+                          "key": "limit",
+                          "value": "25"
+                        },
+                        {
+                          "description": "Number of results to skip for pagination.",
+                          "key": "offset",
+                          "value": "0"
+                        },
+                        {
+                          "description": "Return only records updated after this ISO 8601 datetime.",
+                          "key": "updatedSince",
+                          "value": "<dateTime>"
+                        }
+                      ]
+                    },
+                    "description": "Returns a paginated list of government officials including legislators, executives, and appointees from the United States and international jurisdictions."
+                  },
+                  "response": [
                     {
-                      "key": "jurisdiction",
-                      "value": "<string>"
+                      "id": "d5956bd4-e683-4cd0-a960-0111e094ea9f",
+                      "name": "A paginated list of government official records.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/people/v2/officials?jurisdiction=<string>&chamber=house&party=<string>&state=<string>&q=<string>&limit=25&offset=0&updatedSince=<dateTime>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "people",
+                            "v2",
+                            "officials"
+                          ],
+                          "query": [
+                            {
+                              "description": "Filter by jurisdiction code such as US, US-CA, GB, or EU.",
+                              "key": "jurisdiction",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Filter by legislative chamber such as senate or house.",
+                              "key": "chamber",
+                              "value": "house"
+                            },
+                            {
+                              "description": "Filter by political party affiliation.",
+                              "key": "party",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Filter by U.S. state abbreviation.",
+                              "key": "state",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Full-text search query to filter results.",
+                              "key": "q",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Maximum number of results to return per page.",
+                              "key": "limit",
+                              "value": "25"
+                            },
+                            {
+                              "description": "Number of results to skip for pagination.",
+                              "key": "offset",
+                              "value": "0"
+                            },
+                            {
+                              "description": "Return only records updated after this ISO 8601 datetime.",
+                              "key": "updatedSince",
+                              "value": "<dateTime>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"data\": [\n    {\n      \"id\": \"<string>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"fullName\": \"<string>\",\n      \"title\": \"<string>\",\n      \"party\": \"<string>\",\n      \"jurisdiction\": \"<string>\",\n      \"state\": \"<string>\",\n      \"chamber\": \"<string>\",\n      \"district\": \"<string>\",\n      \"active\": \"<boolean>\",\n      \"biography\": \"<string>\",\n      \"photoUrl\": \"<uri>\",\n      \"contactInfo\": {\n        \"email\": \"<email>\",\n        \"phone\": \"<string>\",\n        \"address\": \"<string>\",\n        \"website\": \"<uri>\"\n      },\n      \"socialMedia\": {\n        \"twitter\": \"<string>\",\n        \"facebook\": \"<string>\",\n        \"youtube\": \"<string>\"\n      },\n      \"url\": \"<uri>\",\n      \"createdAt\": \"<dateTime>\",\n      \"updatedAt\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"fullName\": \"<string>\",\n      \"title\": \"<string>\",\n      \"party\": \"<string>\",\n      \"jurisdiction\": \"<string>\",\n      \"state\": \"<string>\",\n      \"chamber\": \"<string>\",\n      \"district\": \"<string>\",\n      \"active\": \"<boolean>\",\n      \"biography\": \"<string>\",\n      \"photoUrl\": \"<uri>\",\n      \"contactInfo\": {\n        \"email\": \"<email>\",\n        \"phone\": \"<string>\",\n        \"address\": \"<string>\",\n        \"website\": \"<uri>\"\n      },\n      \"socialMedia\": {\n        \"twitter\": \"<string>\",\n        \"facebook\": \"<string>\",\n        \"youtube\": \"<string>\"\n      },\n      \"url\": \"<uri>\",\n      \"createdAt\": \"<dateTime>\",\n      \"updatedAt\": \"<dateTime>\"\n    }\n  ],\n  \"pagination\": {\n    \"total\": \"<integer>\",\n    \"limit\": \"<integer>\",\n    \"offset\": \"<integer>\",\n    \"hasMore\": \"<boolean>\"\n  }\n}",
+                      "createdAt": "2026-10-21T21:20:56.000Z",
+                      "updatedAt": "2026-10-21T21:20:56.000Z",
+                      "uid": "35240-d5956bd4-e683-4cd0-a960-0111e094ea9f"
                     },
                     {
-                      "key": "chamber",
-                      "value": "<string>"
+                      "id": "6b3a55e6-d7b1-476c-8187-799069369def",
+                      "name": "Authentication credentials are missing or invalid.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/people/v2/officials?jurisdiction=<string>&chamber=house&party=<string>&state=<string>&q=<string>&limit=25&offset=0&updatedSince=<dateTime>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "people",
+                            "v2",
+                            "officials"
+                          ],
+                          "query": [
+                            {
+                              "description": "Filter by jurisdiction code such as US, US-CA, GB, or EU.",
+                              "key": "jurisdiction",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Filter by legislative chamber such as senate or house.",
+                              "key": "chamber",
+                              "value": "house"
+                            },
+                            {
+                              "description": "Filter by political party affiliation.",
+                              "key": "party",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Filter by U.S. state abbreviation.",
+                              "key": "state",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Full-text search query to filter results.",
+                              "key": "q",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Maximum number of results to return per page.",
+                              "key": "limit",
+                              "value": "25"
+                            },
+                            {
+                              "description": "Number of results to skip for pagination.",
+                              "key": "offset",
+                              "value": "0"
+                            },
+                            {
+                              "description": "Return only records updated after this ISO 8601 datetime.",
+                              "key": "updatedSince",
+                              "value": "<dateTime>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T21:20:56.000Z",
+                      "updatedAt": "2026-10-21T21:20:56.000Z",
+                      "uid": "35240-6b3a55e6-d7b1-476c-8187-799069369def"
                     },
                     {
-                      "key": "party",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "state",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "q",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "limit",
-                      "value": "25"
-                    },
-                    {
-                      "key": "offset",
-                      "value": "0"
-                    },
-                    {
-                      "key": "updatedSince",
-                      "value": "<dateTime>"
+                      "id": "eac72556-5959-439e-a995-e9ef9c9e08e6",
+                      "name": "Rate limit exceeded.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/people/v2/officials?jurisdiction=<string>&chamber=house&party=<string>&state=<string>&q=<string>&limit=25&offset=0&updatedSince=<dateTime>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "people",
+                            "v2",
+                            "officials"
+                          ],
+                          "query": [
+                            {
+                              "description": "Filter by jurisdiction code such as US, US-CA, GB, or EU.",
+                              "key": "jurisdiction",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Filter by legislative chamber such as senate or house.",
+                              "key": "chamber",
+                              "value": "house"
+                            },
+                            {
+                              "description": "Filter by political party affiliation.",
+                              "key": "party",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Filter by U.S. state abbreviation.",
+                              "key": "state",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Full-text search query to filter results.",
+                              "key": "q",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Maximum number of results to return per page.",
+                              "key": "limit",
+                              "value": "25"
+                            },
+                            {
+                              "description": "Number of results to skip for pagination.",
+                              "key": "offset",
+                              "value": "0"
+                            },
+                            {
+                              "description": "Return only records updated after this ISO 8601 datetime.",
+                              "key": "updatedSince",
+                              "value": "<dateTime>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Too Many Requests",
+                      "code": 429,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T21:20:56.000Z",
+                      "updatedAt": "2026-10-21T21:20:56.000Z",
+                      "uid": "35240-eac72556-5959-439e-a995-e9ef9c9e08e6"
                     }
                   ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "createdAt": "2026-10-21T21:20:56.000Z",
+                  "updatedAt": "2026-10-21T21:20:56.000Z",
+                  "uid": "35240-49de0d22-eb91-40b3-af71-fcc90a05c393"
                 }
               ],
-              "body": "{\n  \"code\": 3973,\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "7363a4de-1e6f-46e7-8eb3-d7482984746d",
-              "name": "Rate limit exceeded.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "people",
-                    "v2",
-                    "officials"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "jurisdiction",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "chamber",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "party",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "state",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "q",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "limit",
-                      "value": "25"
-                    },
-                    {
-                      "key": "offset",
-                      "value": "0"
-                    },
-                    {
-                      "key": "updatedSince",
-                      "value": "<dateTime>"
-                    }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Too Many Requests",
-              "code": 429,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 3973,\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "id": "2181a17f-455e-4aab-b4ed-d7c22b65db86",
+              "createdAt": "2026-10-21T21:20:56.000Z",
+              "updatedAt": "2026-10-21T21:20:56.000Z",
+              "uid": "35240-2181a17f-455e-4aab-b4ed-d7c22b65db86"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "d3b46a5a-82ff-471d-a8e1-41916e6db21b",
-          "name": "FiscalNote Get government official by ID",
-          "request": {
-            "name": "FiscalNote Get government official by ID",
-            "description": {
-              "content": "Returns detailed information about a specific government official including biography, contact details, committee assignments, and political affiliation.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "people",
-                "v2",
-                "officials",
-                ":officialId"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "officialId",
-                  "description": "(Required) The unique identifier of the government official."
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "4b7155ee-d0c4-4f37-a181-0cd62e75c8e7",
-              "name": "Detailed government official record.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "people",
-                    "v2",
-                    "officials",
-                    ":officialId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "officialId",
-                      "description": "(Required) The unique identifier of the government official."
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"id\": \"string\",\n  \"firstName\": \"string\",\n  \"lastName\": \"string\",\n  \"fullName\": \"string\",\n  \"title\": \"string\",\n  \"party\": \"string\",\n  \"jurisdiction\": \"string\",\n  \"state\": \"string\",\n  \"chamber\": \"string\",\n  \"district\": \"string\",\n  \"active\": false,\n  \"biography\": \"string\",\n  \"photoUrl\": \"https://jvxAnAtok.veSW8i8zxmLD7fULATL1\",\n  \"contactInfo\": {\n    \"email\": \"XfFlV@fYjgEjCBWez.sz\",\n    \"phone\": \"string\",\n    \"address\": \"string\",\n    \"website\": \"http://lqbYoQtLFOGpNsRHysMcC.mdgrCjibLWR2JkuxLJqd3EUHiNNcpaO+tbAQ+3PVhg.HCU53lW410ByQ2CdZ\"\n  },\n  \"socialMedia\": {\n    \"twitter\": \"string\",\n    \"facebook\": \"string\",\n    \"youtube\": \"string\"\n  },\n  \"url\": \"http://BcipZjjDvjtCSETgFBDhuKxjhAuVWfpw.deylwPqGQNHu+\",\n  \"createdAt\": \"1981-08-28T08:16:37.935Z\",\n  \"updatedAt\": \"1967-06-03T03:39:31.013Z\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "ad8de9d0-2d80-41a1-a82e-289f93a67ea3",
-              "name": "Authentication credentials are missing or invalid.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "people",
-                    "v2",
-                    "officials",
-                    ":officialId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "officialId",
-                      "description": "(Required) The unique identifier of the government official."
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 3973,\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "2af916c4-a02d-4499-847e-4ea5fba4d496",
-              "name": "Official not found.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "people",
-                    "v2",
-                    "officials",
-                    ":officialId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "officialId",
-                      "description": "(Required) The unique identifier of the government official."
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 3973,\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "fc9064e3-4869-4d3b-9aae-20a98c0cce45",
+          "createdAt": "2026-10-21T21:20:56.000Z",
+          "updatedAt": "2026-10-21T21:20:56.000Z",
+          "uid": "35240-fc9064e3-4869-4d3b-9aae-20a98c0cce45"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://api.fiscalnote.com",
-      "key": "baseUrl"
+      "id": "46bb9fb7-23a6-45ce-8e5a-686525bfc548",
+      "createdAt": "2026-10-21T21:20:56.000Z",
+      "updatedAt": "2026-10-21T21:20:56.000Z",
+      "uid": "35240-46bb9fb7-23a6-45ce-8e5a-686525bfc548"
     }
   ],
   "auth": {
@@ -553,25 +577,25 @@
     "apikey": [
       {
         "key": "key",
-        "value": "Authorization"
+        "value": "Authorization",
+        "type": "string"
       },
       {
         "key": "value",
-        "value": "{{apiKey}}"
+        "value": "{{apiKey}}",
+        "type": "string"
       },
       {
         "key": "in",
-        "value": "header"
+        "value": "header",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "18f75535-80ef-43ba-9fa0-f4909b5f5cec",
-    "name": "FiscalNote AppData Bills Officials API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "The FiscalNote AppData API provides access to FiscalNote's data on legislation and regulations, both past and present, in the United States and globally. It also exposes organizational data from the FiscalNote platform including issues and labels. Developers can use the API to integrate legislative tracking, regulatory monitoring, and policy analysis capabilities into their own applications and workflows.\n\nContact Support:\n Name: FiscalNote Support",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.fiscalnote.com"
     }
-  }
+  ]
 }

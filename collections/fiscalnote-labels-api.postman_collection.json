@@ -1,403 +1,414 @@
 {
+  "info": {
+    "_postman_id": "a30f1aaa-9ccf-4630-b35f-cfd7d4547190",
+    "name": "FiscalNote AppData Labels API",
+    "description": "The FiscalNote AppData API provides access to FiscalNote's data on legislation and regulations, both past and present, in the United States and globally. It also exposes organizational data from the FiscalNote platform including issues and labels. Developers can use the API to integrate legislative tracking, regulatory monitoring, and policy analysis capabilities into their own applications and workflows.\n\nContact Support:\n Name: FiscalNote Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T21:20:37.000Z",
+    "updatedAt": "2026-10-21T21:20:38.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-a30f1aaa-9ccf-4630-b35f-cfd7d4547190"
+  },
   "item": [
     {
-      "id": "96d9aee1-4feb-4ba2-bb9d-61c9d8db1ede",
-      "name": "Labels",
-      "description": {
-        "content": "Manage and retrieve labels used to categorize and organize legislation and policy items.",
-        "type": "text/plain"
-      },
+      "name": "appdata",
       "item": [
         {
-          "id": "88a989c6-ca00-4b1b-bcbd-37682698bdb0",
-          "name": "FiscalNote List labels",
-          "request": {
-            "name": "FiscalNote List labels",
-            "description": {
-              "content": "Returns a paginated list of labels used to categorize and organize legislation and policy items within the organization.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "appdata",
-                "v1",
-                "labels"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "q",
-                  "value": "<string>",
-                  "description": "Full-text search query to filter results."
-                },
-                {
-                  "disabled": false,
-                  "key": "limit",
-                  "value": "25",
-                  "description": "Maximum number of results to return per page."
-                },
-                {
-                  "disabled": false,
-                  "key": "offset",
-                  "value": "0",
-                  "description": "Number of results to skip for pagination."
-                }
-              ],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "v1",
+          "item": [
             {
-              "id": "92284dcf-9c0e-497d-b0a4-a837ae0d91de",
-              "name": "A paginated list of label records.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "appdata",
-                    "v1",
-                    "labels"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
+              "name": "labels",
+              "item": [
+                {
+                  "name": "{labelId}",
+                  "item": [
                     {
-                      "key": "q",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "limit",
-                      "value": "25"
-                    },
-                    {
-                      "key": "offset",
-                      "value": "0"
+                      "name": "FiscalNote Get label by ID",
+                      "id": "ae3e0a2c-71a5-4abf-95bd-ad632f869367",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/appdata/v1/labels/:labelId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "appdata",
+                            "v1",
+                            "labels",
+                            ":labelId"
+                          ],
+                          "variable": [
+                            {
+                              "id": "97918889-ad64-442b-8510-8df95d7df77d",
+                              "key": "labelId",
+                              "value": "<string>",
+                              "description": "(Required) The unique identifier of the label."
+                            }
+                          ]
+                        },
+                        "description": "Returns detailed information about a specific label."
+                      },
+                      "response": [
+                        {
+                          "id": "e6533fac-b56f-4e44-a2e6-53f520cf643a",
+                          "name": "Detailed label record.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/appdata/v1/labels/:labelId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "appdata",
+                                "v1",
+                                "labels",
+                                ":labelId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "labelId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"color\": \"#DB8cC9\",\n  \"createdAt\": \"<dateTime>\"\n}",
+                          "createdAt": "2026-10-21T21:20:38.000Z",
+                          "updatedAt": "2026-10-21T21:20:38.000Z",
+                          "uid": "35240-e6533fac-b56f-4e44-a2e6-53f520cf643a"
+                        },
+                        {
+                          "id": "ae150822-526f-4c22-8399-2ab51350f0dc",
+                          "name": "Authentication credentials are missing or invalid.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/appdata/v1/labels/:labelId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "appdata",
+                                "v1",
+                                "labels",
+                                ":labelId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "labelId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-10-21T21:20:38.000Z",
+                          "updatedAt": "2026-10-21T21:20:38.000Z",
+                          "uid": "35240-ae150822-526f-4c22-8399-2ab51350f0dc"
+                        },
+                        {
+                          "id": "f606e53c-975a-4ddd-92ac-468c86978ee9",
+                          "name": "Label not found.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/appdata/v1/labels/:labelId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "appdata",
+                                "v1",
+                                "labels",
+                                ":labelId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "labelId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-10-21T21:20:38.000Z",
+                          "updatedAt": "2026-10-21T21:20:38.000Z",
+                          "uid": "35240-f606e53c-975a-4ddd-92ac-468c86978ee9"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T21:20:38.000Z",
+                      "updatedAt": "2026-10-21T21:20:38.000Z",
+                      "uid": "35240-ae3e0a2c-71a5-4abf-95bd-ad632f869367"
                     }
                   ],
-                  "variable": []
+                  "id": "0fd92536-0520-449c-819b-b48ac2a80126",
+                  "createdAt": "2026-10-21T21:20:38.000Z",
+                  "updatedAt": "2026-10-21T21:20:38.000Z",
+                  "uid": "35240-0fd92536-0520-449c-819b-b48ac2a80126"
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"data\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"color\": \"#330B4b\",\n      \"createdAt\": \"1991-10-01T18:49:50.542Z\"\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"color\": \"#6Cc7dF\",\n      \"createdAt\": \"2013-11-07T18:12:31.818Z\"\n    }\n  ],\n  \"pagination\": {\n    \"total\": 3071,\n    \"limit\": 9937,\n    \"offset\": 6982,\n    \"hasMore\": false\n  }\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "6db73f1a-ac6a-4585-824d-1916f7e834f9",
-              "name": "Authentication credentials are missing or invalid.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "appdata",
-                    "v1",
-                    "labels"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
+                  "name": "FiscalNote List labels",
+                  "id": "0140c41f-ad61-4007-9182-0b5a96386e9f",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/appdata/v1/labels?q=<string>&limit=25&offset=0",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "appdata",
+                        "v1",
+                        "labels"
+                      ],
+                      "query": [
+                        {
+                          "description": "Full-text search query to filter results.",
+                          "key": "q",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Maximum number of results to return per page.",
+                          "key": "limit",
+                          "value": "25"
+                        },
+                        {
+                          "description": "Number of results to skip for pagination.",
+                          "key": "offset",
+                          "value": "0"
+                        }
+                      ]
+                    },
+                    "description": "Returns a paginated list of labels used to categorize and organize legislation and policy items within the organization."
+                  },
+                  "response": [
                     {
-                      "key": "q",
-                      "value": "<string>"
+                      "id": "1bd71dc8-3301-4e55-8bef-9b8aea04680f",
+                      "name": "A paginated list of label records.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/appdata/v1/labels?q=<string>&limit=25&offset=0",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "appdata",
+                            "v1",
+                            "labels"
+                          ],
+                          "query": [
+                            {
+                              "description": "Full-text search query to filter results.",
+                              "key": "q",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Maximum number of results to return per page.",
+                              "key": "limit",
+                              "value": "25"
+                            },
+                            {
+                              "description": "Number of results to skip for pagination.",
+                              "key": "offset",
+                              "value": "0"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"data\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"color\": \"#74d842\",\n      \"createdAt\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"color\": \"#dfac7c\",\n      \"createdAt\": \"<dateTime>\"\n    }\n  ],\n  \"pagination\": {\n    \"total\": \"<integer>\",\n    \"limit\": \"<integer>\",\n    \"offset\": \"<integer>\",\n    \"hasMore\": \"<boolean>\"\n  }\n}",
+                      "createdAt": "2026-10-21T21:20:38.000Z",
+                      "updatedAt": "2026-10-21T21:20:38.000Z",
+                      "uid": "35240-1bd71dc8-3301-4e55-8bef-9b8aea04680f"
                     },
                     {
-                      "key": "limit",
-                      "value": "25"
-                    },
-                    {
-                      "key": "offset",
-                      "value": "0"
+                      "id": "fcee2da9-3f4b-4bdc-a02d-16118f6e0244",
+                      "name": "Authentication credentials are missing or invalid.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/appdata/v1/labels?q=<string>&limit=25&offset=0",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "appdata",
+                            "v1",
+                            "labels"
+                          ],
+                          "query": [
+                            {
+                              "description": "Full-text search query to filter results.",
+                              "key": "q",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Maximum number of results to return per page.",
+                              "key": "limit",
+                              "value": "25"
+                            },
+                            {
+                              "description": "Number of results to skip for pagination.",
+                              "key": "offset",
+                              "value": "0"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T21:20:38.000Z",
+                      "updatedAt": "2026-10-21T21:20:38.000Z",
+                      "uid": "35240-fcee2da9-3f4b-4bdc-a02d-16118f6e0244"
                     }
                   ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "createdAt": "2026-10-21T21:20:38.000Z",
+                  "updatedAt": "2026-10-21T21:20:38.000Z",
+                  "uid": "35240-0140c41f-ad61-4007-9182-0b5a96386e9f"
                 }
               ],
-              "body": "{\n  \"code\": 5381,\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "id": "d7bd6348-f603-4f82-9771-0cfe3f4d5e88",
+              "createdAt": "2026-10-21T21:20:38.000Z",
+              "updatedAt": "2026-10-21T21:20:38.000Z",
+              "uid": "35240-d7bd6348-f603-4f82-9771-0cfe3f4d5e88"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "a2addc32-1128-437a-accb-873c1fd04ea3",
-          "name": "FiscalNote Get label by ID",
-          "request": {
-            "name": "FiscalNote Get label by ID",
-            "description": {
-              "content": "Returns detailed information about a specific label.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "appdata",
-                "v1",
-                "labels",
-                ":labelId"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "labelId",
-                  "description": "(Required) The unique identifier of the label."
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "91dde22c-0418-4cf6-aab8-087d36ba3b4b",
-              "name": "Detailed label record.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "appdata",
-                    "v1",
-                    "labels",
-                    ":labelId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "labelId",
-                      "description": "(Required) The unique identifier of the label."
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"color\": \"#D006bC\",\n  \"createdAt\": \"1978-11-28T17:19:41.951Z\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "a5a2f39c-dd58-4529-8c25-4c0dd39569b1",
-              "name": "Authentication credentials are missing or invalid.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "appdata",
-                    "v1",
-                    "labels",
-                    ":labelId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "labelId",
-                      "description": "(Required) The unique identifier of the label."
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 5381,\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "00b7395b-1574-4ad7-8bae-b7f65b2ef73d",
-              "name": "Label not found.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "appdata",
-                    "v1",
-                    "labels",
-                    ":labelId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "labelId",
-                      "description": "(Required) The unique identifier of the label."
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 5381,\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "a86dc160-92b5-47fc-b682-d734c1419278",
+          "createdAt": "2026-10-21T21:20:38.000Z",
+          "updatedAt": "2026-10-21T21:20:38.000Z",
+          "uid": "35240-a86dc160-92b5-47fc-b682-d734c1419278"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://api.fiscalnote.com",
-      "key": "baseUrl"
+      "id": "0e3020f9-52fb-4ab8-87e5-27f3465b785d",
+      "createdAt": "2026-10-21T21:20:38.000Z",
+      "updatedAt": "2026-10-21T21:20:38.000Z",
+      "uid": "35240-0e3020f9-52fb-4ab8-87e5-27f3465b785d"
     }
   ],
   "auth": {
@@ -405,25 +416,25 @@
     "apikey": [
       {
         "key": "key",
-        "value": "Authorization"
+        "value": "Authorization",
+        "type": "string"
       },
       {
         "key": "value",
-        "value": "{{apiKey}}"
+        "value": "{{apiKey}}",
+        "type": "string"
       },
       {
         "key": "in",
-        "value": "header"
+        "value": "header",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "68468b69-66c8-415b-bf7a-1d5af26cc933",
-    "name": "FiscalNote AppData Bills Labels API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "The FiscalNote AppData API provides access to FiscalNote's data on legislation and regulations, both past and present, in the United States and globally. It also exposes organizational data from the FiscalNote platform including issues and labels. Developers can use the API to integrate legislative tracking, regulatory monitoring, and policy analysis capabilities into their own applications and workflows.\n\nContact Support:\n Name: FiscalNote Support",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.fiscalnote.com"
     }
-  }
+  ]
 }

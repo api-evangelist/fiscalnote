@@ -1,271 +1,294 @@
 {
+  "info": {
+    "_postman_id": "2b3150f0-2793-4aff-8a7f-1b892a40aa7e",
+    "name": "FiscalNote PolicyNote Stakeholders API",
+    "description": "The FiscalNote PolicyNote API delivers programmatic access to legislative, regulatory, and stakeholder intelligence datasets spanning Congress, all 50 U.S.\n\nContact Support:\n Name: FiscalNote Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T21:21:34.000Z",
+    "updatedAt": "2026-10-21T21:21:34.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-2b3150f0-2793-4aff-8a7f-1b892a40aa7e"
+  },
   "item": [
     {
-      "id": "849ec510-845d-48ad-92c0-550a73f5f918",
-      "name": "Stakeholders",
-      "description": {
-        "content": "Access stakeholder intelligence including government officials and organizational relationships.",
-        "type": "text/plain"
-      },
+      "name": "policynote",
       "item": [
         {
-          "id": "1aef2c65-1dc1-4a48-9a00-f52e37377239",
-          "name": "FiscalNote List stakeholders",
-          "request": {
-            "name": "FiscalNote List stakeholders",
-            "description": {
-              "content": "Returns a paginated list of stakeholder records including government officials, legislators, and other key policy actors.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "policynote",
-                "v1",
-                "stakeholders"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "jurisdiction",
-                  "value": "<string>",
-                  "description": "Filter by jurisdiction code such as US, US-CA, GB, or EU."
-                },
-                {
-                  "disabled": false,
-                  "key": "q",
-                  "value": "<string>",
-                  "description": "Full-text search query to filter results."
-                },
-                {
-                  "disabled": false,
-                  "key": "limit",
-                  "value": "25",
-                  "description": "Maximum number of results to return per page."
-                },
-                {
-                  "disabled": false,
-                  "key": "offset",
-                  "value": "0",
-                  "description": "Number of results to skip for pagination."
-                }
-              ],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "v1",
+          "item": [
             {
-              "id": "a1cac406-8a00-4522-9fa3-5ab929213652",
-              "name": "A paginated list of stakeholder records.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "policynote",
-                    "v1",
-                    "stakeholders"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
+              "name": "stakeholders",
+              "item": [
+                {
+                  "name": "FiscalNote List stakeholders",
+                  "id": "c92a9489-6958-4082-912a-78e4b0904a65",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/policynote/v1/stakeholders?jurisdiction=<string>&q=<string>&limit=25&offset=0",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "policynote",
+                        "v1",
+                        "stakeholders"
+                      ],
+                      "query": [
+                        {
+                          "description": "Filter by jurisdiction code such as US, US-CA, GB, or EU.",
+                          "key": "jurisdiction",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Full-text search query to filter results.",
+                          "key": "q",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Maximum number of results to return per page.",
+                          "key": "limit",
+                          "value": "25"
+                        },
+                        {
+                          "description": "Number of results to skip for pagination.",
+                          "key": "offset",
+                          "value": "0"
+                        }
+                      ]
+                    },
+                    "description": "Returns a paginated list of stakeholder records including government officials, legislators, and other key policy actors."
+                  },
+                  "response": [
                     {
-                      "key": "jurisdiction",
-                      "value": "<string>"
+                      "id": "20944d13-2143-44f0-b34f-23c40324418f",
+                      "name": "A paginated list of stakeholder records.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/policynote/v1/stakeholders?jurisdiction=<string>&q=<string>&limit=25&offset=0",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "policynote",
+                            "v1",
+                            "stakeholders"
+                          ],
+                          "query": [
+                            {
+                              "description": "Filter by jurisdiction code such as US, US-CA, GB, or EU.",
+                              "key": "jurisdiction",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Full-text search query to filter results.",
+                              "key": "q",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Maximum number of results to return per page.",
+                              "key": "limit",
+                              "value": "25"
+                            },
+                            {
+                              "description": "Number of results to skip for pagination.",
+                              "key": "offset",
+                              "value": "0"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"data\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"title\": \"<string>\",\n      \"party\": \"<string>\",\n      \"jurisdiction\": \"<string>\",\n      \"chamber\": \"<string>\",\n      \"district\": \"<string>\",\n      \"committees\": [\n        {\n          \"id\": \"<string>\",\n          \"name\": \"<string>\",\n          \"chamber\": \"<string>\"\n        },\n        {\n          \"id\": \"<string>\",\n          \"name\": \"<string>\",\n          \"chamber\": \"<string>\"\n        }\n      ],\n      \"contactInfo\": {\n        \"email\": \"<email>\",\n        \"phone\": \"<string>\",\n        \"website\": \"<uri>\"\n      },\n      \"url\": \"<uri>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"title\": \"<string>\",\n      \"party\": \"<string>\",\n      \"jurisdiction\": \"<string>\",\n      \"chamber\": \"<string>\",\n      \"district\": \"<string>\",\n      \"committees\": [\n        {\n          \"id\": \"<string>\",\n          \"name\": \"<string>\",\n          \"chamber\": \"<string>\"\n        },\n        {\n          \"id\": \"<string>\",\n          \"name\": \"<string>\",\n          \"chamber\": \"<string>\"\n        }\n      ],\n      \"contactInfo\": {\n        \"email\": \"<email>\",\n        \"phone\": \"<string>\",\n        \"website\": \"<uri>\"\n      },\n      \"url\": \"<uri>\"\n    }\n  ],\n  \"pagination\": {\n    \"total\": \"<integer>\",\n    \"limit\": \"<integer>\",\n    \"offset\": \"<integer>\",\n    \"hasMore\": \"<boolean>\"\n  }\n}",
+                      "createdAt": "2026-10-21T21:21:34.000Z",
+                      "updatedAt": "2026-10-21T21:21:34.000Z",
+                      "uid": "35240-20944d13-2143-44f0-b34f-23c40324418f"
                     },
                     {
-                      "key": "q",
-                      "value": "<string>"
+                      "id": "875a34a0-0996-405a-b4a3-252cd51bd405",
+                      "name": "Authentication credentials are missing or invalid.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/policynote/v1/stakeholders?jurisdiction=<string>&q=<string>&limit=25&offset=0",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "policynote",
+                            "v1",
+                            "stakeholders"
+                          ],
+                          "query": [
+                            {
+                              "description": "Filter by jurisdiction code such as US, US-CA, GB, or EU.",
+                              "key": "jurisdiction",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Full-text search query to filter results.",
+                              "key": "q",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Maximum number of results to return per page.",
+                              "key": "limit",
+                              "value": "25"
+                            },
+                            {
+                              "description": "Number of results to skip for pagination.",
+                              "key": "offset",
+                              "value": "0"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T21:21:34.000Z",
+                      "updatedAt": "2026-10-21T21:21:34.000Z",
+                      "uid": "35240-875a34a0-0996-405a-b4a3-252cd51bd405"
                     },
                     {
-                      "key": "limit",
-                      "value": "25"
-                    },
-                    {
-                      "key": "offset",
-                      "value": "0"
+                      "id": "331146b6-69ac-476b-a52f-a6a37ff7abfa",
+                      "name": "Rate limit exceeded.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/policynote/v1/stakeholders?jurisdiction=<string>&q=<string>&limit=25&offset=0",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "policynote",
+                            "v1",
+                            "stakeholders"
+                          ],
+                          "query": [
+                            {
+                              "description": "Filter by jurisdiction code such as US, US-CA, GB, or EU.",
+                              "key": "jurisdiction",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Full-text search query to filter results.",
+                              "key": "q",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Maximum number of results to return per page.",
+                              "key": "limit",
+                              "value": "25"
+                            },
+                            {
+                              "description": "Number of results to skip for pagination.",
+                              "key": "offset",
+                              "value": "0"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Too Many Requests",
+                      "code": 429,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T21:21:34.000Z",
+                      "updatedAt": "2026-10-21T21:21:34.000Z",
+                      "uid": "35240-331146b6-69ac-476b-a52f-a6a37ff7abfa"
                     }
                   ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "createdAt": "2026-10-21T21:21:34.000Z",
+                  "updatedAt": "2026-10-21T21:21:34.000Z",
+                  "uid": "35240-c92a9489-6958-4082-912a-78e4b0904a65"
                 }
               ],
-              "body": "{\n  \"data\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"title\": \"string\",\n      \"party\": \"string\",\n      \"jurisdiction\": \"string\",\n      \"chamber\": \"string\",\n      \"district\": \"string\",\n      \"committees\": [\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"chamber\": \"string\"\n        },\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"chamber\": \"string\"\n        }\n      ],\n      \"contactInfo\": {\n        \"email\": \"LDJsavlU@qnHuspBthAvyNIJpL.pjnk\",\n        \"phone\": \"string\",\n        \"website\": \"https://F.jqruSaw,YYRxWhD17Kddjow8gcw4\"\n      },\n      \"url\": \"http://pIZgNakzwhoGZtjoHvncRnzeaAiroOqY.fbmr3123Iw0ATgbZj9+j9qUYkfnJ3KjGmo,vW\"\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"title\": \"string\",\n      \"party\": \"string\",\n      \"jurisdiction\": \"string\",\n      \"chamber\": \"string\",\n      \"district\": \"string\",\n      \"committees\": [\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"chamber\": \"string\"\n        },\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"chamber\": \"string\"\n        }\n      ],\n      \"contactInfo\": {\n        \"email\": \"OnnH1YKHuV3IQBz@iqLpkvrjIghEAVcddyyOQmCDGUQegK.hjl\",\n        \"phone\": \"string\",\n        \"website\": \"https://pcsAaSQnTfhdShTZsM.tanddwj5sQv\"\n      },\n      \"url\": \"http://GnVhOpwzZM.ruviaOYOIJq.Q306OLIb\"\n    }\n  ],\n  \"pagination\": {\n    \"total\": 8489,\n    \"limit\": 1500,\n    \"offset\": 1520,\n    \"hasMore\": true\n  }\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "ffd3dcda-a18b-4ea7-b8e0-988d3428d959",
-              "name": "Authentication credentials are missing or invalid.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "policynote",
-                    "v1",
-                    "stakeholders"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "jurisdiction",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "q",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "limit",
-                      "value": "25"
-                    },
-                    {
-                      "key": "offset",
-                      "value": "0"
-                    }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 2217,\n  \"message\": \"string\",\n  \"details\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "e63fe17a-1687-4d02-87eb-e61b6cad478c",
-              "name": "Rate limit exceeded.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "policynote",
-                    "v1",
-                    "stakeholders"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "jurisdiction",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "q",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "limit",
-                      "value": "25"
-                    },
-                    {
-                      "key": "offset",
-                      "value": "0"
-                    }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Too Many Requests",
-              "code": 429,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 2217,\n  \"message\": \"string\",\n  \"details\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "id": "3e8f3904-c904-407a-bc87-4d45bd2f11c0",
+              "createdAt": "2026-10-21T21:21:34.000Z",
+              "updatedAt": "2026-10-21T21:21:34.000Z",
+              "uid": "35240-3e8f3904-c904-407a-bc87-4d45bd2f11c0"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "8b627c5b-0bda-4649-bbc4-a4ac44194854",
+          "createdAt": "2026-10-21T21:21:34.000Z",
+          "updatedAt": "2026-10-21T21:21:34.000Z",
+          "uid": "35240-8b627c5b-0bda-4649-bbc4-a4ac44194854"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://api.fiscalnote.com",
-      "key": "baseUrl"
+      "id": "58e18a8a-1ffc-430c-aa24-29ed79158ba4",
+      "createdAt": "2026-10-21T21:21:34.000Z",
+      "updatedAt": "2026-10-21T21:21:34.000Z",
+      "uid": "35240-58e18a8a-1ffc-430c-aa24-29ed79158ba4"
     }
   ],
   "auth": {
@@ -273,25 +296,25 @@
     "apikey": [
       {
         "key": "key",
-        "value": "Authorization"
+        "value": "Authorization",
+        "type": "string"
       },
       {
         "key": "value",
-        "value": "{{apiKey}}"
+        "value": "{{apiKey}}",
+        "type": "string"
       },
       {
         "key": "in",
-        "value": "header"
+        "value": "header",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "49c8b827-215b-43fd-8859-b66b9d0e4a52",
-    "name": "FiscalNote AppData Bills Stakeholders API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "The FiscalNote AppData API provides access to FiscalNote's data on legislation and regulations, both past and present, in the United States and globally. It also exposes organizational data from the FiscalNote platform including issues and labels. Developers can use the API to integrate legislative tracking, regulatory monitoring, and policy analysis capabilities into their own applications and workflows.\n\nContact Support:\n Name: FiscalNote Support",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.fiscalnote.com"
     }
-  }
+  ]
 }
