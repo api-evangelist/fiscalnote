@@ -1,4 +1,4 @@
-# FiscalNote (fiscalnote)
+# FiscalNote
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,128 +66,165 @@
 
 FiscalNote is a policy intelligence platform that provides legislative, regulatory, and stakeholder data spanning Congress, all 50 U.S. states, and more than 100 countries. FiscalNote expanded its PolicyNote API to eliminate AI hallucinations in compliance workflows by providing primary-source verified policy data.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/fiscalnote/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/fiscalnote/refs/heads/main/apis.yml)
+**Areas:** Government · Legislation · Policy · Political Intelligence · Regulations
 
-## Scope
+## FiscalNote on APIs.io
 
-- **Type:** Index
+Everything profiled for FiscalNote is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/fiscalnote/](https://apis.io/providers/fiscalnote/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (13)
 
-- Government
-- Legislation
-- Policy
-- Political Intelligence
-- Regulation
+- [FiscalNote Bills API](https://apis.io/apis/fiscalnote/fiscalnote-bills-api/) — Access legislation and bill data from federal, state, and international jurisdictions.
+- [FiscalNote Committees API](https://apis.io/apis/fiscalnote/fiscalnote-committees-api/) — Access legislative committee records including membership and jurisdiction information.
+- [FiscalNote Issues API](https://apis.io/apis/fiscalnote/fiscalnote-issues-api/) — Manage and retrieve organizational issues for tracking policy topics and legislative priorities.
+- [FiscalNote Labels API](https://apis.io/apis/fiscalnote/fiscalnote-labels-api/) — Manage and retrieve labels used to categorize and organize legislation and policy items.
+- [FiscalNote Legislation API](https://apis.io/apis/fiscalnote/fiscalnote-legislation-api/) — Access legislative data spanning Congress, all 50 U.S. states, and international jurisdictions.
+- [FiscalNote Legislators API](https://apis.io/apis/fiscalnote/fiscalnote-legislators-api/) — Access legislator-specific data including voting records, sponsored legislation, and committee memberships.
+- [FiscalNote Officials API](https://apis.io/apis/fiscalnote/fiscalnote-officials-api/) — Access government official profiles including legislators, executives, and appointees.
+- [FiscalNote Organizations API](https://apis.io/apis/fiscalnote/fiscalnote-organizations-api/) — Access government organization records including agencies, departments, and independent bodies.
+- [FiscalNote Policy Intelligence API](https://apis.io/apis/fiscalnote/fiscalnote-policy-intelligence-api/) — Access AI-powered policy analysis, impact summaries, and monitoring signals for policy changes.
+- [FiscalNote Presidential Transcripts API](https://apis.io/apis/fiscalnote/fiscalnote-presidential-transcripts-api/) — Access the real-time presidential transcript feed delivering primary-source transcripts of presidential communications.
+- [FiscalNote Regulations API](https://apis.io/apis/fiscalnote/fiscalnote-regulations-api/) — Access regulatory data including proposed and final rules across federal and state agencies.
+- [FiscalNote Regulatory Documents API](https://apis.io/apis/fiscalnote/fiscalnote-regulatory-documents-api/) — Access regulatory documents including proposed rules, final rules, and notices from government agencies.
+- [FiscalNote Stakeholders API](https://apis.io/apis/fiscalnote/fiscalnote-stakeholders-api/) — Access stakeholder intelligence including government officials and organizational relationships.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-03-24
-- **Modified:** 2026-05-19
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Agentic access (1)
 
-### FiscalNote PolicyNote API
+Which operations an agent can call, which act, and which need a human in the loop.
 
-The FiscalNote PolicyNote API delivers programmatic access to legislative, regulatory, and stakeholder intelligence datasets spanning Congress, all 50 U.S. states, and more than 100 countries through a secure, governed architecture designed for machine consumption. The API includes an MCP server enabling MCP-compatible AI agents from platforms such as Anthropic, OpenAI, Google Gemini, and Microsoft to query structured policy data, verified analysis, and real-time monitoring signals.
+- [Fiscalnote Agentic Access](https://apis.io/agentic-access/fiscalnote/fiscalnote-agentic-access/)
 
-- **Human URL:** [https://fiscalnote.com/products/policynote-api](https://fiscalnote.com/products/policynote-api)
-- **Base URL:** `https://api.fiscalnote.com`
+#### JSON Schema (3)
 
-#### Tags
+The data models the API reads and writes.
 
-- AI Agents
-- Compliance
-- Legislation
-- MCP
-- Policy
-- Regulation
+- [FiscalNote Legislation](https://apis.io/schemas/fiscalnote/fiscalnote-legislation/)
+- [FiscalNote Government Official](https://apis.io/schemas/fiscalnote/fiscalnote-official/)
+- [FiscalNote Presidential Transcript](https://apis.io/schemas/fiscalnote/fiscalnote-transcript/)
 
-#### Properties
+#### JSON-LD (1)
 
-- [Documentation](https://fiscalnote.com/products/policynote-api)
-- [OpenAPI](openapi/fiscalnote-policynote-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/fiscalnote-policynote.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/fiscalnote-policynote.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Linked-data contexts for the provider's vocabulary.
 
-### FiscalNote AppData API
+- [Fiscalnote Context](https://apis.io/jsonld/fiscalnote/fiscalnote-context/)
 
-The FiscalNote AppData API provides access to FiscalNote's data on legislation and regulations, both past and present, in the United States and globally. It also exposes organizational data from the FiscalNote platform including issues and labels. Developers can use the API to integrate legislative tracking, regulatory monitoring, and policy analysis capabilities into their own applications and workflows.
+#### Collections (17)
 
-- **Human URL:** [https://apidocs.fiscalnote.com/apis](https://apidocs.fiscalnote.com/apis)
-- **Base URL:** `https://api.fiscalnote.com`
+Postman and Open Collection request collections.
 
-#### Tags
+- [FiscalNote AppData API](https://apis.io/collections/fiscalnote/open-fiscalnote-appdata/)
+- [FiscalNote AppData Bills API](https://apis.io/collections/fiscalnote/open-fiscalnote-bills-api/)
+- [FiscalNote AppData Bills Committees API](https://apis.io/collections/fiscalnote/open-fiscalnote-committees-api/)
+- [FiscalNote AppData Bills Issues API](https://apis.io/collections/fiscalnote/open-fiscalnote-issues-api/)
+- [FiscalNote AppData Bills Labels API](https://apis.io/collections/fiscalnote/open-fiscalnote-labels-api/)
+- [FiscalNote AppData Bills Legislation API](https://apis.io/collections/fiscalnote/open-fiscalnote-legislation-api/)
+- [FiscalNote AppData Bills Legislators API](https://apis.io/collections/fiscalnote/open-fiscalnote-legislators-api/)
+- [FiscalNote AppData Bills Officials API](https://apis.io/collections/fiscalnote/open-fiscalnote-officials-api/)
+- [FiscalNote Organization API](https://apis.io/collections/fiscalnote/open-fiscalnote-organization/)
+- [FiscalNote AppData Bills Organizations API](https://apis.io/collections/fiscalnote/open-fiscalnote-organizations-api/)
+- [FiscalNote People API](https://apis.io/collections/fiscalnote/open-fiscalnote-people/)
+- [FiscalNote AppData Bills Policy Intelligence API](https://apis.io/collections/fiscalnote/open-fiscalnote-policy-intelligence-api/)
+- [FiscalNote PolicyNote API](https://apis.io/collections/fiscalnote/open-fiscalnote-policynote/)
+- [FiscalNote AppData Bills Presidential Transcripts API](https://apis.io/collections/fiscalnote/open-fiscalnote-presidential-transcripts-api/)
+- [FiscalNote AppData Bills Regulations API](https://apis.io/collections/fiscalnote/open-fiscalnote-regulations-api/)
+- [FiscalNote AppData Bills Regulatory Documents API](https://apis.io/collections/fiscalnote/open-fiscalnote-regulatory-documents-api/)
+- [FiscalNote AppData Bills Stakeholders API](https://apis.io/collections/fiscalnote/open-fiscalnote-stakeholders-api/)
 
-- Bills
-- Government Data
-- Legislation
-- Regulation
+#### Governance rules (1)
 
-#### Properties
+Spectral rulesets for the provider's contracts.
 
-- [Documentation](https://apidocs.fiscalnote.com/apis)
-- [OpenAPI](openapi/fiscalnote-appdata-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/fiscalnote-appdata.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/fiscalnote-appdata.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [FiscalNote — jsonschema rules](https://apis.io/rules/fiscalnote/fiscalnote-jsonschema-spectral-rules/)
 
-### FiscalNote People API
+#### Security (2)
 
-The FiscalNote People API allows developers to access FiscalNote's data on government officials in the United States and globally. The API provides structured information about legislators, elected officials, and other government personnel, enabling applications to look up representatives, track official profiles, and integrate government personnel data into political intelligence and advocacy workflows.
+Authentication, trust centre, and vulnerability disclosure.
 
-- **Human URL:** [https://apidocs.fiscalnote.com/apis](https://apidocs.fiscalnote.com/apis)
-- **Base URL:** `https://api.fiscalnote.com`
+- [Fiscalnote Authentication](https://apis.io/security/fiscalnote/fiscalnote-authentication/)
+- [Fiscalnote Domain Security](https://apis.io/security/fiscalnote/fiscalnote-domain-security/)
 
-#### Tags
+#### Plans and pricing (1)
 
-- Government Officials
-- Legislators
-- Politicians
+Published plans, tiers and prices.
 
-#### Properties
+- [Fiscalnote Plans Pricing](https://apis.io/plans/fiscalnote/fiscalnote-plans-pricing/)
 
-- [Documentation](https://apidocs.fiscalnote.com/apis)
-- [OpenAPI](openapi/fiscalnote-people-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/fiscalnote-people.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/fiscalnote-people.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+#### Rate limits (1)
 
-### FiscalNote Organization API
+Published request limits.
 
-The FiscalNote Organization API provides access to FiscalNote's data on government organizations in the United States and globally. It covers legislative committees, federal agencies, and other governmental bodies. Developers can use this API to retrieve structured information about government organizations, enabling integration of organizational data into policy tracking, compliance, and government relations applications.
+- [Fiscalnote Rate Limits](https://apis.io/rate-limits/fiscalnote/fiscalnote-rate-limits/)
 
-- **Human URL:** [https://apidocs.fiscalnote.com/apis](https://apidocs.fiscalnote.com/apis)
-- **Base URL:** `https://api.fiscalnote.com`
+#### FinOps (1)
 
-#### Tags
+What the API costs to run, by operation.
 
-- Committees
-- Federal Agencies
-- Government Organizations
+- [Fiscalnote Finops](https://apis.io/finops/fiscalnote/fiscalnote-finops/)
 
-#### Properties
+## Where to find this API
 
-- [Documentation](https://apidocs.fiscalnote.com/apis)
-- [OpenAPI](openapi/fiscalnote-organization-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/fiscalnote-organization.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/fiscalnote-organization.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-## Common Properties
-
-- [GitHub Organization](https://github.com/FiscalNote)
-- [LinkedIn](https://www.linkedin.com/company/fiscalnote)
 - [Website](https://fiscalnote.com/)
-- [Portal](https://apidocs.fiscalnote.com/)
 - [Documentation](https://apidocs.fiscalnote.com/apis)
 - [Blog](https://fiscalnote.com/blog)
-- [Privacy Policy](https://fiscalnote.com/privacy)
-- [Terms of Service](https://fiscalnote.com/terms)
-- [Login](https://app.fiscalnote.com/)
-- [JSON-LD](json-ld/fiscalnote-context.jsonld) — [JSON-LD](https://www.w3.org/TR/json-ld11/)
-- [JSON Schema](json-schema/fiscalnote-legislation-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/fiscalnote-official-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/fiscalnote-transcript-schema.json) — [JSON Schema](https://json-schema.org/specification)
+- [Terms of service](https://fiscalnote.com/terms)
+- [Privacy policy](https://fiscalnote.com/privacy)
+- [GitHub](https://github.com/FiscalNote)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 38.0** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 71.4 |
+| Contract quality | 52.8 |
+| Contract governance | 9.8 |
+| Operational transparency | 7.9 |
+| Developer ergonomics | 33.3 |
+| Access clarity | 35.5 |
+
+**Agent readiness 27.4** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | na |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | na |
+| Error Semantics | verified |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | na |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 24.5** — Government & Public Sector
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/fiscalnote/](https://apis.io/providers/fiscalnote/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for FiscalNote: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/fiscalnote/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
